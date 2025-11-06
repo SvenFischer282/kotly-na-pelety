@@ -24,15 +24,12 @@ const Hero = () => {
             {/* Heading */}
             <div className="space-y-6">
               <h1 className="font-display text-6xl lg:text-8xl font-bold leading-[1.05] tracking-tight">
-                Elegancia
+                Vykurovanie
                 <br />
-                Stretáva
-                <br />
-                <span className="text-accent">Efektivitu</span>
+                <span className="text-accent">Budúcnosti</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-white/90 leading-relaxed max-w-xl">
-                Prémiové kotly na pelety pre moderné domácnosti. 
-                Luxus, ktorý sa oplatí.
+              <p className="text-xl lg:text-2xl text-white/80 leading-relaxed max-w-lg">
+                Moderné kotly na pelety.
               </p>
             </div>
 
@@ -41,35 +38,18 @@ const Hero = () => {
               <Link to="/produkty">
                 <Button 
                   size="lg"
-                  className="bg-white text-primary hover:bg-white/90 text-lg px-8 h-14 font-semibold shadow-xl"
+                  className="bg-white text-primary hover:bg-white/90 text-base px-10 h-12 font-medium"
                 >
-                  Objaviť Produkty
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  Produkty
                 </Button>
               </Link>
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 text-lg px-8 h-14"
+                className="border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 text-base px-10 h-12"
               >
                 Kontakt
               </Button>
-            </div>
-
-            {/* Stats - Minimal */}
-            <div className="flex gap-12 pt-8 border-t border-white/20">
-              <div>
-                <div className="text-5xl font-bold font-display mb-1">50%</div>
-                <div className="text-sm text-white/70 uppercase tracking-wider">Úspora</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold font-display mb-1">96%</div>
-                <div className="text-sm text-white/70 uppercase tracking-wider">Účinnosť</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold font-display mb-1">0</div>
-                <div className="text-sm text-white/70 uppercase tracking-wider">CO₂</div>
-              </div>
             </div>
           </div>
         </div>
