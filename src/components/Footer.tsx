@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const Footer = () => {
   return (
@@ -7,9 +8,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="font-display text-2xl font-bold">
-              KOTLY NA PELETY<span className="text-accent">.SK</span>
-            </h3>
+            <img 
+              src={logo} 
+              alt="KOTLY NA PELETY.SK" 
+              className="h-12 w-auto invert brightness-0"
+            />
             <p className="text-primary-foreground/80 leading-relaxed">
               Váš partner pre efektívne a ekologické vykurovanie. 
               Prémiové kotly na pelety s profesionálnym servisom.

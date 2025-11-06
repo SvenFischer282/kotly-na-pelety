@@ -37,9 +37,8 @@ const Products = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4">
+          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4 text-foreground">
             Vybrané Kotly
-            <span className="block text-accent mt-2">Z Nášho Sortimentu</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Objavte naše najpredávanejšie modely kotlov na pelety pre váš domov alebo priemyselné priestory.
