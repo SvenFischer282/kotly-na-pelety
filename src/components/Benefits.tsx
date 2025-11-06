@@ -45,8 +45,9 @@ const Benefits = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 text-foreground">
-            Prečo si vybrať kotly na pelety?
+          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6">
+            Prečo si vybrať
+            <span className="block text-accent mt-2">Kotly na Pelety?</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Moderné, efektívne a ekologické vykurovanie, ktoré šetrí vašu peňaženku 
@@ -72,7 +73,7 @@ const Benefits = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-display font-bold mb-3 text-foreground">
+                <h3 className="text-2xl font-display font-bold mb-3 group-hover:text-accent transition-colors">
                   {benefit.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -88,7 +89,7 @@ const Benefits = () => {
 
         {/* Bottom CTA */}
         <div className="mt-20 text-center bg-gradient-subtle rounded-3xl p-12 shadow-soft animate-fade-in">
-          <h3 className="text-3xl font-display font-bold mb-4 text-foreground">
+          <h3 className="text-3xl font-display font-bold mb-4">
             Máte otázky?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -105,7 +106,7 @@ const Benefits = () => {
             </a>
             <a 
               href="mailto:info@kotlynapelety.sk" 
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-secondary text-foreground font-medium hover:bg-secondary-dark transition-colors btn-premium"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-secondary text-secondary-foreground font-medium hover:bg-secondary-dark transition-colors btn-premium"
             >
               info@kotlynapelety.sk
             </a>

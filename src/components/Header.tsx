@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import logo from '@/assets/logo.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,12 +26,10 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
-            <img 
-              src={logo} 
-              alt="KOTLY NA PELETY.SK" 
-              className="h-12 lg:h-14 w-auto transition-opacity hover:opacity-80"
-            />
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="font-display text-2xl lg:text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              KOTLY NA PELETY<span className="text-accent">.SK</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

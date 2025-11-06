@@ -79,7 +79,7 @@ const ProductDetail = () => {
                 <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
                   {product.category === 'home' ? 'Domáce Kotly' : 'Priemyselné Kotly'}
                 </Badge>
-                <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4 text-foreground">
+                <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4">
                   {product.name}
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -144,7 +144,7 @@ const ProductDetail = () => {
               {/* Description Section */}
               <Card className="border-border/50 shadow-soft animate-fade-in">
                 <CardContent className="p-8">
-                  <h2 className="text-3xl font-display font-bold mb-6 text-foreground">O Produkte</h2>
+                  <h2 className="text-3xl font-display font-bold mb-6">O Produkte</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     {product.detailedDescription}
                   </p>
@@ -154,7 +154,7 @@ const ProductDetail = () => {
               {/* Features Section */}
               <Card className="border-border/50 shadow-soft animate-fade-in">
                 <CardContent className="p-8">
-                  <h2 className="text-3xl font-display font-bold mb-6 text-foreground">Vlastnosti</h2>
+                  <h2 className="text-3xl font-display font-bold mb-6">Vlastnosti</h2>
                   <div className="grid md:grid-cols-2 gap-4">
                     {product.features.map((feature, index) => (
                       <div key={index} className="flex items-start space-x-3">
@@ -173,7 +173,7 @@ const ProductDetail = () => {
             <div className="animate-fade-in">
               <Card className="border-border/50 shadow-soft sticky top-24">
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-display font-bold mb-6 text-foreground">Špecifikácie</h2>
+                  <h2 className="text-2xl font-display font-bold mb-6">Špecifikácie</h2>
                   <div className="space-y-4">
                     {product.specifications.map((spec, index) => (
                       <div key={index}>

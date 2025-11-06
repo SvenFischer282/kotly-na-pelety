@@ -39,7 +39,7 @@ const ProductCard = ({ id, name, description, power, efficiency, price, image, i
 
       <CardContent className="p-6 space-y-4">
         <div>
-          <CardTitle className="text-2xl font-display mb-2 text-foreground">
+          <CardTitle className="text-2xl font-display mb-2 group-hover:text-accent transition-colors">
             {name}
           </CardTitle>
           <CardDescription className="text-base text-muted-foreground">
