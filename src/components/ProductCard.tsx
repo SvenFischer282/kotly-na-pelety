@@ -1,9 +1,11 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Flame, Gauge, Zap, ArrowRight } from 'lucide-react';
+import { Flame, Gauge, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface ProductCardProps {
+  id: number;
   name: string;
   description: string;
   power: string;
@@ -13,7 +15,7 @@ interface ProductCardProps {
   isPopular?: boolean;
 }
 
-const ProductCard = ({ name, description, power, efficiency, price, image, isPopular }: ProductCardProps) => {
+const ProductCard = ({ id, name, description, power, efficiency, price, image, isPopular }: ProductCardProps) => {
   return (
     <Card className="group relative overflow-hidden bg-card hover:shadow-card transition-all duration-300 hover:-translate-y-2 card-glow border-border/50">
       {isPopular && (
@@ -76,13 +78,15 @@ const ProductCard = ({ name, description, power, efficiency, price, image, isPop
       </CardContent>
 
       <CardFooter className="p-6 pt-0">
-        <Button 
-          className="w-full bg-gradient-primary hover:opacity-90 transition-opacity btn-premium group/btn"
-          size="lg"
-        >
-          Zobraziť Detail
-          <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-        </Button>
+        <Link to={`/produkt/${id}`} className="w-full">
+          <Button 
+            className="w-full bg-gradient-primary hover:opacity-90 transition-opacity btn-premium group/btn"
+            size="lg"
+          >
+            Zobraziť Detail
+            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

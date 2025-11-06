@@ -1,5 +1,6 @@
 import { ArrowRight, Calculator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import heroBoiler from '@/assets/hero-boiler.jpg';
 
 const Hero = () => {
@@ -44,13 +45,15 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                size="lg"
-                className="bg-accent hover:bg-accent-light text-white text-lg px-8 py-6 btn-premium shadow-glow"
-              >
-                Prehľad Produktov
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <Link to="/produkty">
+                <Button 
+                  size="lg"
+                  className="bg-accent hover:bg-accent-light text-white text-lg px-8 py-6 btn-premium shadow-glow"
+                >
+                  Prehľad Produktov
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
               <Button 
                 size="lg"
                 variant="outline"
