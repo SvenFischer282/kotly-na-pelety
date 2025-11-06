@@ -1,6 +1,8 @@
-import boiler1 from '@/assets/boiler-1.jpg';
-import boiler2 from '@/assets/boiler-2.jpg';
-import boiler3 from '@/assets/boiler-3.jpg';
+import boiler1 from "@/assets/boiler-1.jpg";
+import boiler2 from "@/assets/boiler-2.jpg";
+import boiler3 from "@/assets/boiler-3.jpg";
+import petite from "@/assets/petite6.png";
+import futura_evo_9 from "@/assets/futura_evo_9.png";
 
 export interface Product {
   id: number;
@@ -10,7 +12,7 @@ export interface Product {
   efficiency: string;
   price: string;
   image: string;
-  category: 'home' | 'industrial';
+  category: "home" | "industrial";
   isPopular?: boolean;
   detailedDescription: string;
   features: string[];
@@ -23,94 +25,102 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 1,
-    name: "EcoHeat Pro 25",
-    description: "Kompaktný kotol ideálny pre rodinné domy do 200m²",
-    power: "25 kW",
-    efficiency: "95%",
-    price: "3,499",
-    image: boiler1,
+    name: "Petite ",
+    description:
+      "Kompaktná kachle na pelety ideálna pre malé priestory do 145 m²",
+    power: "7 kW",
+    efficiency: "89,8%",
+    price: "1,499",
+    image: petite,
     category: "home",
     isPopular: true,
-    detailedDescription: "EcoHeat Pro 25 je moderný a kompaktný kotol navrhnutý pre efektívne vykurovanie rodinných domov. Vďaka pokročilej technológii spaľovania dosahuje účinnosť až 95%, čo znamená významné úspory na prevádzkových nákladoch. Intuitívny ovládací panel umožňuje jednoduché nastavenie a monitorovanie prevádzky.",
+    detailedDescription:
+      "Táto kachle bola navrhnutá pre umiestnenie v malých priestoroch: malá veľkosť a moderný dizajn ju robia perfektnou pre akýkoľvek typ prostredia. Nerezová oceľ pokrýva kompaktnú štruktúru kachlí, ktorá sa perfektne prispôsobí akémukoľvek štýlu domácnosti a stane sa súčasťou interiérového dizajnu. Voliteľné Wi-Fi umožňuje ovládanie kachlí na diaľku.",
     features: [
-      "Automatické čistenie horákoveho priestoru",
-      "Inteligentné riadenie prívodu vzduchu",
+      "Liata železná horáková misa",
+      "Oceľová spaľovacia komora",
+      "Diaľkové ovládanie",
+      "Voliteľné Wi-Fi pripojenie",
       "Tichá prevádzka",
-      "Nízka spotreba elektriny",
-      "Jednoduchá údržba",
-      "Wi-Fi pripojenie a mobilná aplikácia"
     ],
     specifications: [
-      { label: "Výkon", value: "25 kW" },
-      { label: "Účinnosť", value: "95%" },
-      { label: "Kapacita zásobníka", value: "150 kg" },
-      { label: "Spotreba peliet", value: "5.5 kg/h" },
-      { label: "Rozmery", value: "950 x 550 x 850 mm" },
-      { label: "Hmotnosť", value: "185 kg" },
-      { label: "Vykurovaná plocha", value: "do 200 m²" },
-      { label: "Záruka", value: "5 rokov" }
-    ]
+      { label: "Výkon", value: "7 kW" },
+      { label: "Účinnosť", value: "89,8%" },
+      { label: "Kapacita zásobníka", value: "10 kg" },
+      { label: "Spotreba peliet", value: "1.34 kg/h" },
+      { label: "Rozmery", value: "430 x 430 x 765 mm" },
+      { label: "Hmotnosť", value: "46 kg" },
+      { label: "Vykurovaná plocha", value: "do 145 m²" },
+      { label: "Záruka", value: "2 roky" },
+    ],
   },
   {
     id: 2,
-    name: "PowerMax Industrial 100",
-    description: "Výkonný systém pre veľké objekty a priemyselné priestory",
-    power: "100 kW",
-    efficiency: "94%",
-    price: "12,999",
-    image: boiler2,
-    category: "industrial",
-    detailedDescription: "PowerMax Industrial 100 je vysoko výkonný kotol určený pre vykurovanie veľkých objektov, priemyselných hál a bytových komplexov. Robustná konštrukcia a kvalitné komponenty zaručujú dlhú životnosť a bezproblémovú prevádzku aj pri náročných prevádzkových podmienkach.",
+    name: "Futura Evo 9",
+    description:
+      "Moderná 5-hviezdičková kachle na pelety pre stredné priestory",
+    power: "9 kW",
+    efficiency: "95%",
+    price: "2,000",
+    image: futura_evo_9,
+    category: "home",
+    isPopular: false,
+    detailedDescription:
+      "Futura Evo 9 je 5-hviezdičková vzduchová kachle na pelety s dvojitými dverami, horným alebo zadným výstupom dymu. Obsahuje liatu železnú horákovú misu a oceľovú spaľovaciu komoru. Tichá prevádzka a voliteľný osobný digitálny panel.",
     features: [
-      "Vysoká spoľahlivosť a životnosť",
-      "Možnosť pripojenia viacerých zásobníkov",
-      "Vzdialené monitorovanie a diagnostika",
-      "Automatické čistenie",
-      "Nízke emisie",
-      "Možnosť kaskádového zapojenia"
+      "Dvojité dvere",
+      "Horný alebo zadný výstup dymu",
+      "Liata železná horáková misa",
+      "Oceľová spaľovacia komora",
+      "Tichá prevádzka",
+      "Voliteľný digitálny panel",
+      "Diaľkové ovládanie na dotyk",
     ],
     specifications: [
-      { label: "Výkon", value: "100 kW" },
-      { label: "Účinnosť", value: "94%" },
-      { label: "Kapacita zásobníka", value: "500 kg" },
-      { label: "Spotreba peliet", value: "22 kg/h" },
-      { label: "Rozmery", value: "1850 x 950 x 1450 mm" },
-      { label: "Hmotnosť", value: "680 kg" },
-      { label: "Vykurovaná plocha", value: "do 900 m²" },
-      { label: "Záruka", value: "3 roky" }
-    ]
+      { label: "Výkon", value: "9 kW" },
+      { label: "Účinnosť", value: "95%" },
+      { label: "Kapacita zásobníka", value: "16 kg" },
+      { label: "Spotreba peliet", value: "2 kg/h" },
+      { label: "Rozmery", value: "500 x 500 x 900 mm" },
+      { label: "Hmotnosť", value: "100 kg" },
+      { label: "Vykurovaná plocha", value: "do 200 m²" },
+      { label: "Záruka", value: "5 rokov" },
+    ],
   },
   {
     id: 3,
-    name: "SmartBurn Eco 15",
-    description: "Inteligentné riadenie pre maximálnu efektivitu a úsporu",
-    power: "15 kW",
-    efficiency: "96%",
-    price: "2,899",
-    image: boiler3,
+    name: "Ermetica 98 Cast Round 8",
+    description: "Hermetická kachle na pelety s okrúhlym liatinovým dizajnom",
+    power: "8 kW",
+    efficiency: "98%",
+    price: "1,800",
+    image: futura_evo_9,
     category: "home",
-    detailedDescription: "SmartBurn Eco 15 je najefektívnejší kotol v našej ponuke s účinnosťou až 96%. Inteligentný systém riadenia automaticky optimalizuje proces spaľovania podľa aktuálnych potrieb, čím minimalizuje spotrebu peliet a maximalizuje úspory. Ideálny pre menšie domy a moderne izolované budovy.",
+    isPopular: true,
+    detailedDescription:
+      "98 Cast Round spája praktickosť a funkčnosť modelu 98 Cast Iron s estetikou a dizajnom modelu 98 Redonda. Kombinuje efektivitu liatiny s moderným okrúhlym tvarom. Inovatívny koaxiálny systém umožňuje prívod vzduchu a výstup dymu súčasne.",
     features: [
-      "Najvyššia účinnosť v triede",
-      "Adaptívne riadenie spaľovania",
-      "Ekologická prevádzka",
-      "Hlasové ovládanie",
-      "Prediktívne údržba",
-      "Integrácia s smart home systémami"
+      "Prirodzená konvekcia na úrovni 1",
+      "Predné vetranie",
+      "Horná koaxiálna rúra",
+      "Liata železná horáková misa",
+      "Odnímateľná rukoväť",
+      "Tichá prevádzka",
+      "Keramická zapaľovacia sviečka",
     ],
     specifications: [
-      { label: "Výkon", value: "15 kW" },
-      { label: "Účinnosť", value: "96%" },
-      { label: "Kapacita zásobníka", value: "100 kg" },
-      { label: "Spotreba peliet", value: "3.3 kg/h" },
-      { label: "Rozmery", value: "850 x 500 x 750 mm" },
-      { label: "Hmotnosť", value: "145 kg" },
-      { label: "Vykurovaná plocha", value: "do 150 m²" },
-      { label: "Záruka", value: "5 rokov" }
-    ]
-  }
+      { label: "Výkon", value: "8 kW" },
+      { label: "Účinnosť", value: "98%" },
+      { label: "Kapacita zásobníka", value: "15 kg" },
+      { label: "Spotreba peliet", value: "1.8 kg/h" },
+      { label: "Rozmery", value: "500 x 520 x 1080 mm" },
+      { label: "Hmotnosť", value: "120 kg" },
+      { label: "Vykurovaná plocha", value: "do 195 m²" },
+      { label: "Záruka", value: "5 rokov" },
+    ],
+  },
 ];
 
 export const getProductById = (id: number): Product | undefined => {
-  return products.find(product => product.id === id);
+  return products.find((product) => product.id === id);
 };

@@ -2,31 +2,34 @@ import ProductCard from "./ProductCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import boiler1 from "@/assets/boiler-1.jpg";
-import boiler2 from "@/assets/boiler-2.jpg";
-import boiler3 from "@/assets/boiler-3.jpg";
+
+import petite from "@/assets/petite6.png";
+import futura_evo_9 from "@/assets/futura_evo_9.png";
 
 const featuredProducts = [
   {
     id: 1,
-    name: "EcoHeat Pro 25",
-    description: "Kompaktný kotol ideálny pre rodinné domy do 200m²",
-    power: "25 kW",
-    efficiency: "95%",
-    price: "3,499",
-    image: boiler1,
+    name: "Petite",
+    description:
+      "Kompaktná kachle na pelety ideálna pre malé priestory do 145 m²",
+    power: "7 kW",
+    efficiency: "89,8%",
+    price: "1,499",
+    image: petite,
     category: "home",
     isPopular: true,
   },
   {
     id: 2,
-    name: "PowerMax Industrial 100",
-    description: "Výkonný systém pre veľké objekty a priemyselné priestory",
-    power: "100 kW",
-    efficiency: "94%",
-    price: "12,999",
-    image: boiler2,
-    category: "industrial",
+    name: "Futura Evo 9",
+    description:
+      "Moderná 5-hviezdičková kachle na pelety pre stredné priestory",
+    power: "9 kW",
+    efficiency: "95%",
+    price: "2,000",
+    image: futura_evo_9,
+    category: "home",
+    isPopular: false,
   },
 ];
 
