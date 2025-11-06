@@ -1,17 +1,9 @@
-import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { products } from "@/data/products";
 
 const ProductsPage = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-
-  const filteredProducts =
-    activeCategory === "all"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
 
   return (
     <div className="min-h-screen">
@@ -31,37 +23,9 @@ const ProductsPage = () => {
             </p>
           </div>
 
-          {/* Filter Tabs */}
-          <Tabs
-            defaultValue="all"
-            className="mb-12"
-            onValueChange={setActiveCategory}
-          >
-            <TabsList className="inline-flex h-auto p-1 bg-secondary/50 backdrop-blur-sm rounded-xl shadow-soft">
-              <TabsTrigger
-                value="all"
-                className="px-6 py-3 text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg transition-all"
-              >
-                Všetky Produkty
-              </TabsTrigger>
-              <TabsTrigger
-                value="home"
-                className="px-6 py-3 text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg transition-all"
-              >
-                Domáce Kotly
-              </TabsTrigger>
-              <TabsTrigger
-                value="industrial"
-                className="px-6 py-3 text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg transition-all"
-              >
-                Priemyselné Kotly
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
-
           {/* Products Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
-            {filteredProducts.map((product, index) => (
+            {products.map((product, index) => (
               <div
                 key={product.id}
                 className="animate-scale-in"
@@ -72,14 +36,6 @@ const ProductsPage = () => {
             ))}
           </div>
 
-          {/* No Results */}
-          {filteredProducts.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-xl text-muted-foreground">
-                Žiadne produkty v tejto kategórii.
-              </p>
-            </div>
-          )}
         </div>
       </main>
       <Footer />
