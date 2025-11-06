@@ -1,8 +1,15 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Flame, Gauge, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Flame, Gauge, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
   id: number;
@@ -15,7 +22,16 @@ interface ProductCardProps {
   isPopular?: boolean;
 }
 
-const ProductCard = ({ id, name, description, power, efficiency, price, image, isPopular }: ProductCardProps) => {
+const ProductCard = ({
+  id,
+  name,
+  description,
+  power,
+  efficiency,
+  price,
+  image,
+  isPopular,
+}: ProductCardProps) => {
   return (
     <Card className="group relative overflow-hidden bg-card hover:shadow-card transition-all duration-300 hover:-translate-y-2 card-glow border-border/50">
       {isPopular && (
@@ -25,11 +41,11 @@ const ProductCard = ({ id, name, description, power, efficiency, price, image, i
           </Badge>
         </div>
       )}
-      
+
       <CardHeader className="p-0">
         <div className="relative h-64 overflow-hidden bg-secondary/30">
-          <img 
-            src={image} 
+          <img
+            src={image}
             alt={name}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -39,10 +55,10 @@ const ProductCard = ({ id, name, description, power, efficiency, price, image, i
 
       <CardContent className="p-6 space-y-4">
         <div>
-          <CardTitle className="text-2xl font-display mb-2 text-foreground transition-colors">
+          <CardTitle className="text-2xl font-display mb-2 text-textPrimary transition-colors">
             {name}
           </CardTitle>
-          <CardDescription className="text-base text-muted-foreground">
+          <CardDescription className="text-base text-textSecondary">
             {description}
           </CardDescription>
         </div>
@@ -71,7 +87,9 @@ const ProductCard = ({ id, name, description, power, efficiency, price, image, i
         <div className="pt-4 border-t border-border/50">
           <div className="flex items-baseline space-x-2">
             <span className="text-sm text-muted-foreground">Od</span>
-            <span className="text-3xl font-bold font-display text-primary">{price}</span>
+            <span className="text-3xl font-bold font-display text-primary">
+              {price}
+            </span>
             <span className="text-sm text-muted-foreground">€</span>
           </div>
         </div>
@@ -79,7 +97,7 @@ const ProductCard = ({ id, name, description, power, efficiency, price, image, i
 
       <CardFooter className="p-6 pt-0">
         <Link to={`/produkt/${id}`} className="w-full">
-          <Button 
+          <Button
             className="w-full bg-gradient-primary hover:opacity-90 transition-opacity btn-premium group/btn"
             size="lg"
           >

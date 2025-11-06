@@ -1,42 +1,55 @@
-import { Leaf, TrendingDown, Zap, Shield, Clock, Headphones } from 'lucide-react';
+import {
+  Leaf,
+  TrendingDown,
+  Zap,
+  Shield,
+  Clock,
+  Headphones,
+} from "lucide-react";
 
 const benefits = [
   {
     icon: Leaf,
     title: "Ekologické",
-    description: "CO₂ neutrálne vykurovanie z obnoviteľných zdrojov. Prispejte k ochrane životného prostredia.",
-    color: "text-primary"
+    description:
+      "CO₂ neutrálne vykurovanie z obnoviteľných zdrojov. Prispejte k ochrane životného prostredia.",
+    color: "text-primary",
   },
   {
     icon: TrendingDown,
     title: "Úspora",
-    description: "Ušetrite až 50% na nákladoch oproti tradičným palivám. Nízke prevádzkové náklady.",
-    color: "text-accent"
+    description:
+      "Ušetrite až 50% na nákladoch oproti tradičným palivám. Nízke prevádzkové náklady.",
+    color: "text-accent",
   },
   {
     icon: Zap,
     title: "Vysoká Účinnosť",
-    description: "Až 96% účinnosť spaľovania znamená minimálne straty a maximálny výkon.",
-    color: "text-primary"
+    description:
+      "Až 96% účinnosť spaľovania znamená minimálne straty a maximálny výkon.",
+    color: "text-primary",
   },
   {
     icon: Shield,
     title: "Spoľahlivosť",
-    description: "Prémiová kvalita komponentov garantuje dlhú životnosť a bezproblémovú prevádzku.",
-    color: "text-accent"
+    description:
+      "Prémiová kvalita komponentov garantuje dlhú životnosť a bezproblémovú prevádzku.",
+    color: "text-accent",
   },
   {
     icon: Clock,
     title: "Automatizácia",
-    description: "Inteligentné riadenie a automatické dávkovanie peliet pre váš komfort.",
-    color: "text-primary"
+    description:
+      "Inteligentné riadenie a automatické dávkovanie peliet pre váš komfort.",
+    color: "text-primary",
   },
   {
     icon: Headphones,
     title: "Podpora",
-    description: "Odborná pomoc pri výbere, inštalácii aj servisnej podpore kedykoľvek potrebujete.",
-    color: "text-accent"
-  }
+    description:
+      "Odborná pomoc pri výbere, inštalácii aj servisnej podpore kedykoľvek potrebujete.",
+    color: "text-accent",
+  },
 ];
 
 const Benefits = () => {
@@ -50,8 +63,8 @@ const Benefits = () => {
             <span className="block mt-2">Kotly na Pelety?</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Moderné, efektívne a ekologické vykurovanie, ktoré šetrí vašu peňaženku 
-            aj životné prostredie.
+            Moderné, efektívne a ekologické vykurovanie, ktoré šetrí vašu
+            peňaženku aj životné prostredie.
           </p>
         </div>
 
@@ -73,10 +86,10 @@ const Benefits = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-display font-bold mb-3 text-foreground transition-colors">
+                <h3 className="text-2xl font-display font-bold mb-3 text-textPrimary">
                   {benefit.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-textSecondary">
                   {benefit.description}
                 </p>
 
@@ -92,20 +105,20 @@ const Benefits = () => {
           <h3 className="text-3xl font-display font-bold mb-4 text-foreground">
             Máte otázky?
           </h3>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Naši odborníci vám radi pomôžu vybrať správny kotol pre váš domov 
-            a vypočítať vašu potenciálnu úsporu.
+          <p className="text-lg text-textPrimary mb-8 max-w-2xl mx-auto">
+            Naši odborníci vám radi pomôžu vybrať správny kotol pre váš domov a
+            vypočítať vašu potenciálnu úsporu.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:+421900000000" 
+            <a
+              href="tel:+421900000000"
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity btn-premium shadow-medium"
             >
               <Headphones className="mr-2 w-5 h-5" />
               +421 900 000 000
             </a>
-            <a 
-              href="mailto:info@kotlynapelety.sk" 
+            <a
+              href="mailto:info@kotlynapelety.sk"
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-secondary text-secondary-foreground font-medium hover:bg-secondary-dark transition-colors btn-premium"
             >
               info@kotlynapelety.sk
