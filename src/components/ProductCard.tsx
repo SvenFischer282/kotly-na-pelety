@@ -39,7 +39,7 @@ const ProductCard = ({ id, name, description, power, efficiency, price, image, i
 
       <CardContent className="p-6 space-y-4">
         <div>
-          <CardTitle className="text-2xl font-display mb-2 group-hover:text-accent transition-colors">
+          <CardTitle className="text-2xl font-display mb-2 text-foreground transition-colors">
             {name}
           </CardTitle>
           <CardDescription className="text-base text-muted-foreground">
@@ -49,8 +49,8 @@ const ProductCard = ({ id, name, description, power, efficiency, price, image, i
 
         <div className="grid grid-cols-2 gap-4 pt-4">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Flame className="w-5 h-5 text-accent" />
+            <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+              <Flame className="w-5 h-5 text-foreground" />
             </div>
             <div>
               <div className="text-sm text-muted-foreground">Výkon</div>
@@ -58,8 +58,8 @@ const ProductCard = ({ id, name, description, power, efficiency, price, image, i
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Gauge className="w-5 h-5 text-accent" />
+            <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+              <Gauge className="w-5 h-5 text-foreground" />
             </div>
             <div>
               <div className="text-sm text-muted-foreground">Účinnosť</div>

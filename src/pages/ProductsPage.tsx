@@ -19,9 +19,9 @@ const ProductsPage = () => {
         <div className="container mx-auto px-4 lg:px-8">
           {/* Page Header */}
           <div className="max-w-3xl mb-16 animate-fade-in">
-            <h1 className="text-5xl lg:text-6xl font-display font-bold mb-6">
+            <h1 className="text-5xl lg:text-6xl font-display font-bold mb-6 text-foreground">
               Všetky Produkty
-              <span className="block text-accent mt-2">Kotly Na Pelety</span>
+              <span className="block mt-2">Kotly Na Pelety</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               Kompletný sortiment moderných kotlov na pelety pre domácnosti aj priemyselné použitie. 
