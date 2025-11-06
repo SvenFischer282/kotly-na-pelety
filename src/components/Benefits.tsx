@@ -62,7 +62,7 @@ const Benefits = () => {
             Prečo si vybrať
             <span className="block mt-2">Kotly na Pelety?</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-textPrimary leading-relaxed">
             Moderné, efektívne a ekologické vykurovanie, ktoré šetrí vašu
             peňaženku aj životné prostredie.
           </p>
@@ -121,7 +121,7 @@ const Benefits = () => {
               href="mailto:info@kotlynapelety.sk"
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-secondary text-secondary-foreground font-medium hover:bg-secondary-dark transition-colors btn-premium"
             >
-              info@kotlynapelety.sk
+              kotlynapelety@gmail.com
             </a>
           </div>
         </div>

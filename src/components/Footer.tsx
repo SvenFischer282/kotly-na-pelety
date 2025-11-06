@@ -134,15 +134,15 @@ const Footer = () => {
                   href="mailto:info@kotlynapelety.sk"
                   className="hover:text-accent transition-colors"
                 >
-                  info@kotlynapelety.sk
+                  kotlynapelety@gmail.com
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" />
                 <address className="not-italic text-primary-foreground/80">
-                  Hlavná 123
+                  Slovenská 256
                   <br />
-                  010 01 Žilina
+                  05 321 Markušovce
                 </address>
               </li>
             </ul>
