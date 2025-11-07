@@ -34,13 +34,43 @@ const ProductDetail = () => {
         .single();
 
       if (error) {
-        throw new Error("Error fetching product: " + error);
-      } else {
-        setProduct(data);
+        console.error("Error fetching product:", error);
+        return;
       }
+
+      // ✅ Build full image URLs from Supabase Storage
+      const bucket = "images"; // replace with your actual bucket name
+
+      // Main image
+      let imageUrl = data.image;
+      if (imageUrl && !imageUrl.startsWith("http")) {
+        const { data: publicUrlData } = supabase.storage
+          .from(bucket)
+          .getPublicUrl(imageUrl);
+        imageUrl = publicUrlData?.publicUrl || imageUrl;
+      }
+
+      // Gallery images
+      let imageUrls: string[] = [];
+      if (Array.isArray(data.images)) {
+        imageUrls = data.images.map((imgPath: string) => {
+          if (imgPath.startsWith("http")) return imgPath;
+          const { data: publicUrlData } = supabase.storage
+            .from(bucket)
+            .getPublicUrl(imgPath);
+          return publicUrlData?.publicUrl || imgPath;
+        });
+      }
+
+      setProduct({
+        ...data,
+        image: imageUrl,
+        images: imageUrls,
+      });
     };
+
     fetchProduct();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
