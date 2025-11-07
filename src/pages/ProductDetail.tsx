@@ -182,67 +182,63 @@ const ProductDetail = () => {
                 Technické Špecifikácie
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {product.power_total_max_kw && (
+                {(product.power_total_min_kw || product.power_total_max_kw) && (
                   <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Max. celkový výkon</div>
+                    <div className="text-sm text-textSecondary">Celkový výkon</div>
                     <div className="text-lg font-semibold text-foreground">
-                      {product.power_total_max_kw} kW
+                      {product.power_total_min_kw && product.power_total_max_kw
+                        ? `${product.power_total_min_kw} - ${product.power_total_max_kw} kW`
+                        : product.power_total_max_kw
+                        ? `${product.power_total_max_kw} kW`
+                        : `${product.power_total_min_kw} kW`}
                     </div>
                   </div>
                 )}
-                {product.power_total_min_kw && (
+                {(product.power_nominal_min_kw || product.power_nominal_max_kw) && (
                   <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Min. celkový výkon</div>
+                    <div className="text-sm text-textSecondary">Nominálny výkon</div>
                     <div className="text-lg font-semibold text-foreground">
-                      {product.power_total_min_kw} kW
+                      {product.power_nominal_min_kw && product.power_nominal_max_kw
+                        ? `${product.power_nominal_min_kw} - ${product.power_nominal_max_kw} kW`
+                        : product.power_nominal_max_kw
+                        ? `${product.power_nominal_max_kw} kW`
+                        : `${product.power_nominal_min_kw} kW`}
                     </div>
                   </div>
                 )}
-                {product.power_nominal_max_kw && (
+                {(product.efficiency_min_percent || product.efficiency_max_percent) && (
                   <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Max. nominálny výkon</div>
-                    <div className="text-lg font-semibold text-foreground">
-                      {product.power_nominal_max_kw} kW
-                    </div>
-                  </div>
-                )}
-                {product.power_nominal_min_kw && (
-                  <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Min. nominálny výkon</div>
-                    <div className="text-lg font-semibold text-foreground">
-                      {product.power_nominal_min_kw} kW
-                    </div>
-                  </div>
-                )}
-                {product.efficiency_max_percent && (
-                  <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Max. účinnosť</div>
+                    <div className="text-sm text-textSecondary">Účinnosť</div>
                     <div className="text-lg font-semibold text-accent">
-                      {product.efficiency_max_percent}%
+                      {product.efficiency_min_percent && product.efficiency_max_percent
+                        ? `${product.efficiency_min_percent} - ${product.efficiency_max_percent}%`
+                        : product.efficiency_max_percent
+                        ? `${product.efficiency_max_percent}%`
+                        : `${product.efficiency_min_percent}%`}
                     </div>
                   </div>
                 )}
-                {product.efficiency_min_percent && (
+                {(product.pellet_consumption_min_kg_h || product.pellet_consumption_max_kg_h) && (
                   <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Min. účinnosť</div>
+                    <div className="text-sm text-textSecondary">Spotreba peliet</div>
                     <div className="text-lg font-semibold text-foreground">
-                      {product.efficiency_min_percent}%
+                      {product.pellet_consumption_min_kg_h && product.pellet_consumption_max_kg_h
+                        ? `${product.pellet_consumption_min_kg_h} - ${product.pellet_consumption_max_kg_h} kg/h`
+                        : product.pellet_consumption_max_kg_h
+                        ? `${product.pellet_consumption_max_kg_h} kg/h`
+                        : `${product.pellet_consumption_min_kg_h} kg/h`}
                     </div>
                   </div>
                 )}
-                {product.pellet_consumption_max_kg_h && (
+                {(product.electrical_power_min_w || product.electrical_power_max_w) && (
                   <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Max. spotreba peliet</div>
+                    <div className="text-sm text-textSecondary">Elektrický príkon</div>
                     <div className="text-lg font-semibold text-foreground">
-                      {product.pellet_consumption_max_kg_h} kg/h
-                    </div>
-                  </div>
-                )}
-                {product.pellet_consumption_min_kg_h && (
-                  <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Min. spotreba peliet</div>
-                    <div className="text-lg font-semibold text-foreground">
-                      {product.pellet_consumption_min_kg_h} kg/h
+                      {product.electrical_power_min_w && product.electrical_power_max_w
+                        ? `${product.electrical_power_min_w} - ${product.electrical_power_max_w} W`
+                        : product.electrical_power_max_w
+                        ? `${product.electrical_power_max_w} W`
+                        : `${product.electrical_power_min_w} W`}
                     </div>
                   </div>
                 )}
@@ -291,22 +287,6 @@ const ProductDetail = () => {
                     <div className="text-sm text-textSecondary">Rozmery (Š×H×V)</div>
                     <div className="text-lg font-semibold text-foreground">
                       {product.dimensions_mm_WxDxH} mm
-                    </div>
-                  </div>
-                )}
-                {product.electrical_power_max_w && (
-                  <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Max. elektrický príkon</div>
-                    <div className="text-lg font-semibold text-foreground">
-                      {product.electrical_power_max_w} W
-                    </div>
-                  </div>
-                )}
-                {product.electrical_power_min_w && (
-                  <div className="space-y-1">
-                    <div className="text-sm text-textSecondary">Min. elektrický príkon</div>
-                    <div className="text-lg font-semibold text-foreground">
-                      {product.electrical_power_min_w} W
                     </div>
                   </div>
                 )}
