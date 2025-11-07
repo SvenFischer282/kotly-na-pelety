@@ -1,55 +1,57 @@
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabaseClient";
 import ProductCard from "./ProductCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-import petite from "@/assets/petite6.png";
-import futura_evo_9 from "@/assets/futura_evo_9.png";
-import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabaseClient";
-
-const featuredProducts = [
-  {
-    product_id: 1,
-    name: "Petite",
-    description: "Kompaktná kachle na pelety ideálna pre malé priestory",
-    power_nominal_max_kw: 7,
-    efficiency_max_percent: 89.8,
-    price_eur: 1499,
-    image: petite,
-    rating: 4.5,
-  },
-  {
-    product_id: 2,
-    name: "Futura Evo 9",
-    description:
-      "Moderná 5-hviezdičková kachle na pelety pre stredné priestory",
-    power_nominal_max_kw: 9,
-    efficiency_max_percent: 95,
-    price_eur: 2000,
-    image: futura_evo_9,
-    rating: 4.8,
-  },
-];
-
 const Products = () => {
-  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [featuredProducts, setFeaturedProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      // 1️⃣ Fetch your product rows
       const { data, error } = await supabase
         .from("products")
         .select("*")
         .limit(2);
 
       if (error) {
-        throw new Error("err: " + error);
-      } else {
-        setFeaturedProducts(data);
+        console.error("Error fetching products:", error);
+        return;
       }
+
+      if (!data) return;
+
+      // 2️⃣ Generate public image URLs from Supabase Storage
+      const productsWithImages = data.map((product) => {
+        // If your table stores the path like "products/futura_evo_9.png"
+        const { data: urlData } = supabase.storage
+          .from("images") // bucket name in Supabase Storage
+          .getPublicUrl(product.image); // field from DB that stores image path
+
+        return {
+          ...product,
+          image: urlData.publicUrl, // Add the public URL for use in <img src={image} />
+        };
+      });
+
+      // 3️⃣ Update state
+      setFeaturedProducts(productsWithImages);
+      setLoading(false);
     };
+
     fetchData();
   }, []);
+
+  if (loading) {
+    return (
+      <section className="py-24 bg-gradient-subtle">
+        <div className="container text-center">Načítavam produkty...</div>
+      </section>
+    );
+  }
 
   return (
     <section id="products" className="py-24 bg-gradient-subtle">
@@ -81,7 +83,7 @@ const Products = () => {
                 power_nominal_max_kw={product.power_nominal_max_kw}
                 efficiency_max_percent={product.efficiency_max_percent}
                 price_eur={product.price_eur}
-                image={product.image}
+                image={product.image} // ✅ now a valid public URL
                 rating={product.rating}
               />
             </div>
