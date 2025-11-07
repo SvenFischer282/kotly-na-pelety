@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft, Check, Phone, Mail } from "lucide-react";
+import { ArrowLeft, Check, Phone, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import { getProductById } from "@/data/products";
 
 const ProductDetail = () => {
@@ -19,6 +19,16 @@ const ProductDetail = () => {
     window.scrollTo(0, 0);
     setSelectedImage(0);
   }, [id]);
+
+  const totalImages = product?.images?.length || 1;
+
+  const handlePrevImage = () => {
+    setSelectedImage((prev) => (prev === 0 ? totalImages - 1 : prev - 1));
+  };
+
+  const handleNextImage = () => {
+    setSelectedImage((prev) => (prev === totalImages - 1 ? 0 : prev + 1));
+  };
 
   if (!product) {
     return (
@@ -64,7 +74,7 @@ const ProductDetail = () => {
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             {/* Product Image Gallery */}
             <div className="animate-fade-in space-y-4">
-              <Card className="overflow-hidden border-border/50 shadow-card relative">
+              <Card className="overflow-hidden border-border/50 shadow-card relative group">
                 <CardContent className="p-0">
                   {product.rating && product.rating >= 4.5 && (
                     <div className="absolute top-6 right-6 z-10">
@@ -73,19 +83,44 @@ const ProductDetail = () => {
                       </Badge>
                     </div>
                   )}
-                  <div className="aspect-square bg-secondary/30 flex items-center justify-center overflow-hidden">
+                  <div className="aspect-square bg-secondary/30 flex items-center justify-center overflow-hidden relative">
                     <img
                       src={product.images?.[selectedImage] || product.image}
                       alt={`${product.name} - Image ${selectedImage + 1}`}
-                      className="w-full h-full object-contain transition-all duration-500 hover:scale-105"
+                      className="w-full h-full object-contain transition-all duration-500"
                     />
+                    
+                    {/* Navigation Arrows */}
+                    {product.images && product.images.length > 1 && (
+                      <>
+                        <button
+                          onClick={handlePrevImage}
+                          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+                          aria-label="Previous image"
+                        >
+                          <ChevronLeft className="w-5 h-5 text-foreground" />
+                        </button>
+                        <button
+                          onClick={handleNextImage}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 hover:bg-background border border-border shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110"
+                          aria-label="Next image"
+                        >
+                          <ChevronRight className="w-5 h-5 text-foreground" />
+                        </button>
+                        
+                        {/* Image Counter */}
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-background/90 text-sm font-medium border border-border">
+                          {selectedImage + 1} / {totalImages}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </CardContent>
               </Card>
               
               {/* Thumbnail Navigation */}
               {product.images && product.images.length > 1 && (
-                <div className="grid grid-cols-4 gap-3">
+                <div className="grid grid-cols-6 gap-2">
                   {product.images.map((image, index) => (
                     <button
                       key={index}
