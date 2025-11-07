@@ -34,13 +34,13 @@ const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <Card className="group relative overflow-hidden bg-card hover:shadow-card transition-all duration-300 hover:-translate-y-2 card-glow border-border/50">
-      {rating && rating >= 4.5 && (
+      {/* {rating && rating >= 4.5 && (
         <div className="absolute top-4 right-4 z-10">
           <Badge className="bg-accent text-accent-foreground font-medium shadow-medium">
             ⭐ {rating}
           </Badge>
         </div>
-      )}
+      )} */}
 
       <CardHeader className="p-0">
         <div className="relative h-64 overflow-hidden bg-secondary/30 flex items-center justify-center">
@@ -71,7 +71,7 @@ const ProductCard = ({
             <div>
               <div className="text-sm text-muted-foreground">Výkon</div>
               <div className="font-semibold text-foreground">
-                {power_nominal_max_kw ? `${power_nominal_max_kw} kW` : 'N/A'}
+                {power_nominal_max_kw ? `${power_nominal_max_kw} kW` : "N/A"}
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@ const ProductCard = ({
             <div>
               <div className="text-sm text-muted-foreground">Účinnosť</div>
               <div className="font-semibold text-foreground">
-                {efficiency_max_percent ? `${efficiency_max_percent}%` : 'N/A'}
+                {efficiency_max_percent ? `${efficiency_max_percent}%` : "N/A"}
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@ const ProductCard = ({
           <div className="flex items-baseline space-x-2">
             <span className="text-sm text-muted-foreground">Od</span>
             <span className="text-3xl font-bold font-display text-primary">
-              {price_eur.toLocaleString('sk-SK')}
+              {price_eur.toLocaleString("sk-SK")}
             </span>
             <span className="text-sm text-muted-foreground">€</span>
           </div>
