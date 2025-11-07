@@ -3,6 +3,8 @@ import boiler2 from "@/assets/boiler-2.jpg";
 import boiler3 from "@/assets/boiler-3.jpg";
 import petite from "@/assets/petite6.png";
 import futura_evo_9 from "@/assets/futura_evo_9.png";
+import heroBoiler from "@/assets/hero-boiler.jpg";
+import heroInterior from "@/assets/hero-interior.jpg";
 
 export interface Product {
   product_id: number;
@@ -29,6 +31,7 @@ export interface Product {
   energy_class: string | null;
   price_eur: number;
   image: string;
+  images?: string[];
 }
 
 export const products: Product[] = [
@@ -57,6 +60,7 @@ export const products: Product[] = [
     energy_class: "A+",
     price_eur: 1499,
     image: petite,
+    images: [petite, boiler1, boiler2, heroInterior],
   },
   {
     product_id: 2,
@@ -83,6 +87,7 @@ export const products: Product[] = [
     energy_class: "A++",
     price_eur: 2000,
     image: futura_evo_9,
+    images: [futura_evo_9, boiler3, heroBoiler, boiler2],
   },
   {
     product_id: 3,
@@ -109,6 +114,7 @@ export const products: Product[] = [
     energy_class: "A+++",
     price_eur: 1800,
     image: futura_evo_9,
+    images: [futura_evo_9, heroInterior, boiler1, heroBoiler],
   },
 ];
 

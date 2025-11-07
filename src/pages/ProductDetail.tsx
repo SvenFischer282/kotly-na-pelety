@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -13,9 +13,11 @@ const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const product = getProductById(Number(id));
+  const [selectedImage, setSelectedImage] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setSelectedImage(0);
   }, [id]);
 
   if (!product) {
@@ -60,9 +62,9 @@ const ProductDetail = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {/* Product Image */}
-            <div className="animate-fade-in">
-              <Card className="overflow-hidden border-border/50 shadow-card">
+            {/* Product Image Gallery */}
+            <div className="animate-fade-in space-y-4">
+              <Card className="overflow-hidden border-border/50 shadow-card relative">
                 <CardContent className="p-0">
                   {product.rating && product.rating >= 4.5 && (
                     <div className="absolute top-6 right-6 z-10">
@@ -71,13 +73,41 @@ const ProductDetail = () => {
                       </Badge>
                     </div>
                   )}
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-auto object-cover"
-                  />
+                  <div className="aspect-square bg-secondary/30 flex items-center justify-center overflow-hidden">
+                    <img
+                      src={product.images?.[selectedImage] || product.image}
+                      alt={`${product.name} - Image ${selectedImage + 1}`}
+                      className="w-full h-full object-contain transition-all duration-500 hover:scale-105"
+                    />
+                  </div>
                 </CardContent>
               </Card>
+              
+              {/* Thumbnail Navigation */}
+              {product.images && product.images.length > 1 && (
+                <div className="grid grid-cols-4 gap-3">
+                  {product.images.map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedImage(index)}
+                      className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
+                        selectedImage === index
+                          ? 'border-primary shadow-lg ring-2 ring-primary/20'
+                          : 'border-border/50 hover:border-primary/50'
+                      }`}
+                    >
+                      <img
+                        src={image}
+                        alt={`${product.name} thumbnail ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                      {selectedImage === index && (
+                        <div className="absolute inset-0 bg-primary/10"></div>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Product Info */}
