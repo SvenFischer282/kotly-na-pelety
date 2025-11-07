@@ -5,6 +5,8 @@ import { ArrowRight } from "lucide-react";
 
 import petite from "@/assets/petite6.png";
 import futura_evo_9 from "@/assets/futura_evo_9.png";
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabaseClient";
 
 const featuredProducts = [
   {
@@ -20,7 +22,8 @@ const featuredProducts = [
   {
     product_id: 2,
     name: "Futura Evo 9",
-    description: "Moderná 5-hviezdičková kachle na pelety pre stredné priestory",
+    description:
+      "Moderná 5-hviezdičková kachle na pelety pre stredné priestory",
     power_nominal_max_kw: 9,
     efficiency_max_percent: 95,
     price_eur: 2000,
@@ -30,6 +33,24 @@ const featuredProducts = [
 ];
 
 const Products = () => {
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .limit(2);
+
+      if (error) {
+        throw new Error("err: " + error);
+      } else {
+        setFeaturedProducts(data);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <section id="products" className="py-24 bg-gradient-subtle">
       <div className="container mx-auto px-4 lg:px-8">
