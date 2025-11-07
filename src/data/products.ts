@@ -5,122 +5,113 @@ import petite from "@/assets/petite6.png";
 import futura_evo_9 from "@/assets/futura_evo_9.png";
 
 export interface Product {
-  id: number;
+  product_id: number;
   name: string;
+  rating: number | null;
   description: string;
-  power: string;
-  efficiency: string;
-  price: string;
+  category: string;
+  power_total_max_kw: number | null;
+  power_total_min_kw: number | null;
+  power_nominal_max_kw: number | null;
+  power_nominal_min_kw: number | null;
+  efficiency_max_percent: number | null;
+  efficiency_min_percent: number | null;
+  pellet_consumption_max_kg_h: number | null;
+  pellet_consumption_min_kg_h: number | null;
+  heating_volume_m3: number | null;
+  exhaust_diameter_mm: number | null;
+  air_inlet_diameter_mm: number | null;
+  pellet_tank_capacity_kg: number | null;
+  weight_kg: number | null;
+  dimensions_mm_WxDxH: string | null;
+  electrical_power_max_w: number | null;
+  electrical_power_min_w: number | null;
+  energy_class: string | null;
+  price_eur: number;
   image: string;
-  category: "home" | "industrial";
-  isPopular?: boolean;
-  detailedDescription: string;
-  features: string[];
-  specifications: {
-    label: string;
-    value: string;
-  }[];
 }
 
 export const products: Product[] = [
   {
-    id: 1,
-    name: "Petite ",
-    description:
-      "Kompaktná kachle na pelety ideálna pre malé priestory do 145 m²",
-    power: "7 kW",
-    efficiency: "89,8%",
-    price: "1,499",
+    product_id: 1,
+    name: "Petite",
+    rating: 4.5,
+    description: "Kompaktná kachle na pelety ideálna pre malé priestory",
+    category: "home",
+    power_total_max_kw: 7,
+    power_total_min_kw: 2.5,
+    power_nominal_max_kw: 7,
+    power_nominal_min_kw: 2.5,
+    efficiency_max_percent: 89.8,
+    efficiency_min_percent: 85,
+    pellet_consumption_max_kg_h: 1.6,
+    pellet_consumption_min_kg_h: 0.6,
+    heating_volume_m3: 145,
+    exhaust_diameter_mm: 80,
+    air_inlet_diameter_mm: 50,
+    pellet_tank_capacity_kg: 10,
+    weight_kg: 46,
+    dimensions_mm_WxDxH: "430 x 430 x 765",
+    electrical_power_max_w: 350,
+    electrical_power_min_w: 50,
+    energy_class: "A+",
+    price_eur: 1499,
     image: petite,
-    category: "home",
-    isPopular: true,
-    detailedDescription:
-      "Táto kachle bola navrhnutá pre umiestnenie v malých priestoroch: malá veľkosť a moderný dizajn ju robia perfektnou pre akýkoľvek typ prostredia. Nerezová oceľ pokrýva kompaktnú štruktúru kachlí, ktorá sa perfektne prispôsobí akémukoľvek štýlu domácnosti a stane sa súčasťou interiérového dizajnu. Voliteľné Wi-Fi umožňuje ovládanie kachlí na diaľku.",
-    features: [
-      "Liata železná horáková misa",
-      "Oceľová spaľovacia komora",
-      "Diaľkové ovládanie",
-      "Voliteľné Wi-Fi pripojenie",
-      "Tichá prevádzka",
-    ],
-    specifications: [
-      { label: "Výkon", value: "7 kW" },
-      { label: "Účinnosť", value: "89,8%" },
-      { label: "Kapacita zásobníka", value: "10 kg" },
-      { label: "Spotreba peliet", value: "1.34 kg/h" },
-      { label: "Rozmery", value: "430 x 430 x 765 mm" },
-      { label: "Hmotnosť", value: "46 kg" },
-      { label: "Vykurovaná plocha", value: "do 145 m²" },
-      { label: "Záruka", value: "2 roky" },
-    ],
   },
   {
-    id: 2,
+    product_id: 2,
     name: "Futura Evo 9",
-    description:
-      "Moderná 5-hviezdičková kachle na pelety pre stredné priestory",
-    power: "9 kW",
-    efficiency: "95%",
-    price: "2,000",
-    image: futura_evo_9,
+    rating: 4.8,
+    description: "Moderná 5-hviezdičková kachle na pelety pre stredné priestory",
     category: "home",
-    isPopular: false,
-    detailedDescription:
-      "Futura Evo 9 je 5-hviezdičková vzduchová kachle na pelety s dvojitými dverami, horným alebo zadným výstupom dymu. Obsahuje liatu železnú horákovú misu a oceľovú spaľovaciu komoru. Tichá prevádzka a voliteľný osobný digitálny panel.",
-    features: [
-      "Dvojité dvere",
-      "Horný alebo zadný výstup dymu",
-      "Liata železná horáková misa",
-      "Oceľová spaľovacia komora",
-      "Tichá prevádzka",
-      "Voliteľný digitálny panel",
-      "Diaľkové ovládanie na dotyk",
-    ],
-    specifications: [
-      { label: "Výkon", value: "9 kW" },
-      { label: "Účinnosť", value: "95%" },
-      { label: "Kapacita zásobníka", value: "16 kg" },
-      { label: "Spotreba peliet", value: "2 kg/h" },
-      { label: "Rozmery", value: "500 x 500 x 900 mm" },
-      { label: "Hmotnosť", value: "100 kg" },
-      { label: "Vykurovaná plocha", value: "do 200 m²" },
-      { label: "Záruka", value: "5 rokov" },
-    ],
+    power_total_max_kw: 9,
+    power_total_min_kw: 3,
+    power_nominal_max_kw: 9,
+    power_nominal_min_kw: 3,
+    efficiency_max_percent: 95,
+    efficiency_min_percent: 90,
+    pellet_consumption_max_kg_h: 2,
+    pellet_consumption_min_kg_h: 0.7,
+    heating_volume_m3: 200,
+    exhaust_diameter_mm: 80,
+    air_inlet_diameter_mm: 50,
+    pellet_tank_capacity_kg: 16,
+    weight_kg: 100,
+    dimensions_mm_WxDxH: "500 x 500 x 900",
+    electrical_power_max_w: 400,
+    electrical_power_min_w: 60,
+    energy_class: "A++",
+    price_eur: 2000,
+    image: futura_evo_9,
   },
   {
-    id: 3,
+    product_id: 3,
     name: "Ermetica 98 Cast Round 8",
+    rating: 4.9,
     description: "Hermetická kachle na pelety s okrúhlym liatinovým dizajnom",
-    power: "8 kW",
-    efficiency: "98%",
-    price: "1,800",
-    image: futura_evo_9,
     category: "home",
-    isPopular: true,
-    detailedDescription:
-      "98 Cast Round spája praktickosť a funkčnosť modelu 98 Cast Iron s estetikou a dizajnom modelu 98 Redonda. Kombinuje efektivitu liatiny s moderným okrúhlym tvarom. Inovatívny koaxiálny systém umožňuje prívod vzduchu a výstup dymu súčasne.",
-    features: [
-      "Prirodzená konvekcia na úrovni 1",
-      "Predné vetranie",
-      "Horná koaxiálna rúra",
-      "Liata železná horáková misa",
-      "Odnímateľná rukoväť",
-      "Tichá prevádzka",
-      "Keramická zapaľovacia sviečka",
-    ],
-    specifications: [
-      { label: "Výkon", value: "8 kW" },
-      { label: "Účinnosť", value: "98%" },
-      { label: "Kapacita zásobníka", value: "15 kg" },
-      { label: "Spotreba peliet", value: "1.8 kg/h" },
-      { label: "Rozmery", value: "500 x 520 x 1080 mm" },
-      { label: "Hmotnosť", value: "120 kg" },
-      { label: "Vykurovaná plocha", value: "do 195 m²" },
-      { label: "Záruka", value: "5 rokov" },
-    ],
+    power_total_max_kw: 8,
+    power_total_min_kw: 2.8,
+    power_nominal_max_kw: 8,
+    power_nominal_min_kw: 2.8,
+    efficiency_max_percent: 98,
+    efficiency_min_percent: 93,
+    pellet_consumption_max_kg_h: 1.8,
+    pellet_consumption_min_kg_h: 0.65,
+    heating_volume_m3: 195,
+    exhaust_diameter_mm: 80,
+    air_inlet_diameter_mm: 60,
+    pellet_tank_capacity_kg: 15,
+    weight_kg: 120,
+    dimensions_mm_WxDxH: "500 x 520 x 1080",
+    electrical_power_max_w: 380,
+    electrical_power_min_w: 55,
+    energy_class: "A+++",
+    price_eur: 1800,
+    image: futura_evo_9,
   },
 ];
 
 export const getProductById = (id: number): Product | undefined => {
-  return products.find((product) => product.id === id);
+  return products.find((product) => product.product_id === id);
 };

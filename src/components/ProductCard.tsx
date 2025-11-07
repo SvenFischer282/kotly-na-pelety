@@ -12,32 +12,32 @@ import { Flame, Gauge, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface ProductCardProps {
-  id: number;
+  product_id: number;
   name: string;
   description: string;
-  power: string;
-  efficiency: string;
-  price: string;
+  power_nominal_max_kw: number | null;
+  efficiency_max_percent: number | null;
+  price_eur: number;
   image: string;
-  isPopular?: boolean;
+  rating?: number | null;
 }
 
 const ProductCard = ({
-  id,
+  product_id,
   name,
   description,
-  power,
-  efficiency,
-  price,
+  power_nominal_max_kw,
+  efficiency_max_percent,
+  price_eur,
   image,
-  isPopular,
+  rating,
 }: ProductCardProps) => {
   return (
     <Card className="group relative overflow-hidden bg-card hover:shadow-card transition-all duration-300 hover:-translate-y-2 card-glow border-border/50">
-      {isPopular && (
+      {rating && rating >= 4.5 && (
         <div className="absolute top-4 right-4 z-10">
           <Badge className="bg-accent text-accent-foreground font-medium shadow-medium">
-            Najpredávanejší
+            ⭐ {rating}
           </Badge>
         </div>
       )}
@@ -70,7 +70,9 @@ const ProductCard = ({
             </div>
             <div>
               <div className="text-sm text-muted-foreground">Výkon</div>
-              <div className="font-semibold text-foreground">{power}</div>
+              <div className="font-semibold text-foreground">
+                {power_nominal_max_kw ? `${power_nominal_max_kw} kW` : 'N/A'}
+              </div>
             </div>
           </div>
           <div className="flex items-center space-x-2">
@@ -79,7 +81,9 @@ const ProductCard = ({
             </div>
             <div>
               <div className="text-sm text-muted-foreground">Účinnosť</div>
-              <div className="font-semibold text-foreground">{efficiency}</div>
+              <div className="font-semibold text-foreground">
+                {efficiency_max_percent ? `${efficiency_max_percent}%` : 'N/A'}
+              </div>
             </div>
           </div>
         </div>
@@ -88,7 +92,7 @@ const ProductCard = ({
           <div className="flex items-baseline space-x-2">
             <span className="text-sm text-muted-foreground">Od</span>
             <span className="text-3xl font-bold font-display text-primary">
-              {price}
+              {price_eur.toLocaleString('sk-SK')}
             </span>
             <span className="text-sm text-muted-foreground">€</span>
           </div>
@@ -96,7 +100,7 @@ const ProductCard = ({
       </CardContent>
 
       <CardFooter className="p-6 pt-0">
-        <Link to={`/produkt/${id}`} className="w-full">
+        <Link to={`/produkt/${product_id}`} className="w-full">
           <Button
             className="w-full bg-gradient-primary hover:opacity-90 transition-opacity btn-premium group/btn"
             size="lg"

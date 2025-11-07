@@ -8,28 +8,24 @@ import futura_evo_9 from "@/assets/futura_evo_9.png";
 
 const featuredProducts = [
   {
-    id: 1,
+    product_id: 1,
     name: "Petite",
-    description:
-      "Kompaktná kachle na pelety ideálna pre malé priestory do 145 m²",
-    power: "7 kW",
-    efficiency: "89,8%",
-    price: "1,499",
+    description: "Kompaktná kachle na pelety ideálna pre malé priestory",
+    power_nominal_max_kw: 7,
+    efficiency_max_percent: 89.8,
+    price_eur: 1499,
     image: petite,
-    category: "home",
-    isPopular: true,
+    rating: 4.5,
   },
   {
-    id: 2,
+    product_id: 2,
     name: "Futura Evo 9",
-    description:
-      "Moderná 5-hviezdičková kachle na pelety pre stredné priestory",
-    power: "9 kW",
-    efficiency: "95%",
-    price: "2,000",
+    description: "Moderná 5-hviezdičková kachle na pelety pre stredné priestory",
+    power_nominal_max_kw: 9,
+    efficiency_max_percent: 95,
+    price_eur: 2000,
     image: futura_evo_9,
-    category: "home",
-    isPopular: false,
+    rating: 4.8,
   },
 ];
 
@@ -53,11 +49,20 @@ const Products = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-12 animate-fade-in-up">
           {featuredProducts.map((product, index) => (
             <div
-              key={product.id}
+              key={product.product_id}
               className="animate-scale-in"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <ProductCard {...product} />
+              <ProductCard
+                product_id={product.product_id}
+                name={product.name}
+                description={product.description}
+                power_nominal_max_kw={product.power_nominal_max_kw}
+                efficiency_max_percent={product.efficiency_max_percent}
+                price_eur={product.price_eur}
+                image={product.image}
+                rating={product.rating}
+              />
             </div>
           ))}
         </div>

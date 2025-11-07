@@ -64,10 +64,10 @@ const ProductDetail = () => {
             <div className="animate-fade-in">
               <Card className="overflow-hidden border-border/50 shadow-card">
                 <CardContent className="p-0">
-                  {product.isPopular && (
+                  {product.rating && product.rating >= 4.5 && (
                     <div className="absolute top-6 right-6 z-10">
                       <Badge className="bg-accent text-accent-foreground font-medium shadow-medium">
-                        Najpredávanejší
+                        ⭐ {product.rating}
                       </Badge>
                     </div>
                   )}
@@ -83,11 +83,25 @@ const ProductDetail = () => {
             {/* Product Info */}
             <div className="space-y-6 animate-fade-in-up">
               <div>
-                <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-                  {product.category === "home"
-                    ? "Domáce Kotly"
-                    : "Priemyselné Kotly"}
-                </Badge>
+                <div className="flex items-center gap-3 mb-4">
+                  <Badge className="bg-primary/10 text-primary border-primary/20">
+                    {product.category === "home"
+                      ? "Domáce Kotly"
+                      : product.category === "industrial"
+                      ? "Priemyselné Kotly"
+                      : product.category}
+                  </Badge>
+                  {product.rating && (
+                    <Badge className="bg-accent/10 text-accent border-accent/20">
+                      ⭐ {product.rating}
+                    </Badge>
+                  )}
+                  {product.energy_class && (
+                    <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
+                      Energetická trieda {product.energy_class}
+                    </Badge>
+                  )}
+                </div>
                 <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4">
                   {product.name}
                 </h1>
@@ -103,7 +117,7 @@ const ProductDetail = () => {
                 <div className="flex items-baseline space-x-2 mb-2">
                   <span className="text-sm text-textSecondary">Cena od</span>
                   <span className="text-5xl font-bold font-display text-primary">
-                    {product.price}
+                    {product.price_eur.toLocaleString('sk-SK')}
                   </span>
                   <span className="text-xl text-muted-foreground">€</span>
                 </div>
@@ -118,7 +132,11 @@ const ProductDetail = () => {
                   <CardContent className="p-4">
                     <div className="text-sm text-textSecondary mb-1">Výkon</div>
                     <div className="text-2xl font-bold font-display text-primary">
-                      {product.power}
+                      {product.power_nominal_min_kw && product.power_nominal_max_kw
+                        ? `${product.power_nominal_min_kw} - ${product.power_nominal_max_kw} kW`
+                        : product.power_nominal_max_kw
+                        ? `${product.power_nominal_max_kw} kW`
+                        : 'N/A'}
                     </div>
                   </CardContent>
                 </Card>
@@ -128,7 +146,9 @@ const ProductDetail = () => {
                       Účinnosť
                     </div>
                     <div className="text-2xl font-bold font-display text-accent">
-                      {product.efficiency}
+                      {product.efficiency_max_percent
+                        ? `${product.efficiency_max_percent}%`
+                        : 'N/A'}
                     </div>
                   </CardContent>
                 </Card>
@@ -155,69 +175,152 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          {/* Detailed Description */}
-          <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
-              {/* Description Section */}
-              <Card className="border-border/50 shadow-soft animate-fade-in">
-                <CardContent className="p-8">
-                  <h2 className="text-3xl font-display font-bold mb-6">
-                    O Produkte
-                  </h2>
-                  <p className="text-lg text-textSecondary leading-relaxed">
-                    {product.detailedDescription}
-                  </p>
-                </CardContent>
-              </Card>
-
-              {/* Features Section */}
-              <Card className="border-border/50 shadow-soft animate-fade-in">
-                <CardContent className="p-8">
-                  <h2 className="text-3xl font-display font-bold mb-6">
-                    Vlastnosti
-                  </h2>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {product.features.map((feature, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-4 h-4 text-primary" />
-                        </div>
-                        <span className="text-textSecondary">{feature}</span>
-                      </div>
-                    ))}
+          {/* Specifications */}
+          <Card className="border-border/50 shadow-soft animate-fade-in">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-display font-bold mb-6">
+                Technické Špecifikácie
+              </h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {product.power_total_max_kw && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Max. celkový výkon</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.power_total_max_kw} kW
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Specifications Sidebar */}
-            <div className="animate-fade-in">
-              <Card className="border-border/50 shadow-soft sticky top-24">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-display font-bold mb-6">
-                    Špecifikácie
-                  </h2>
-                  <div className="space-y-4">
-                    {product.specifications.map((spec, index) => (
-                      <div key={index}>
-                        <div className="flex justify-between items-center py-3">
-                          <span className="text-sm text-textSecondary">
-                            {spec.label}
-                          </span>
-                          <span className="font-semibold text-foreground">
-                            {spec.value}
-                          </span>
-                        </div>
-                        {index < product.specifications.length - 1 && (
-                          <Separator />
-                        )}
-                      </div>
-                    ))}
+                )}
+                {product.power_total_min_kw && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Min. celkový výkon</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.power_total_min_kw} kW
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+                )}
+                {product.power_nominal_max_kw && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Max. nominálny výkon</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.power_nominal_max_kw} kW
+                    </div>
+                  </div>
+                )}
+                {product.power_nominal_min_kw && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Min. nominálny výkon</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.power_nominal_min_kw} kW
+                    </div>
+                  </div>
+                )}
+                {product.efficiency_max_percent && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Max. účinnosť</div>
+                    <div className="text-lg font-semibold text-accent">
+                      {product.efficiency_max_percent}%
+                    </div>
+                  </div>
+                )}
+                {product.efficiency_min_percent && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Min. účinnosť</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.efficiency_min_percent}%
+                    </div>
+                  </div>
+                )}
+                {product.pellet_consumption_max_kg_h && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Max. spotreba peliet</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.pellet_consumption_max_kg_h} kg/h
+                    </div>
+                  </div>
+                )}
+                {product.pellet_consumption_min_kg_h && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Min. spotreba peliet</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.pellet_consumption_min_kg_h} kg/h
+                    </div>
+                  </div>
+                )}
+                {product.heating_volume_m3 && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Vykurovací objem</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.heating_volume_m3} m³
+                    </div>
+                  </div>
+                )}
+                {product.pellet_tank_capacity_kg && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Kapacita zásobníka</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.pellet_tank_capacity_kg} kg
+                    </div>
+                  </div>
+                )}
+                {product.exhaust_diameter_mm && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Priemer výfuku</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.exhaust_diameter_mm} mm
+                    </div>
+                  </div>
+                )}
+                {product.air_inlet_diameter_mm && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Priemer prívodu vzduchu</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.air_inlet_diameter_mm} mm
+                    </div>
+                  </div>
+                )}
+                {product.weight_kg && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Hmotnosť</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.weight_kg} kg
+                    </div>
+                  </div>
+                )}
+                {product.dimensions_mm_WxDxH && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Rozmery (Š×H×V)</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.dimensions_mm_WxDxH} mm
+                    </div>
+                  </div>
+                )}
+                {product.electrical_power_max_w && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Max. elektrický príkon</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.electrical_power_max_w} W
+                    </div>
+                  </div>
+                )}
+                {product.electrical_power_min_w && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Min. elektrický príkon</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.electrical_power_min_w} W
+                    </div>
+                  </div>
+                )}
+                {product.energy_class && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Energetická trieda</div>
+                    <div className="text-lg font-semibold text-green-600">
+                      {product.energy_class}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Contact CTA */}
           <Card className="mt-16 bg-gradient-primary text-primary-foreground border-0 shadow-strong animate-fade-in">

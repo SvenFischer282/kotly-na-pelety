@@ -25,15 +25,24 @@ const ProductsPage = () => {
 
           {/* Products Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
-            {products.map((product, index) => (
-              <div
-                key={product.id}
-                className="animate-scale-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <ProductCard {...product} />
-              </div>
-            ))}
+          {products.map((product, index) => (
+            <div
+              key={product.product_id}
+              className="animate-scale-in"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <ProductCard
+                product_id={product.product_id}
+                name={product.name}
+                description={product.description}
+                power_nominal_max_kw={product.power_nominal_max_kw}
+                efficiency_max_percent={product.efficiency_max_percent}
+                price_eur={product.price_eur}
+                image={product.image}
+                rating={product.rating}
+              />
+            </div>
+          ))}
           </div>
 
         </div>
