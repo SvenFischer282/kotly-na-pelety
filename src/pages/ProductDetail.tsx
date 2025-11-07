@@ -14,13 +14,33 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { getProductById } from "@/data/products";
+import { supabase } from "@/lib/supabaseClient";
+import { emptyProduct } from "@/lib/emptyProduct";
 
 const ProductDetail = () => {
+  const [product, setProduct] = useState(emptyProduct);
+
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const product = getProductById(Number(id));
+  // const product = getProductById(Number(id));
   const [selectedImage, setSelectedImage] = useState(0);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .eq("product_id", id)
+        .single();
+
+      if (error) {
+        throw new Error("Error fetching product: " + error);
+      } else {
+        setProduct(data);
+      }
+    };
+    fetchProduct();
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -182,7 +202,7 @@ const ProductDetail = () => {
                 <div className="flex items-baseline space-x-2 mb-2">
                   <span className="text-sm text-textSecondary">Cena od</span>
                   <span className="text-5xl font-bold font-display text-primary">
-                    {product.price_eur.toLocaleString("sk-SK")}
+                    {product.price_eur}
                   </span>
                   <span className="text-xl text-muted-foreground">€</span>
                 </div>
