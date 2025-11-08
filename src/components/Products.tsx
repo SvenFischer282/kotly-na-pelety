@@ -50,7 +50,7 @@ const Products = () => {
     return (
       <section className="py-24 bg-gradient-subtle">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mb-16 animate-fade-in">
+          <div className="max-w-3xl mb-16">
             <h2 className="text-4xl text-accent lg:text-5xl font-display font-bold mb-4">
               Vybrané Kotly
               <span className="block text-accent mt-2">Z Nášho Sortimentu</span>

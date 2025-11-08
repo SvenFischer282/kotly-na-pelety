@@ -47,7 +47,7 @@ const ProductsPage = () => {
         <Header />
         <main className="pt-32 pb-24 bg-gradient-subtle flex-1">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-3xl mb-16 animate-fade-in">
+            <div className="max-w-3xl mb-16">
               <h1 className="text-5xl lg:text-6xl font-display font-bold mb-6 text-foreground">
                 <span className="block mt-2">Kotly Na Pelety</span>
               </h1>
@@ -58,7 +58,7 @@ const ProductsPage = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ProductCardSkeleton />
               <ProductCardSkeleton />
               <ProductCardSkeleton />
