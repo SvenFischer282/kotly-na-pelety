@@ -98,7 +98,7 @@ const ProductDetail = () => {
             <p className="text-muted-foreground mb-8">
               Zadaný produkt neexistuje v našej ponuke.
             </p>
-            <Link to="/produkty">
+            <Link to="/products">
               <Button className="bg-gradient-primary btn-premium">
                 <ArrowLeft className="mr-2 w-4 h-4" />
                 Späť na produkty
@@ -119,7 +119,7 @@ const ProductDetail = () => {
           {/* Breadcrumb */}
           <div className="mb-8 animate-fade-in">
             <Link
-              to="/produkty"
+              to="/products"
               className="text-sm text-muted-foreground hover:text-accent transition-colors inline-flex items-center"
             >
               <ArrowLeft className="mr-2 w-4 h-4" />

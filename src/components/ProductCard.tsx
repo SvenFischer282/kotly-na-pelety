@@ -91,7 +91,7 @@ const ProductCard = ({
       </CardContent>
 
       <CardFooter className="p-6 pt-0">
-        <Link to={`/produkt/${product_id}`} className="w-full">
+        <Link to={`/product/${product_id}`} className="w-full">
           <Button
             className="w-full bg-gradient-primary hover:opacity-90 transition-opacity btn-premium group/btn"
             size="lg"

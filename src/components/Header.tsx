@@ -41,7 +41,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
             <Link
-              to="/produkty"
+              to="/products"
               className="text-sm font-medium text-muted  hover:text-white/80"
             >
               Produkty
@@ -85,14 +85,12 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="lg:hidden pb-6 animate-fade-in">
             <div className="flex flex-col space-y-4 pt-3 border-t">
-              <Link
-                to="/produkty"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-medium text-muted transition-colors hover:text-white/80"
-              >
-                Produkty
-              </Link>
-              <a
+                          <Link
+                            to="/products"
+                            className="text-sm font-medium text-muted  hover:text-white/80"
+                          >
+                            Produkty
+                          </Link>              <a
                 href="/#benefits"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-sm font-medium text-muted transition-colors hover:text-white/80"

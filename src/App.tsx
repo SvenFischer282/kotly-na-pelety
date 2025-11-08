@@ -21,9 +21,9 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/produkty" element={<ProductsPage />} />
-          <Route path="/produkt/:id" element={<ProductDetail />} />
-          <Route path="/kontakt" element={<Contact />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
