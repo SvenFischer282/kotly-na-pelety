@@ -66,7 +66,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-md text-muted hover:bg-accent-foreground transition-colors"
+            className="lg:hidden p-2 rounded-md text-muted hover:bg-accent-light transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -81,7 +81,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <nav className="lg:hidden pb-6 animate-fade-in">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 pt-3 border-t">
               <Link
                 to="/produkty"
                 className="text-sm font-medium text-muted transition-colors hover:text-white/80"
@@ -100,7 +100,7 @@ const Header = () => {
               >
                 O Nás
               </a>
-              <Button className="ml-4  bg-accent-foreground hover:opacity-90 transition-opacity hover:bg-accent-foreground/90 hover:text-white hover:scale-105  ">
+              <Button className="ml-4  bg-accent-light hover:opacity-90 transition-opacity hover:bg-accent-light/90 hover:text-white hover:scale-105  ">
                 Kontakt
               </Button>
             </div>
