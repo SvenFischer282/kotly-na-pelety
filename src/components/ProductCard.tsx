@@ -33,32 +33,23 @@ const ProductCard = ({
   rating,
 }: ProductCardProps) => {
   return (
-    <Card className="group relative overflow-hidden bg-card hover:shadow-card transition-all duration-300 hover:-translate-y-2 card-glow border-border/50">
-      {/* {rating && rating >= 4.5 && (
-        <div className="absolute top-4 right-4 z-10">
-          <Badge className="bg-accent text-accent-foreground font-medium shadow-medium">
-            ⭐ {rating}
-          </Badge>
-        </div>
-      )} */}
-
+    <Card className="group relative overflow-hidden bg-card transition-all duration-300 hover:border-primary/30 border-border/50 flex flex-col h-full">
       <CardHeader className="p-0">
         <div className="relative h-64 overflow-hidden bg-secondary/30 flex items-center justify-center">
           <img
             src={image}
             alt={name}
-            className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-110"
+            className="max-w-full max-h-full object-contain transition-opacity duration-300 group-hover:opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
       </CardHeader>
 
-      <CardContent className="p-6 space-y-4">
-        <div>
-          <CardTitle className="text-2xl font-display mb-2 text-textPrimary transition-colors">
+      <CardContent className="p-6 space-y-4 flex-1 flex flex-col">
+        <div className="flex-1">
+          <CardTitle className="text-2xl font-display mb-2 text-textPrimary line-clamp-2">
             {name}
           </CardTitle>
-          <CardDescription className="text-base text-textSecondary">
+          <CardDescription className="text-base text-textSecondary line-clamp-3">
             {description}
           </CardDescription>
         </div>
