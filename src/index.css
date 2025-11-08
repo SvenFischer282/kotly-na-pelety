@@ -38,8 +38,8 @@ All colors MUST be HSL.
     --muted: 30 20% 90%;
     --muted-foreground: 122 40% 30%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: #65000b;
+    --destructive-foreground: #7e000f;
 
     --border: 30 20% 85%;
     --input: 30 20% 85%;
