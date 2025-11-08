@@ -1,8 +1,9 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
+import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { supabase } from "@/integrations/supabase/client";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState<any[]>([]);
@@ -44,8 +45,28 @@ const ProductsPage = () => {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1 flex items-center justify-center bg-gradient-subtle">
-          <p className="text-lg text-muted-foreground">Načítavam produkty...</p>
+        <main className="pt-32 pb-24 bg-gradient-subtle flex-1">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="max-w-3xl mb-16 animate-fade-in">
+              <h1 className="text-5xl lg:text-6xl font-display font-bold mb-6 text-foreground">
+                <span className="block mt-2">Kotly Na Pelety</span>
+              </h1>
+              <p className="text-xl text-textSecondary leading-relaxed">
+                Kompletný sortiment moderných kotlov na pelety pre domácnosti aj
+                priemyselné použitie. Každý model je starostlivo vybraný pre
+                maximálnu efektivitu a spoľahlivosť.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
+              <ProductCardSkeleton />
+              <ProductCardSkeleton />
+              <ProductCardSkeleton />
+              <ProductCardSkeleton />
+              <ProductCardSkeleton />
+              <ProductCardSkeleton />
+            </div>
+          </div>
         </main>
         <Footer />
       </div>

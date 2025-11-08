@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { supabase } from "@/integrations/supabase/client";
 import ProductCard from "./ProductCard";
+import ProductCardSkeleton from "./ProductCardSkeleton";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -48,7 +49,23 @@ const Products = () => {
   if (loading) {
     return (
       <section className="py-24 bg-gradient-subtle">
-        <div className="container text-center">Načítavam produkty...</div>
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-3xl mb-16 animate-fade-in">
+            <h2 className="text-4xl text-accent lg:text-5xl font-display font-bold mb-4">
+              Vybrané Kotly
+              <span className="block text-accent mt-2">Z Nášho Sortimentu</span>
+            </h2>
+            <p className="text-lg text-textSecondary leading-relaxed">
+              Objavte naše najpredávanejšie modely kotlov na pelety pre váš domov
+              alebo priemyselné priestory.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <ProductCardSkeleton />
+            <ProductCardSkeleton />
+          </div>
+        </div>
       </section>
     );
   }
