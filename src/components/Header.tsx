@@ -25,7 +25,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-destructive backdrop-blur-md shadow-medium"
+          ? "bg-accent backdrop-blur-md shadow-medium"
           : "bg-transparent"
       }`}
     >
@@ -59,14 +59,14 @@ const Header = () => {
               O Nás
             </a>
 
-            <Button className="ml-4  bg-destructive-foreground hover:opacity-90 transition-opacity hover:bg-destructive-foreground/90 hover:text-white hover:scale-105  ">
+            <Button className="ml-4  bg-accent-light hover:opacity-90 transition-opacity hover:bg-accent-light/90 hover:text-white hover:scale-105  ">
               Kontakt
             </Button>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-md text-muted hover:bg-destructive-foreground transition-colors"
+            className="lg:hidden p-2 rounded-md text-muted hover:bg-accent-foreground transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -100,7 +100,7 @@ const Header = () => {
               >
                 O Nás
               </a>
-              <Button className="ml-4  bg-destructive-foreground hover:opacity-90 transition-opacity hover:bg-destructive-foreground/90 hover:text-white hover:scale-105  ">
+              <Button className="ml-4  bg-accent-foreground hover:opacity-90 transition-opacity hover:bg-accent-foreground/90 hover:text-white hover:scale-105  ">
                 Kontakt
               </Button>
             </div>

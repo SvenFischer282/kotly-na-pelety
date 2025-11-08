@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="font-display text-2xl font-bold">
-              KOTLY NA PELETY<span className="text-accent">.SK</span>
+              KOTLY NA PELETY<span className="">.SK</span>
             </h3>
             <p className="text-primary-foreground/80 leading-relaxed">
               Váš partner pre efektívne a ekologické vykurovanie. Prémiové kotly
