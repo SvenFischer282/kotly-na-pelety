@@ -68,6 +68,7 @@ export type Database = {
           product_id: number
           rating: number | null
           weight_kg: number | null
+          water_heating: boolean | null
         }
         Insert: {
           air_inlet_diameter_mm?: number | null
@@ -95,6 +96,7 @@ export type Database = {
           product_id?: number
           rating?: number | null
           weight_kg?: number | null
+          water_heating?: boolean | null
         }
         Update: {
           air_inlet_diameter_mm?: number | null
@@ -122,7 +124,7 @@ export type Database = {
           product_id?: number
           rating?: number | null
           weight_kg?: number | null
-        }
+          water_heating?: boolean | null
         Relationships: []
       }
     }

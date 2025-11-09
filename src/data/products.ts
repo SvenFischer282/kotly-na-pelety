@@ -32,6 +32,7 @@ export interface Product {
   price_eur: number;
   image: string;
   images?: string[];
+  water_heating: boolean | null;
 }
 
 export const products: Product[] = [
@@ -61,6 +62,7 @@ export const products: Product[] = [
     price_eur: 1499,
     image: petite,
     images: [petite, boiler1, boiler2, heroInterior],
+    water_heating: false,
   },
   {
     product_id: 2,
@@ -89,6 +91,7 @@ export const products: Product[] = [
     price_eur: 2000,
     image: futura_evo_9,
     images: [futura_evo_9, boiler3, heroBoiler, boiler2],
+    water_heating: false,
   },
   {
     product_id: 3,
@@ -116,6 +119,7 @@ export const products: Product[] = [
     price_eur: 1800,
     image: futura_evo_9,
     images: [futura_evo_9, heroInterior, boiler1, heroBoiler],
+    water_heating: false,
   },
 ];
 

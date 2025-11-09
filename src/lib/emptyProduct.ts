@@ -24,4 +24,5 @@ export const emptyProduct = {
   price_eur: null,
   image: "",
   images: [],
+  water_heating: null,
 };

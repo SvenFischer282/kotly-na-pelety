@@ -197,19 +197,24 @@ const ProductDetail = () => {
             {/* Product Info */}
             <div className="space-y-6 animate-fade-in-up">
               <div>
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex flex-wrap items-center gap-3 mb-4">
                   <Badge className="bg-primary/10 text-primary border-primary/20">
                     {product.category === "home"
                       ? "Domáce Kotly"
                       : product.category === "industrial"
                       ? "Priemyselné Kotly"
                       : product.category}
-                  </Badge>
+                  </Badge>  
                   {/* {product.rating && (
                     <Badge className="bg-accent/10 text-accent border-accent/20">
                       ⭐ {product.rating}
                     </Badge>
                   )} */}
+                  {product.water_heating && (
+                    <Badge className="bg-blue-400/10 text-blue-600 hover:bg-blue-400/50 border-blue-500/20">
+                      Ohrev vody
+                    </Badge>
+                  )}
                   {product.energy_class && (
                     <Badge className="bg-green-500/10 text-green-600 border-green-500/20">
                       Energetická trieda {product.energy_class}
@@ -438,6 +443,18 @@ const ProductDetail = () => {
                     </div>
                     <div className="text-lg font-semibold text-green-600">
                       {product.energy_class}
+                    </div>
+                  </div>
+                )}
+                {product.water_heating !== null && (
+                  <div className="space-y-1">
+                    <div className="text-sm text-textSecondary">Ohrev vody</div>
+                    <div className="text-lg font-semibold text-foreground">
+                      {product.water_heating ? (
+                        <Check className="w-5 h-5 text-green-500" />
+                      ) : (
+                        <span className="text-red-500">Nie</span>
+                      )}
                     </div>
                   </div>
                 )}
