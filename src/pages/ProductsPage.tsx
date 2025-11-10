@@ -128,7 +128,7 @@ const ProductsPage = () => {
           {/* Page Header */}
           <div className="max-w-3xl mb-12 animate-fade-in">
             <h1 className="text-5xl lg:text-6xl font-display font-bold mb-6 text-foreground">
-              <span className="block mt-2">Kotly Na Pelety</span>
+              Kotly Na Pelety
             </h1>
             <p className="text-xl text-textSecondary leading-relaxed">
               Kompletný sortiment moderných kotlov na pelety pre domácnosti aj

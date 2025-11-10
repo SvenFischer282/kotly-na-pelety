@@ -123,20 +123,20 @@ const FAQ = () => {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4 text-foreground text-center">
+          <h2 className="text-3xl lg:text-5xl font-display font-bold mb-4 text-foreground text-center">
             Často Kladené Otázky
           </h2>
-          <p className="text-xl text-textSecondary mb-12 text-center">
+          <p className="text-lg lg:text-xl text-textSecondary mb-12 text-center">
             Všetko, čo potrebujete vedieť o kotloch na pelety
           </p>
 
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-lef text-textPrimary text-lg font-medium">
+                <AccordionTrigger className="text-left text-textPrimary text-base lg:text-lg font-medium">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-textSecondary">
+                <AccordionContent className="text-textSecondary text-sm lg:text-base">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
