@@ -4,7 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Slider } from "@/components/ui/slider";
+import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import {
@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 const ProductsPage = () => {
@@ -22,7 +23,7 @@ const ProductsPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
 
   // Filter states
-  const [heatingVolume, setHeatingVolume] = useState<number[]>([0]);
+  const [heatingVolume, setHeatingVolume] = useState({ min: "", max: "" });
   const [waterHeating, setWaterHeating] = useState<boolean | null>(null);
   const [category, setCategory] = useState<string>("all");
 
@@ -59,16 +60,20 @@ const ProductsPage = () => {
     fetchData();
   }, []);
 
-  // Apply filters
-  useEffect(() => {
+  const applyFilters = () => {
     let filtered = [...products];
 
+    const minVolume = heatingVolume.min === "" ? 0 : Number(heatingVolume.min);
+    const maxVolume =
+      heatingVolume.max === "" ? Infinity : Number(heatingVolume.max);
+
     // Filter by heating volume
-    if (heatingVolume[0] > 0) {
-      filtered = filtered.filter(
-        (p) => p.heating_volume_m3 && p.heating_volume_m3 >= heatingVolume[0]
-      );
-    }
+    filtered = filtered.filter(
+      (p) =>
+        p.heating_volume_m3 &&
+        p.heating_volume_m3 >= minVolume &&
+        p.heating_volume_m3 <= maxVolume
+    );
 
     // Filter by water heating
     if (waterHeating !== null) {
@@ -81,7 +86,7 @@ const ProductsPage = () => {
     }
 
     setFilteredProducts(filtered);
-  }, [heatingVolume, waterHeating, category, products]);
+  };
 
   if (loading) {
     return (
@@ -141,15 +146,34 @@ const ProductsPage = () => {
               {/* Heating Volume Filter */}
               <div className="space-y-3">
                 <Label className="text-sm font-medium">
-                  Vykurovací objem (min {heatingVolume[0]} m³)
+                  Vykurovací objem (m³)
                 </Label>
-                <Slider
-                  value={heatingVolume}
-                  onValueChange={setHeatingVolume}
-                  max={300}
-                  step={10}
-                  className="w-full"
-                />
+                <div className="flex items-center space-x-2">
+                  <Input
+                    type="number"
+                    placeholder="Min"
+                    value={heatingVolume.min}
+                    onChange={(e) =>
+                      setHeatingVolume({
+                        ...heatingVolume,
+                        min: e.target.value,
+                      })
+                    }
+                    className="w-full"
+                  />
+                  <Input
+                    type="number"
+                    placeholder="Max"
+                    value={heatingVolume.max}
+                    onChange={(e) =>
+                      setHeatingVolume({
+                        ...heatingVolume,
+                        max: e.target.value,
+                      })
+                    }
+                    className="w-full"
+                  />
+                </div>
               </div>
 
               {/* Water Heating Filter */}
@@ -199,6 +223,9 @@ const ProductsPage = () => {
                   </SelectContent>
                 </Select>
               </div>
+            </div>
+            <div className="mt-6 flex justify-end">
+              <Button onClick={applyFilters}>Filtrovať</Button>
             </div>
           </Card>
 
