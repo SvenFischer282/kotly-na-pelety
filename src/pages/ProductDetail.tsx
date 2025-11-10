@@ -204,7 +204,7 @@ const ProductDetail = () => {
                       : product.category === "industrial"
                       ? "Priemyselné Kotly"
                       : product.category}
-                  </Badge>  
+                  </Badge>
                   {/* {product.rating && (
                     <Badge className="bg-accent/10 text-accent border-accent/20">
                       ⭐ {product.rating}

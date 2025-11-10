@@ -7,14 +7,20 @@ import { supabase } from "@/integrations/supabase/client";
 import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
-  
+
   // Filter states
   const [heatingVolume, setHeatingVolume] = useState<number[]>([0]);
   const [waterHeating, setWaterHeating] = useState<boolean | null>(null);
@@ -128,7 +134,9 @@ const ProductsPage = () => {
 
           {/* Filters */}
           <Card className="p-6 mb-8 animate-fade-in">
-            <h2 className="text-xl font-semibold mb-6 text-foreground">Filtre</h2>
+            <h2 className="text-xl font-semibold mb-6 text-foreground">
+              Filtre
+            </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {/* Heating Volume Filter */}
               <div className="space-y-3">
@@ -184,8 +192,10 @@ const ProductsPage = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">Všetky</SelectItem>
-                    <SelectItem value="home">Domáce Kotly</SelectItem>
-                    <SelectItem value="industrial">Priemyselné Kotly</SelectItem>
+                    <SelectItem value="Peletové kotly">
+                      Peletové kotly
+                    </SelectItem>
+                    <SelectItem value="Krby na drevo">Krby na drevo</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -200,22 +210,22 @@ const ProductsPage = () => {
               </div>
             ) : (
               filteredProducts.map((product, index) => (
-              <div
-                key={product.product_id}
-                className="animate-scale-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <ProductCard
-                  product_id={product.product_id}
-                  name={product.name}
-                  description={product.description}
-                  power_nominal_max_kw={product.power_nominal_max_kw}
-                  efficiency_max_percent={product.efficiency_max_percent}
-                  price_eur={product.price_eur}
-                  image={product.image} //  public URL from Supabase Storage
-                  rating={product.rating}
-                />
-              </div>
+                <div
+                  key={product.product_id}
+                  className="animate-scale-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <ProductCard
+                    product_id={product.product_id}
+                    name={product.name}
+                    description={product.description}
+                    power_nominal_max_kw={product.power_nominal_max_kw}
+                    efficiency_max_percent={product.efficiency_max_percent}
+                    price_eur={product.price_eur}
+                    image={product.image} //  public URL from Supabase Storage
+                    rating={product.rating}
+                  />
+                </div>
               ))
             )}
           </div>

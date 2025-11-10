@@ -69,11 +69,11 @@ const Products = () => {
               <span className="block text-accent mt-2">Z Nášho Sortimentu</span>
             </h2>
             <p className="text-lg text-textSecondary leading-relaxed">
-              Objavte naše najpredávanejšie modely kotlov na pelety pre váš domov
-              alebo priemyselné priestory.
+              Objavte naše najpredávanejšie modely kotlov na pelety pre váš
+              domov alebo priemyselné priestory.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <ProductCardSkeleton />
             <ProductCardSkeleton />
@@ -122,7 +122,7 @@ const Products = () => {
 
         {/* CTA to All Products */}
         <div className="text-center animate-fade-in">
-          <Link to="/produkty">
+          <Link to="/products">
             <Button
               size="lg"
               className="bg-gradient-primary hover:opacity-90 btn-premium px-8"

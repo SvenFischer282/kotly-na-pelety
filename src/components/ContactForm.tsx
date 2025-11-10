@@ -90,15 +90,11 @@ export const ContactForm = () => {
     }
   };
 
-    return (
-
-      <section id="contact" className="py-24 bg-gradient-subtle">
-
-        <div className="container mx-auto px-4 lg:px-8">
-
-          <div className="max-w-2xl mx-auto">
-
-            <div className="text-center mb-12">
+  return (
+    <section id="contact" className="py-24 bg-gradient-subtle">
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4 text-foreground">
               Kontaktujte Nás
             </h2>
@@ -118,9 +114,10 @@ export const ContactForm = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Meno *</FormLabel>
+                      <FormLabel className="text-textPrimary">Meno *</FormLabel>
                       <FormControl>
                         <Input
+                          className=" placeholder:text-textSecondary/ "
                           placeholder="Vaše meno"
                           {...field}
                           disabled={isSubmitting}
@@ -136,9 +133,12 @@ export const ContactForm = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email *</FormLabel>
+                      <FormLabel className="text-textPrimary">
+                        Email *
+                      </FormLabel>
                       <FormControl>
                         <Input
+                          className=" placeholder:text-textSecondary/ "
                           type="email"
                           placeholder="vas@email.sk"
                           {...field}
@@ -155,9 +155,12 @@ export const ContactForm = () => {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Telefón</FormLabel>
+                      <FormLabel className="text-textPrimary">
+                        Telefón
+                      </FormLabel>
                       <FormControl>
                         <Input
+                          className=" placeholder:text-textSecondary/ "
                           type="tel"
                           placeholder="+421 xxx xxx xxx"
                           {...field}
@@ -173,12 +176,12 @@ export const ContactForm = () => {
                   control={form.control}
                   name="message"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="text-textPrimary">
                       <FormLabel>Správa *</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Napíšte nám vašu správu..."
-                          className="min-h-[150px] resize-none"
+                          className="min-h-[150px]  resize-none placeholder:text-textSecondary/ "
                           {...field}
                           disabled={isSubmitting}
                         />
