@@ -14,10 +14,10 @@ import { Link } from "react-router-dom";
 interface ProductCardProps {
   product_id: number;
   name: string;
-  description: string;
+  description: string | null;
   power_nominal_max_kw: number | null;
   efficiency_max_percent: number | null;
-  price_eur: number;
+  price_eur: number | null;
   image: string;
   rating?: number | null;
 }
@@ -50,7 +50,7 @@ const ProductCard = ({
             {name}
           </CardTitle>
           <CardDescription className="text-base text-textSecondary line-clamp-3">
-            {description}
+            {description || "Popis produktu nie je k dispozícii."}
           </CardDescription>
         </div>
 
@@ -83,9 +83,11 @@ const ProductCard = ({
           <div className="flex items-baseline space-x-2">
             <span className="text-sm text-muted-foreground">Od</span>
             <span className="text-3xl font-bold font-display text-primary">
-              {price_eur.toLocaleString("sk-SK")}
+              {price_eur ? price_eur.toLocaleString("sk-SK") : "Na vyžiadanie"}
             </span>
-            <span className="text-sm text-muted-foreground">€</span>
+            {price_eur && (
+              <span className="text-sm text-muted-foreground">€</span>
+            )}
           </div>
         </div>
       </CardContent>

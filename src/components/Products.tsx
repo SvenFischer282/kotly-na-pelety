@@ -5,9 +5,12 @@ import ProductCardSkeleton from "./ProductCardSkeleton";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import type { Database } from "@/integrations/supabase/types";
+
+type Product = Database["public"]["Tables"]["products"]["Row"];
 
 const Products = () => {
-  const [featuredProducts, setFeaturedProducts] = useState<any[]>([]);
+  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,13 +23,23 @@ const Products = () => {
 
       if (error) {
         console.error("Error fetching products:", error);
+        setLoading(false);
         return;
       }
 
-      if (!data) return;
+      if (!data) {
+        setLoading(false);
+        return;
+      }
 
       // 2️⃣ Generate public image URLs from Supabase Storage
       const productsWithImages = data.map((product) => {
+        if (!product.image) {
+          return {
+            ...product,
+            image: "/placeholder.svg", // Use a placeholder
+          };
+        }
         // If your table stores the path like "products/futura_evo_9.png"
         const { data: urlData } = supabase.storage
           .from("images") // bucket name in Supabase Storage

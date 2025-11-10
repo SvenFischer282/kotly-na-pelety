@@ -10,8 +10,19 @@ export interface CookiePreferences {
 const COOKIE_CONSENT_KEY = 'cookie-consent';
 const COOKIE_PREFERENCES_KEY = 'cookie-preferences';
 
+// Helper function to safely get initial state from localStorage
+const getInitialShowBanner = () => {
+  // On the server, localStorage is not available, so don't show the banner.
+  if (typeof window === 'undefined') {
+    return false;
+  }
+  const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+  // Show the banner only if consent has not been given.
+  return !consent;
+};
+
 export const useCookieConsent = () => {
-  const [showBanner, setShowBanner] = useState(false);
+  const [showBanner, setShowBanner] = useState(getInitialShowBanner);
   const [preferences, setPreferences] = useState<CookiePreferences>({
     necessary: true, // Always true
     analytics: false,
@@ -20,12 +31,8 @@ export const useCookieConsent = () => {
   });
 
   useEffect(() => {
-    const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
     const savedPreferences = localStorage.getItem(COOKIE_PREFERENCES_KEY);
-
-    if (!consent) {
-      setShowBanner(true);
-    } else if (savedPreferences) {
+    if (savedPreferences) {
       setPreferences(JSON.parse(savedPreferences));
     }
   }, []);
