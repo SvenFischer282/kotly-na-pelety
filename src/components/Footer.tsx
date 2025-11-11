@@ -152,10 +152,23 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-primary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-primary-foreground/60">
-              © {new Date().getFullYear()} KOTLY NA PELETY.SK. Všetky práva
-              vyhradené.
-            </p>
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+              <p className="text-sm text-primary-foreground/60">
+                © {new Date().getFullYear()} KOTLY NA PELETY.SK. Všetky práva
+                vyhradené.
+              </p>
+              <p className="text-sm text-primary-foreground/60">
+                Created by{" "}
+                <a
+                  href="https://www.linkedin.com/in/sven-fischer-202235347"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors underline"
+                >
+                  Sven Fischer
+                </a>
+              </p>
+            </div>
             <div className="flex space-x-6 text-sm">
               <a
                 href="#"

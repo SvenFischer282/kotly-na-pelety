@@ -61,7 +61,8 @@ export const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.from("contacts").insert([
+      // 1️⃣ Insert contact into Supabase table
+      const { error: insertError } = await supabase.from("contacts").insert([
         {
           name: values.name,
           email: values.email,
@@ -70,8 +71,24 @@ export const ContactForm = () => {
         },
       ]);
 
-      if (error) throw error;
+      if (insertError) throw insertError;
 
+      // 2️⃣ Call Supabase Edge Function to send email
+      const { error: functionError } = await supabase.functions.invoke(
+        "send-contact-email",
+        {
+          body: {
+            name: values.name,
+            email: values.email,
+            phone: values.phone,
+            message: values.message,
+          },
+        }
+      );
+
+      if (functionError) throw functionError;
+
+      // 3️⃣ Success message
       toast({
         title: "Správa odoslaná!",
         description: "Ďakujeme za vašu správu. Čoskoro vás budeme kontaktovať.",
@@ -79,7 +96,7 @@ export const ContactForm = () => {
 
       form.reset();
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error submitting contact form:", error);
       toast({
         title: "Chyba",
         description: "Nepodarilo sa odoslať správu. Skúste to prosím znova.",
