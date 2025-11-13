@@ -28,7 +28,7 @@ const FAQ = () => {
           name: "Koľko stojí inštalácia kotla na pelety?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Cena kompletnej inštalácie kotla na pelety závisí od výkonu kotla, typu inštalácie a dodatočných komponentov. Celková investícia sa zvyčajne vráti za 5-7 rokov vďaka úsporám na prevádzkových nákladoch. Ponúkame aj dotácie a financovanie.",
+            text: "Cena kompletnej inštalácie kotla na pelety závisí od výkonu kotla, typu inštalácie a dodatočných komponentov. Celková investícia sa zvyčajne vráti za 5-7 rokov vďaka úsporám na prevádzkových nákladoch.",
           },
         },
         {
@@ -68,7 +68,7 @@ const FAQ = () => {
           name: "Aká je životnosť kotla na pelety?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Pri správnej údržbe má kvalitný kotol na pelety životnosť 15-20 rokov. Moderne kotly sú vyrobené z vysoko kvalitných materiálov odolných voči korózii a vysokým teplotám. Všetky naše kotly sú certifikované a majú záručnú a pozáručnú podporu.",
+            text: "Pri správnej údržbe má kvalitný kotol na pelety životnosť 15-20 rokov. Moderné kotly sú vyrobené z vysoko kvalitných materiálov odolných voči korózii a vysokým teplotám. Všetky naše kotly sú certifikované a majú záručnú a pozáručnú podporu.",
           },
         },
       ],
@@ -89,7 +89,7 @@ const FAQ = () => {
     {
       question: "Koľko stojí inštalácia kotla na pelety?",
       answer:
-        "Cena kompletnej inštalácie kotla na pelety závisí od výkonu kotla, typu inštalácie a dodatočných komponentov. Celková investícia sa zvyčajne vráti za 5-7 rokov vďaka úsporám na prevádzkových nákladoch. Ponúkame aj dotácie a financovanie.",
+        "Cena kompletnej inštalácie kotla na pelety závisí od výkonu kotla, typu inštalácie a dodatočných komponentov. Celková investícia sa zvyčajne vráti za 5-7 rokov vďaka úsporám na prevádzkových nákladoch.",
     },
     {
       question: "Ako často je potrebná údržba kotla na pelety?",
