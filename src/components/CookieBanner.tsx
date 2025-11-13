@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useCookieConsent } from '@/hooks/useCookieConsent';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
+import { useState } from "react";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import {
   Dialog,
   DialogContent,
@@ -10,9 +10,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { Card } from '@/components/ui/card';
-import { Cookie, Settings } from 'lucide-react';
+} from "@/components/ui/dialog";
+import { Card } from "@/components/ui/card";
+import { Cookie, Settings } from "lucide-react";
 
 export const CookieBanner = () => {
   const {
@@ -42,22 +42,31 @@ export const CookieBanner = () => {
             <div className="flex-shrink-0">
               <Cookie className="w-8 h-8 text-primary" />
             </div>
-            
+
             <div className="flex-1 space-y-2">
               <h3 className="font-semibold text-lg text-card-foreground">
                 Ceníme si vaše súkromie
               </h3>
               <p className="text-sm text-muted-foreground">
-                Používame súbory cookie na zlepšenie vášho zážitku z prehliadania, poskytovanie personalizovaného obsahu, 
-                a analýzu našej návštevnosti. Kliknutím na "Prijať všetko" súhlasíte s naším používaním súborov cookie. 
-                Môžete si prispôsobiť svoje preferencie alebo si prečítať naše{' '}
-                <a href="#" className="text-primary hover:underline font-medium">
+                Používame súbory cookie na zlepšenie vášho zážitku z
+                prehliadania, poskytovanie personalizovaného obsahu, a analýzu
+                našej návštevnosti. Kliknutím na "Prijať všetko" súhlasíte s
+                naším používaním súborov cookie. Môžete si prispôsobiť svoje
+                preferencie alebo si prečítať naše{" "}
+                <a
+                  href="#"
+                  className="text-primary hover:underline font-medium"
+                >
                   Podmienky používania
-                </a>{' '}
-                a{' '}
-                <a href="#" className="text-primary hover:underline font-medium">
+                </a>{" "}
+                a{" "}
+                <a
+                  href="#"
+                  className="text-primary hover:underline font-medium"
+                >
                   Zásady ochrany osobných údajov
-                </a>.
+                </a>
+                .
               </p>
             </div>
 
@@ -71,11 +80,7 @@ export const CookieBanner = () => {
                 <Settings className="w-4 h-4" />
                 Prispôsobiť
               </Button>
-              <Button
-                variant="secondary"
-                size="sm"
-                onClick={rejectAll}
-              >
+              <Button variant="secondary" size="sm" onClick={rejectAll}>
                 Odmietnuť všetko
               </Button>
               <Button
@@ -99,7 +104,8 @@ export const CookieBanner = () => {
               Preferencie súborov cookie
             </DialogTitle>
             <DialogDescription>
-              Vyberte, ktoré súbory cookie chcete prijať. Svoje preferencie môžete kedykoľvek zmeniť.
+              Vyberte, ktoré súbory cookie chcete prijať. Svoje preferencie
+              môžete kedykoľvek zmeniť.
             </DialogDescription>
           </DialogHeader>
 
@@ -121,9 +127,10 @@ export const CookieBanner = () => {
                     Nevyhnutné súbory cookie (povinné)
                   </Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Tieto súbory cookie sú nevyhnutné pre správne fungovanie webovej stránky. 
-                    Umožňujú základné funkcie, ako je navigácia na stránke a prístup k zabezpečeným oblastiam. 
-                    Bez týchto súborov cookie nemôže webová stránka správne fungovať.
+                    Tieto súbory cookie sú nevyhnutné pre správne fungovanie
+                    webovej stránky. Umožňujú základné funkcie, ako je navigácia
+                    na stránke a prístup k zabezpečeným oblastiam. Bez týchto
+                    súborov cookie nemôže webová stránka správne fungovať.
                   </p>
                 </div>
               </div>
@@ -136,7 +143,7 @@ export const CookieBanner = () => {
                   id="analytics"
                   checked={preferences.analytics}
                   onCheckedChange={(checked) =>
-                    updatePreference('analytics', checked as boolean)
+                    updatePreference("analytics", checked as boolean)
                   }
                   className="mt-1"
                 />
@@ -148,9 +155,10 @@ export const CookieBanner = () => {
                     Analytické súbory cookie
                   </Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Tieto súbory cookie nám pomáhajú porozumieť, ako návštevníci interagujú s našou webovou stránkou 
-                    anonymným zhromažďovaním a vykazovaním informácií. To nám pomáha zlepšovať 
-                    funkčnosť a používateľskú skúsenosť webovej stránky.
+                    Tieto súbory cookie nám pomáhajú porozumieť, ako návštevníci
+                    interagujú s našou webovou stránkou anonymným zhromažďovaním
+                    a vykazovaním informácií. To nám pomáha zlepšovať funkčnosť
+                    a používateľskú skúsenosť webovej stránky.
                   </p>
                 </div>
               </div>
@@ -163,7 +171,7 @@ export const CookieBanner = () => {
                   id="marketing"
                   checked={preferences.marketing}
                   onCheckedChange={(checked) =>
-                    updatePreference('marketing', checked as boolean)
+                    updatePreference("marketing", checked as boolean)
                   }
                   className="mt-1"
                 />
@@ -175,9 +183,10 @@ export const CookieBanner = () => {
                     Marketingové súbory cookie
                   </Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Tieto súbory cookie sa používajú na sledovanie návštevníkov na webových stránkach s cieľom zobrazovať 
-                    relevantné reklamy a marketingové kampane. Pomáhajú merať 
-                    účinnosť našich reklamných snáh.
+                    Tieto súbory cookie sa používajú na sledovanie návštevníkov
+                    na webových stránkach s cieľom zobrazovať relevantné reklamy
+                    a marketingové kampane. Pomáhajú merať účinnosť našich
+                    reklamných snáh.
                   </p>
                 </div>
               </div>
@@ -190,7 +199,7 @@ export const CookieBanner = () => {
                   id="preferences"
                   checked={preferences.preferences}
                   onCheckedChange={(checked) =>
-                    updatePreference('preferences', checked as boolean)
+                    updatePreference("preferences", checked as boolean)
                   }
                   className="mt-1"
                 />
@@ -202,9 +211,11 @@ export const CookieBanner = () => {
                     Preferenčné súbory cookie
                   </Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Tieto súbory cookie umožňujú webovej stránke pamätať si vaše voľby 
-                    (napríklad jazyk alebo región) a poskytovať vylepšené, personalizované funkcie. 
-                    Môžu si tiež pamätať zmeny, ktoré ste urobili vo veľkosti textu, písmach a iných prispôsobiteľných častiach.
+                    Tieto súbory cookie umožňujú webovej stránke pamätať si vaše
+                    voľby (napríklad jazyk alebo región) a poskytovať vylepšené,
+                    personalizované funkcie. Môžu si tiež pamätať zmeny, ktoré
+                    ste urobili vo veľkosti textu, písmach a iných
+                    prispôsobiteľných častiach.
                   </p>
                 </div>
               </div>
@@ -212,23 +223,21 @@ export const CookieBanner = () => {
 
             <div className="pt-4 border-t border-border">
               <p className="text-sm text-muted-foreground">
-                Pre viac informácií o tom, ako používame súbory cookie, si prečítajte naše{' '}
-                <a href="#" className="text-primary hover:underline font-medium">
-                  Podmienky používania
-                </a>{' '}
-                a{' '}
-                <a href="#" className="text-primary hover:underline font-medium">
+                Pre viac informácií o tom, ako používame súbory cookie, si
+                prečítajte naše{" "}
+                <a
+                  href="/privacy-policy"
+                  className="text-primary hover:underline font-medium"
+                >
                   Zásady ochrany osobných údajov
-                </a>.
+                </a>
+                .
               </p>
             </div>
           </div>
 
           <DialogFooter className="flex-col sm:flex-row gap-2">
-            <Button
-              variant="outline"
-              onClick={() => setShowSettings(false)}
-            >
+            <Button variant="outline" onClick={() => setShowSettings(false)}>
               Zrušiť
             </Button>
             <Button

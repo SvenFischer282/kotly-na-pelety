@@ -171,17 +171,12 @@ const Footer = () => {
             </div>
             <div className="flex space-x-6 text-sm">
               <a
-                href="#"
+                href="/privacy-policy"
                 className="text-primary-foreground/60 hover:text-accent transition-colors"
               >
                 Ochrana údajov
               </a>
-              <a
-                href="#"
-                className="text-primary-foreground/60 hover:text-accent transition-colors"
-              >
-                Obchodné podmienky
-              </a>
+
               <a
                 href="#"
                 className="text-primary-foreground/60 hover:text-accent transition-colors"
