@@ -65,6 +65,12 @@ const Header = () => {
             >
               <Link to="/#contact">Kontakt</Link>
             </Button>
+            <Button
+              asChild
+              className="ml-4  text-[20px] bg-accent-light ml-auto hover:opacity-90 transition-opacity hover:bg-accent-light/90 hover:text-white hover:scale-105  "
+            >
+              <Link to="tel:+421903468472">+421 903 468 472</Link>
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -85,12 +91,13 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="lg:hidden pb-6 animate-fade-in">
             <div className="flex flex-col space-y-4 pt-3 border-t">
-                          <Link
-                            to="/products"
-                            className="text-sm font-medium text-muted  hover:text-white/80"
-                          >
-                            Produkty
-                          </Link>              <a
+              <Link
+                to="/products"
+                className="text-sm font-medium text-muted  hover:text-white/80"
+              >
+                Produkty
+              </Link>{" "}
+              <a
                 href="/#benefits"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-sm font-medium text-muted transition-colors hover:text-white/80"

@@ -11,6 +11,7 @@ import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
 import OchranaUdajov from "./pages/OchranaUdajov";
+import FloatingCornerBanner from "./components/FloatingCornerBanner";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <CookieBanner />
+
       <BrowserRouter>
         <ScrollToTop />
         <Routes>

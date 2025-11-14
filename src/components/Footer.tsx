@@ -118,10 +118,10 @@ const Footer = () => {
                 <Phone className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" />
                 <div>
                   <a
-                    href="tel:+421900000000"
+                    href="tel:+421903468472"
                     className="hover:text-accent transition-colors block"
                   >
-                    +421 900 000 000
+                    +421 903 468 472
                   </a>
                   <span className="text-sm text-primary-foreground/60">
                     Po-Pia 8:00-17:00

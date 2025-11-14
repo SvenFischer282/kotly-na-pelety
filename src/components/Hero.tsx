@@ -53,6 +53,15 @@ const Hero = () => {
                   Kontakt
                 </Button>
               </a>
+              <a href="tel:+421903468472">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 text-base px-10 h-12"
+                >
+                  +421 903 468 472
+                </Button>
+              </a>
             </div>
           </div>
         </div>
