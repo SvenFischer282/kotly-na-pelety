@@ -20,8 +20,9 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <CookieBanner />
       <FloatingCornerBanner />
+      <CookieBanner />
+
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
