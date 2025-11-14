@@ -468,8 +468,18 @@ const ProductDetail = () => {
               <div className="flex flex-col md:flex-row items-center gap-6">
                 <div className="flex-shrink-0">
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                    <svg
+                      className="w-8 h-8 text-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -478,7 +488,8 @@ const ProductDetail = () => {
                     WiFi Modul na Ovládanie
                   </h3>
                   <p className="text-textSecondary leading-relaxed">
-                    Ku každému kotlu je taktiež možné dokúpiť WiFi modul na ovládanie pomocou vášho smartphonu a bude k tomu aj návod vo forme PDF na stiahnutie.
+                    Ku každému kotlu si môžete dokúpiť aj WiFi modul, ktorý
+                    umožňuje pohodlné ovládanie cez váš smartfón.
                   </p>
                 </div>
                 <div className="flex-shrink-0">
@@ -488,11 +499,24 @@ const ProductDetail = () => {
                     className="border-2"
                     onClick={() => {
                       // Add your PDF download link here
-                      window.open('/path-to-wifi-module-guide.pdf', '_blank');
+                      window.open(
+                        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/Wifi%20modul.pdf",
+                        "_blank"
+                      );
                     }}
                   >
-                    <svg className="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    <svg
+                      className="mr-2 w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
                     </svg>
                     Stiahnuť Návod (PDF)
                   </Button>
@@ -518,7 +542,7 @@ const ProductDetail = () => {
                     className="bg-accent hover:bg-accent-light text-accent-foreground btn-premium px-8"
                   >
                     <Phone className="mr-2 w-5 h-5" />
-                    +421 900 000 000
+                    +421 903 468 472
                   </Button>
                 </a>
                 <a href="mailto:info@kotlynapelety.sk">
