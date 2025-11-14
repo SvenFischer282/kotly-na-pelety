@@ -1,9 +1,11 @@
+import Header from "@/components/Header";
 import { Separator } from "@/components/ui/separator";
 
 const OchranaUdajov = () => {
   return (
     <div className="bg-background text-foreground">
-      <div className="container mx-auto px-4 md:px-6 py-12">
+      <Header />
+      <div className="container mx-auto px-4 md:px-6 my-16 py-12">
         <div className="prose prose-lg max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">
             Zásady ochrany osobných údajov
@@ -16,8 +18,8 @@ const OchranaUdajov = () => {
           <Separator className="my-8" />
           <p>
             Ochrana vašich osobných údajov je pre nás dôležitá. Zaväzujeme sa
-            chrániť vaše súkromie v súlade s platnými právnymi predpismi, najmä s
-            Nariadením Európskeho parlamentu a Rady (EÚ) 2016/679 o ochrane
+            chrániť vaše súkromie v súlade s platnými právnymi predpismi, najmä
+            s Nariadením Európskeho parlamentu a Rady (EÚ) 2016/679 o ochrane
             fyzických osôb pri spracúvaní osobných údajov a o voľnom pohybe
             takýchto údajov (ďalej len „GDPR“) a zákonom č. 18/2018 Z. z. o
             ochrane osobných údajov.
@@ -65,9 +67,7 @@ const OchranaUdajov = () => {
             prípadoch:
           </p>
 
-          <h3 className="text-xl font-bold mt-6 mb-2">
-            A. Kontaktný formulár
-          </h3>
+          <h3 className="text-xl font-bold mt-6 mb-2">A. Kontaktný formulár</h3>
           <p>
             Ak sa rozhodnete kontaktovať nás prostredníctvom kontaktného
             formulára na našej webstránke, spracúvame údaje, ktoré nám
@@ -83,9 +83,9 @@ const OchranaUdajov = () => {
               dopytu alebo otázky a poskytnutie odpovede.
             </li>
             <li>
-              <strong>Právny základ:</strong> Naše oprávnené záujmy (čl. 6 ods. 1
-              písm. f) GDPR), ktoré spočívajú v potrebe efektívne komunikovať s
-              návštevníkmi webstránky a potenciálnymi klientmi, ktorí nás sami
+              <strong>Právny základ:</strong> Naše oprávnené záujmy (čl. 6 ods.
+              1 písm. f) GDPR), ktoré spočívajú v potrebe efektívne komunikovať
+              s návštevníkmi webstránky a potenciálnymi klientmi, ktorí nás sami
               oslovia.
             </li>
             <li>
@@ -183,8 +183,8 @@ const OchranaUdajov = () => {
             </li>
             <li>
               <strong>Právo na obmedzenie spracúvania:</strong> Máte právo
-              požiadať o obmedzenie spracúvania, ak napríklad namietate správnosť
-              údajov.
+              požiadať o obmedzenie spracúvania, ak napríklad namietate
+              správnosť údajov.
             </li>
             <li>
               <strong>Právo na prenosnosť údajov:</strong> Máte právo získať
@@ -234,8 +234,8 @@ const OchranaUdajov = () => {
           </h2>
           <p>
             Tieto Zásady môžeme príležitostne aktualizovať, aby odrážali zmeny v
-            našich postupoch alebo v legislatíve. O všetkých podstatných
-            zmenách vás budeme informovať na našej webstránke.
+            našich postupoch alebo v legislatíve. O všetkých podstatných zmenách
+            vás budeme informovať na našej webstránke.
           </p>
           <p className="mt-4 text-sm text-muted-foreground">
             Tieto Zásady sú platné a účinné od [DOPLŇTE DÁTUM, napr. 11. 11.
