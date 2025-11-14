@@ -121,7 +121,7 @@ const Products = () => {
         </div>
 
         {/* CTA to All Products */}
-        <div className="text-center animate-fade-in">
+        <div className="text-center animate-fade-in space-y-4">
           <Link to="/products">
             <Button
               size="lg"
@@ -131,6 +131,27 @@ const Products = () => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
+          
+          <div className="pt-4">
+            <p className="text-muted-foreground mb-3">
+              Nenašli ste produkt v ponuke?
+            </p>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="px-8"
+            >
+              <a
+                href="/katalog-produktov-na-objednavku.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Pozrite si Katalóg Produktov na Objednávku
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
