@@ -500,7 +500,7 @@ const ProductDetail = () => {
                     onClick={() => {
                       // Add your PDF download link here
                       window.open(
-                        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/Wifi%20modul.pdf",
+                        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/manual_na_pouzivanie_wifi_modulu.pdf",
                         "_blank"
                       );
                     }}
