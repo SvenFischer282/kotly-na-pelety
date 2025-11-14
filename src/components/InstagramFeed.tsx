@@ -1,39 +1,42 @@
-import { Instagram } from 'lucide-react';
-import { Button } from './ui/button';
+import { Instagram } from "lucide-react";
+import { Button } from "./ui/button";
 
 const InstagramFeed = () => {
   // You can update these with actual Instagram post URLs from your account
   const instagramPosts = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1487700160041-babef9c3cb55?w=400&h=400&fit=crop',
-      link: 'https://www.instagram.com/kotlynapelety.sk',
+      image:
+        "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?w=400&h=400&fit=crop",
+      link: "https://www.instagram.com/kotlynapelety.sk",
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop',
-      link: 'https://www.instagram.com/kotlynapelety.sk',
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop",
+      link: "https://www.instagram.com/kotlynapelety.sk",
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee?w=400&h=400&fit=crop',
-      link: 'https://www.instagram.com/kotlynapelety.sk',
-    },
-    {
-      id: 4,
-      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=400&fit=crop',
-      link: 'https://www.instagram.com/kotlynapelety.sk',
-    },
-    {
-      id: 5,
-      image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&h=400&fit=crop',
-      link: 'https://www.instagram.com/kotlynapelety.sk',
-    },
-    {
-      id: 6,
-      image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&h=400&fit=crop',
-      link: 'https://www.instagram.com/kotlynapelety.sk',
-    },
+      image:
+        "https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee?w=400&h=400&fit=crop",
+      link: "https://www.instagram.com/kotlynapelety.sk",
+    }, //,
+    // {
+    //   id: 4,
+    //   image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=400&fit=crop',
+    //   link: 'https://www.instagram.com/kotlynapelety.sk',
+    // },
+    // {
+    //   id: 5,
+    //   image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&h=400&fit=crop',
+    //   link: 'https://www.instagram.com/kotlynapelety.sk',
+    // },
+    // {
+    //   id: 6,
+    //   image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&h=400&fit=crop',
+    //   link: 'https://www.instagram.com/kotlynapelety.sk',
+    // },
   ];
 
   return (
@@ -47,11 +50,7 @@ const InstagramFeed = () => {
           <p className="text-xl text-muted-foreground mb-6">
             Pozrite si naše najnovšie inštalácie, tipy a novinky
           </p>
-          <Button
-            asChild
-            size="lg"
-            className="gap-2"
-          >
+          <Button asChild size="lg" className="gap-2">
             <a
               href="https://www.instagram.com/kotlynapelety.sk"
               target="_blank"
@@ -71,7 +70,7 @@ const InstagramFeed = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
-              style={{ aspectRatio: '9/16' }}
+              style={{ aspectRatio: "9/16" }}
             >
               <img
                 src={post.image}
