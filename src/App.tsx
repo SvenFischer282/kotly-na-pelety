@@ -21,7 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <CookieBanner />
-
+      <FloatingCornerBanner />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
