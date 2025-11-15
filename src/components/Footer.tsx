@@ -1,6 +1,8 @@
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
 
 const Footer = () => {
+  const { setShowBanner } = useCookieConsent();
   return (
     <footer className=" bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8 py-16">
@@ -164,12 +166,12 @@ const Footer = () => {
                 Ochrana údajov
               </a>
 
-              <a
-                href="#"
+              <button
+                onClick={() => setShowBanner(true)}
                 className="text-primary-foreground/60 hover:text-accent transition-colors"
               >
                 Cookies
-              </a>
+              </button>
             </div>
           </div>
         </div>
