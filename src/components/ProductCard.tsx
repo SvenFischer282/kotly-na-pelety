@@ -46,9 +46,11 @@ const ProductCard = ({
 
       <CardContent className="p-6 space-y-4 flex-1 flex flex-col">
         <div className="flex-1">
-          <CardTitle className="text-2xl font-display mb-2 text-textPrimary line-clamp-2">
-            {name}
-          </CardTitle>
+          <Link to={`/product/${product_id}`}>
+            <CardTitle className="text-2xl font-display mb-2 text-textPrimary line-clamp-2">
+              {name}
+            </CardTitle>
+          </Link>
           <CardDescription className="text-base text-textSecondary line-clamp-3">
             {description || "Popis produktu nie je k dispozícii."}
           </CardDescription>

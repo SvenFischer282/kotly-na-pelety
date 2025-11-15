@@ -45,13 +45,13 @@ const Hero = () => {
                 </Button>
               </Link>
               <a href="#contact">
-                <Button
+                {/* <Button
                   size="lg"
                   variant="outline"
                   className="border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 text-base px-10 h-12"
                 >
                   Kontakt
-                </Button>
+                </Button> */}
               </a>
               <a href="tel:+421903468472">
                 <Button

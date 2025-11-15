@@ -133,7 +133,7 @@ const Products = () => {
           </Link>
 
           <div className="pt-4">
-            <p className="text-muted-foreground mb-3">
+            <p className="text-textPrimary font-medium mb-3">
               Nenašli ste produkt v ponuke?
             </p>
             <Button asChild variant="outline" size="lg" className=" px-5">
