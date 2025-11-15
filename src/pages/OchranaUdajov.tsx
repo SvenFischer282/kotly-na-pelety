@@ -38,8 +38,8 @@ const OchranaUdajov = () => {
             <p>053 21 Markušovce</p>
             <p>IČO: 50314262</p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Spoločnosť zapísaná v Obchodnom registri [DOPLNIŤ SÚD A ČÍSLO
-              VLOŽKY]
+              Spoločnosť zapísaná v Obchodnom registri Mestského súdu Košice,
+              oddiel: Sro, vložka č. 39196/V
             </p>
           </div>
           <p>
@@ -48,7 +48,7 @@ const OchranaUdajov = () => {
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong>E-mailom:</strong> info@kotlynapelety.sk
+              <strong>E-mailom:</strong> kotlynapelety@gmail.com
             </li>
             <li>
               <strong>Telefonicky:</strong> +421 905 123 456
@@ -123,8 +123,8 @@ const OchranaUdajov = () => {
             </li>
             <li>
               <strong>Doba uchovávania:</strong> Doba uchovávania údajov v
-              Google Analytics je nastavená na 14 mesiacov. Svoj súhlas môžete 
-              kedykoľvek odvolať zmenou nastavení cookies vo vašom prehliadači 
+              Google Analytics je nastavená na 14 mesiacov. Svoj súhlas môžete
+              kedykoľvek odvolať zmenou nastavení cookies vo vašom prehliadači
               alebo v nastaveniach cookie lišty na našej webstránke.
             </li>
           </ul>
@@ -136,13 +136,14 @@ const OchranaUdajov = () => {
             Vaše osobné údaje sú pre nás dôverné a neposkytujeme ich tretím
             stranám na komerčné účely.
           </p>
-          
+
           <h3 className="text-xl font-bold mt-6 mb-2">Kontaktný formulár</h3>
           <p>
-            Údaje z kontaktného formulára spracúvame iba interně a nie sú poskytované
-            žiadnym tretím stranám, okrem prípadov, keď to vyžaduje zákon.
+            Údaje z kontaktného formulára spracúvame iba interně a nie sú
+            poskytované žiadnym tretím stranám, okrem prípadov, keď to vyžaduje
+            zákon.
           </p>
-          
+
           <h3 className="text-xl font-bold mt-6 mb-2">Google Analytics</h3>
           <p>V prípade analytických cookies sú príjemcom údajov:</p>
           <p>
@@ -243,8 +244,7 @@ const OchranaUdajov = () => {
             vás budeme informovať na našej webstránke.
           </p>
           <p className="mt-4 text-sm text-muted-foreground">
-            Tieto Zásady sú platné a účinné od [DOPLŇTE DÁTUM, napr. 11. 11.
-            2025].
+            Tieto Zásady sú platné a účinné od 15.11.2025.
           </p>
         </div>
       </div>
