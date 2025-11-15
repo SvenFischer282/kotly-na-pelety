@@ -33,6 +33,7 @@ export default function BoilerConfigurator() {
   const [heatingArea, setHeatingArea] = useState(100);
   const [waterHeating, setWaterHeating] = useState<string>("no");
   const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
+  const [noMatchFound, setNoMatchFound] = useState(false);
   const configuratorRef = useRef<HTMLDivElement>(null);
 
   const progress = (currentStep / STEPS.length) * 100;
@@ -55,9 +56,13 @@ export default function BoilerConfigurator() {
         return volumeMatch && waterMatch;
       });
 
-      setRecommendedProducts(
-        filtered.length > 0 ? filtered : products.slice(0, 2)
-      );
+      if (filtered.length > 0) {
+        setRecommendedProducts(filtered);
+        setNoMatchFound(false);
+      } else {
+        setRecommendedProducts([]);
+        setNoMatchFound(true);
+      }
     }
     setCurrentStep((prev) => Math.min(prev + 1, STEPS.length));
     configuratorRef.current?.scrollIntoView({
@@ -79,6 +84,7 @@ export default function BoilerConfigurator() {
     setHeatingArea(100);
     setWaterHeating("no");
     setRecommendedProducts([]);
+    setNoMatchFound(false);
     configuratorRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -280,7 +286,39 @@ export default function BoilerConfigurator() {
                   </ul>
                 </div>
 
-                {recommendedProducts.length > 0 ? (
+                {noMatchFound ? (
+                  <div className="space-y-6">
+                    <div className="text-center py-8">
+                      <div className="mb-4">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
+                          <span className="text-3xl">📋</span>
+                        </div>
+                      </div>
+                      <h3 className="font-semibold text-xl mb-3">
+                        Momentálne nemáme kotol presne na vaše požiadavky
+                      </h3>
+                      <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                        Neváhajte nás kontaktovať a radi vám pomôžeme nájsť
+                        ideálne riešenie. Môžete si tiež stiahnuť náš kompletný
+                        katalóg produktov.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <Button asChild size="lg" variant="default">
+                          <a
+                            href="/katalog-produktov.pdf"
+                            download
+                            className="gap-2"
+                          >
+                            📥 Stiahnuť katalóg produktov
+                          </a>
+                        </Button>
+                        <Button asChild size="lg" variant="outline">
+                          <Link to="/contact">Kontaktovať nás</Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ) : recommendedProducts.length > 0 ? (
                   <div className="space-y-4">
                     <h3 className="font-semibold text-lg">
                       Odporúčané produkty:
@@ -342,14 +380,7 @@ export default function BoilerConfigurator() {
                       ))}
                     </div>
                   </div>
-                ) : (
-                  <div className="text-center py-8">
-                    <p className="text-muted-foreground">
-                      Nenašli sa žiadne vhodné produkty. Kontaktujte nás pre
-                      viac informácií.
-                    </p>
-                  </div>
-                )}
+                ) : null}
               </div>
             )}
           </CardContent>
