@@ -11,7 +11,7 @@ const FloatingCornerBanner = () => {
     return (
       <Button
         onClick={() => setIsExpanded(true)}
-        className="fixed bottom-6 left-6 z-50 h-12 w-12 rounded-full p-0 bg-accent hover:bg-accent-light shadow-elegant"
+        className="fixed bottom-6 left-6 z-50 h-12 w-12 rounded-full p-0 bg-accent hover:bg-accent-light shadow-elegant animate-in slide-in-from-left duration-300"
         size="icon"
       >
         <ChevronRight className="w-5 h-5 text-white" />
@@ -20,7 +20,7 @@ const FloatingCornerBanner = () => {
   }
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 flex items-center gap-2">
+    <div className="fixed bottom-6 left-6 z-50 flex items-center gap-2 animate-in slide-in-from-left duration-500">
       <a
         href="https://briketyruf.sk"
         target="_blank"
