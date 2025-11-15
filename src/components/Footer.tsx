@@ -39,31 +39,17 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="/products"
                   className="text-primary-foreground/80 hover:text-accent transition-colors"
                 >
-                  Domáce Kotly
+                  Kotly
                 </a>
               </li>
+
               <li>
                 <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-accent transition-colors"
-                >
-                  Priemyselné Kotly
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-accent transition-colors"
-                >
-                  Príslušenstvo
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
+                  href="https://briketyruf.sk"
+                  target="_blank"
                   className="text-primary-foreground/80 hover:text-accent transition-colors"
                 >
                   Pelety
@@ -72,7 +58,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Information */}
+          {/* Information
           <div>
             <h4 className="font-display text-lg font-bold mb-4">Informácie</h4>
             <ul className="space-y-3">
@@ -109,7 +95,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact */}
           <div>
