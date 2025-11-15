@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   Card,
   CardContent,
@@ -33,6 +33,7 @@ export default function BoilerConfigurator() {
   const [heatingArea, setHeatingArea] = useState(100);
   const [waterHeating, setWaterHeating] = useState<string>("no");
   const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
+  const configuratorRef = useRef<HTMLDivElement>(null);
 
   const progress = (currentStep / STEPS.length) * 100;
 
@@ -59,10 +60,12 @@ export default function BoilerConfigurator() {
       );
     }
     setCurrentStep((prev) => Math.min(prev + 1, STEPS.length));
+    configuratorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleBack = () => {
     setCurrentStep((prev) => Math.max(prev - 1, 1));
+    configuratorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleReset = () => {
@@ -70,6 +73,7 @@ export default function BoilerConfigurator() {
     setHeatingArea(100);
     setWaterHeating("no");
     setRecommendedProducts([]);
+    configuratorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const currentAreaOption =
@@ -77,8 +81,8 @@ export default function BoilerConfigurator() {
     AREA_OPTIONS[AREA_OPTIONS.length - 1];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
-      <div className="container max-w-4xl mx-auto px-4">
+    <section ref={configuratorRef} className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background overflow-x-hidden">
+      <div className="container max-w-4xl mx-auto px-4 overflow-x-hidden">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl font-bold mb-4 text-primary">
             Konfigurátor Kotla
@@ -177,7 +181,7 @@ export default function BoilerConfigurator() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mt-6">
                   {AREA_OPTIONS.map((option) => (
                     <Button
                       key={option.value}
@@ -192,7 +196,7 @@ export default function BoilerConfigurator() {
                       onClick={() => setHeatingArea(option.value)}
                       className="h-auto py-4 flex flex-col gap-1"
                     >
-                      <span className="font-semibold">{option.label}</span>
+                      <span className="font-semibold text-sm sm:text-base">{option.label}</span>
                     </Button>
                   ))}
                 </div>
@@ -284,10 +288,10 @@ export default function BoilerConfigurator() {
                               <h4 className="font-bold text-xl mb-2">
                                 {product.name}
                               </h4>
-                              <p className="text-muted-foreground mb-4">
+                              <p className="text-muted-foreground mb-4 text-sm">
                                 {product.description}
                               </p>
-                              <div className="grid grid-cols-2 gap-3 text-sm mb-4">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm mb-4">
                                 <div>
                                   <span className="text-muted-foreground">
                                     Vykurovací objem:
@@ -305,12 +309,12 @@ export default function BoilerConfigurator() {
                                   </span>
                                 </div>
                               </div>
-                              <div className="flex items-center justify-between">
+                              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                                 <span className="text-2xl font-bold text-primary">
                                   {product.price_eur} €
                                 </span>
                                 <Link to={`/product/${product.product_id}`}>
-                                  <Button>
+                                  <Button className="w-full sm:w-auto">
                                     Zobraziť Detail
                                     <ArrowRight className="ml-2 w-4 h-4" />
                                   </Button>
