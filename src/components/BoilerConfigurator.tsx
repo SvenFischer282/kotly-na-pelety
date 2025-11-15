@@ -292,23 +292,24 @@ export default function BoilerConfigurator() {
                           className="overflow-hidden hover:shadow-lg transition-shadow"
                         >
                           <div className="flex flex-col md:flex-row">
-                            <div className="md:w-1/3 h-48 md:h-auto">
+                            <div className="w-full aspect-[4/3] md:w-1/3 md:h-auto md:aspect-auto">
                               <img
                                 src={product.image}
                                 alt={product.name}
                                 className="w-full h-full object-cover"
                               />
                             </div>
-                            <div className="flex-1 p-6">
-                              <h4 className="font-bold text-xl mb-2">
+
+                            <div className="flex-1 p-4 sm:p-6">
+                              <h4 className="font-bold text-xl md:text-xl mb-2">
                                 {product.name}
                               </h4>
-                              <p className="text-muted-foreground mb-4 text-sm">
+                              <p className="text-textSecondary mb-4 text-sm">
                                 {product.description}
                               </p>
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm mb-4">
                                 <div>
-                                  <span className="text-muted-foreground">
+                                  <span className="text-textPrimary">
                                     Vykurovací objem:
                                   </span>
                                   <span className="font-semibold ml-2">
@@ -316,7 +317,7 @@ export default function BoilerConfigurator() {
                                   </span>
                                 </div>
                                 <div>
-                                  <span className="text-muted-foreground">
+                                  <span className="text-textPrimary">
                                     Účinnosť:
                                   </span>
                                   <span className="font-semibold ml-2">
