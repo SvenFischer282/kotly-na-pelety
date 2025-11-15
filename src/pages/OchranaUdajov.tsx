@@ -48,11 +48,10 @@ const OchranaUdajov = () => {
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong>E-mailom:</strong> [DOPLŇTE VÁŠ KONTAKTNÝ E-MAIL, napr.
-              info@argosnv.sk]
+              <strong>E-mailom:</strong> info@kotlynapelety.sk
             </li>
             <li>
-              <strong>Telefonicky:</strong> [DOPLŇTE VAŠE KONTAKTNÉ ČÍSLO]
+              <strong>Telefonicky:</strong> +421 905 123 456
             </li>
             <li>
               <strong>Poštou:</strong> na vyššie uvedenú adresu sídla.
@@ -124,9 +123,9 @@ const OchranaUdajov = () => {
             </li>
             <li>
               <strong>Doba uchovávania:</strong> Doba uchovávania údajov v
-              Google Analytics je nastavená na [DOPLŇTE DOBU, napr. 14
-              mesiacov]. Svoj súhlas môžete kedykoľvek odvolať zmenou nastavení
-              cookies vo vašom prehliadači alebo v nastaveniach cookie lišty.
+              Google Analytics je nastavená na 14 mesiacov. Svoj súhlas môžete 
+              kedykoľvek odvolať zmenou nastavení cookies vo vašom prehliadači 
+              alebo v nastaveniach cookie lišty na našej webstránke.
             </li>
           </ul>
 
@@ -135,10 +134,16 @@ const OchranaUdajov = () => {
           </h2>
           <p>
             Vaše osobné údaje sú pre nás dôverné a neposkytujeme ich tretím
-            stranám na komerčné účely. Prístup k údajom môžu mať iba preverení
-            sprostredkovatelia (napr. poskytovateľ webhostingu) alebo iní
-            príjemcovia, ak to vyžaduje zákon.
+            stranám na komerčné účely.
           </p>
+          
+          <h3 className="text-xl font-bold mt-6 mb-2">Kontaktný formulár</h3>
+          <p>
+            Údaje z kontaktného formulára spracúvame iba interně a nie sú poskytované
+            žiadnym tretím stranám, okrem prípadov, keď to vyžaduje zákon.
+          </p>
+          
+          <h3 className="text-xl font-bold mt-6 mb-2">Google Analytics</h3>
           <p>V prípade analytických cookies sú príjemcom údajov:</p>
           <p>
             <strong>Google Ireland Limited</strong> (Gordon House, Barrow

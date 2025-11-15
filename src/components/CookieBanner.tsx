@@ -48,20 +48,13 @@ export const CookieBanner = () => {
                 Ceníme si vaše súkromie
               </h3>
               <p className="text-sm text-muted-foreground">
-                Používame súbory cookie na zlepšenie vášho zážitku z
-                prehliadania, poskytovanie personalizovaného obsahu, a analýzu
-                našej návštevnosti. Kliknutím na "Prijať všetko" súhlasíte s
+                Používame analytické súbory cookie (Google Analytics) na analýzu
+                návštevnosti a zlepšovanie funkčnosti našej webstránky. Vaše údaje sú anonymizované.
+                Kliknutím na "Prijať všetko" súhlasíte s
                 naším používaním súborov cookie. Môžete si prispôsobiť svoje
                 preferencie alebo si prečítať naše{" "}
                 <a
-                  href="#"
-                  className="text-primary hover:underline font-medium"
-                >
-                  Podmienky používania
-                </a>{" "}
-                a{" "}
-                <a
-                  href="#"
+                  href="/privacy-policy"
                   className="text-primary hover:underline font-medium"
                 >
                   Zásady ochrany osobných údajov
@@ -152,70 +145,14 @@ export const CookieBanner = () => {
                     htmlFor="analytics"
                     className="text-base font-semibold cursor-pointer"
                   >
-                    Analytické súbory cookie
+                    Analytické súbory cookie (Google Analytics)
                   </Label>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Tieto súbory cookie nám pomáhajú porozumieť, ako návštevníci
-                    interagujú s našou webovou stránkou anonymným zhromažďovaním
-                    a vykazovaním informácií. To nám pomáha zlepšovať funkčnosť
-                    a používateľskú skúsenosť webovej stránky.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Marketing Cookies */}
-            <div className="space-y-3 p-4 rounded-lg border border-border">
-              <div className="flex items-start gap-3">
-                <Checkbox
-                  id="marketing"
-                  checked={preferences.marketing}
-                  onCheckedChange={(checked) =>
-                    updatePreference("marketing", checked as boolean)
-                  }
-                  className="mt-1"
-                />
-                <div className="flex-1">
-                  <Label
-                    htmlFor="marketing"
-                    className="text-base font-semibold cursor-pointer"
-                  >
-                    Marketingové súbory cookie
-                  </Label>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Tieto súbory cookie sa používajú na sledovanie návštevníkov
-                    na webových stránkach s cieľom zobrazovať relevantné reklamy
-                    a marketingové kampane. Pomáhajú merať účinnosť našich
-                    reklamných snáh.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Preference Cookies */}
-            <div className="space-y-3 p-4 rounded-lg border border-border">
-              <div className="flex items-start gap-3">
-                <Checkbox
-                  id="preferences"
-                  checked={preferences.preferences}
-                  onCheckedChange={(checked) =>
-                    updatePreference("preferences", checked as boolean)
-                  }
-                  className="mt-1"
-                />
-                <div className="flex-1">
-                  <Label
-                    htmlFor="preferences"
-                    className="text-base font-semibold cursor-pointer"
-                  >
-                    Preferenčné súbory cookie
-                  </Label>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Tieto súbory cookie umožňujú webovej stránke pamätať si vaše
-                    voľby (napríklad jazyk alebo región) a poskytovať vylepšené,
-                    personalizované funkcie. Môžu si tiež pamätať zmeny, ktoré
-                    ste urobili vo veľkosti textu, písmach a iných
-                    prispôsobiteľných častiach.
+                    Používame Google Analytics na analýzu návštevnosti webstránky.
+                    Zhromažďujeme anonymizované údaje o vašom zariadení, prehliadači
+                    a tom, ako používate našu webstránku. IP adresy sú anonymizované.
+                    Tieto informácie nám pomáhajú zlepšovať funkčnosť a používateľskú
+                    skúsenosť webovej stránky.
                   </p>
                 </div>
               </div>
