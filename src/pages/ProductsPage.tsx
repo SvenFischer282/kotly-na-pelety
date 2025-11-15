@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState<any[]>([]);
@@ -230,10 +231,35 @@ const ProductsPage = () => {
           </Card>
 
           {/* Products Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
+          <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-8 animate-fade-in-up">
             {filteredProducts.length === 0 ? (
-              <div className="col-span-full text-center py-12 text-textSecondary">
-                Žiadne produkty nezodpovedajú zvoleným filtrom.
+              <div className="space-y-6 col-span-full max-w-3xl mx-auto w-full">
+                <div className="text-center py-8">
+                  <div className="mb-4"></div>
+                  <h3 className="font-semibold text-xl mb-3">
+                    Momentálne nemáme kotol, ktorý by zodpovedal zvoleným
+                    filtrom
+                  </h3>
+                  <p className="text-textPrimary mb-6 max-w-md mx-auto">
+                    Neváhajte nás kontaktovať a radi vám pomôžeme nájsť ideálne
+                    riešenie. Môžete si tiež stiahnuť náš kompletný katalóg
+                    produktov na objednávku.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <Button asChild size="lg" variant="default">
+                      <a
+                        href="https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/katalog_produktov.pdf"
+                        target="_blank"
+                        className="gap-2"
+                      >
+                        Otvoriť katalóg produktov
+                      </a>
+                    </Button>
+                    <Button asChild size="lg" variant="outline">
+                      <Link to="/#contact">Kontaktovať nás</Link>
+                    </Button>
+                  </div>
+                </div>
               </div>
             ) : (
               filteredProducts.map((product, index) => (
