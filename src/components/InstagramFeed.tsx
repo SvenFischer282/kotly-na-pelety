@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import { Button } from "./ui/button";
 
 const InstagramFeed = () => {
@@ -43,23 +43,32 @@ const InstagramFeed = () => {
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Instagram className="w-8 h-8 text-primary" />
-            <h2 className="text-4xl font-bold">Sledujte Nás na Instagrame</h2>
-          </div>
+          <h2 className="text-4xl font-bold mb-4">Sledujte nás na sociálnych sieťach</h2>
           <p className="text-xl text-muted-foreground mb-6">
             Pozrite si naše najnovšie inštalácie, tipy a novinky
           </p>
-          <Button asChild size="lg" className="gap-2">
-            <a
-              href="https://www.instagram.com/kotlynapelety.sk"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Instagram className="w-5 h-5" />
-              Sledovať @kotlynapelety.sk
-            </a>
-          </Button>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <Button asChild size="lg" className="gap-2">
+              <a
+                href="https://www.instagram.com/kotlynapelety.sk"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="w-5 h-5" />
+                Instagram
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="secondary" className="gap-2">
+              <a
+                href="https://www.facebook.com/kotlynapelety.sk"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook className="w-5 h-5" />
+                Facebook
+              </a>
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
