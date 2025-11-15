@@ -95,7 +95,7 @@ export default function BoilerConfigurator() {
         {/* Progress Bar */}
         <div className="mb-8 animate-fade-in">
           <Progress value={progress} className="h-2 mb-4" />
-          <div className="flex justify-between">
+          <div className="flex justify-between overflow-hidden px-1">
             {STEPS.map((step) => {
               const Icon = step.icon;
               const isActive = currentStep === step.id;
@@ -106,7 +106,7 @@ export default function BoilerConfigurator() {
                   key={step.id}
                   className={`flex flex-col items-center flex-1 transition-all ${
                     isActive
-                      ? "scale-110"
+                      ? "scale-105 md:scale-110"
                       : isCompleted
                       ? "opacity-100"
                       : "opacity-40"
