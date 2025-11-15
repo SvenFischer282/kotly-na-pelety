@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCookieConsent } from "@/hooks/useCookieConsent";
+import { useCookieConsentContext } from "@/contexts/CookieConsentContext";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
@@ -22,7 +22,7 @@ export const CookieBanner = () => {
     rejectAll,
     savePreferences,
     updatePreference,
-  } = useCookieConsent();
+  } = useCookieConsentContext();
 
   const [showSettings, setShowSettings] = useState(false);
 
