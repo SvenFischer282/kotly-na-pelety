@@ -136,7 +136,7 @@ const Products = () => {
             <p className="text-muted-foreground mb-3">
               Nenašli ste produkt v ponuke?
             </p>
-            <Button asChild variant="outline" size="lg" className="px-8">
+            <Button asChild variant="outline" size="lg" className=" px-5">
               <a
                 href="https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/katalog_produktov.pdf"
                 target="_blank"
