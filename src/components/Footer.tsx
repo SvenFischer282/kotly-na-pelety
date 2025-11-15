@@ -1,8 +1,8 @@
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
-import { useCookieConsent } from "@/hooks/useCookieConsent";
+import { useCookieConsentContext } from "@/contexts/CookieConsentContext";
 
 const Footer = () => {
-  const { setShowBanner } = useCookieConsent();
+  const { setShowBanner } = useCookieConsentContext();
   return (
     <footer className=" bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8 py-16">
