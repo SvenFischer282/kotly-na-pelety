@@ -297,23 +297,23 @@ export default function BoilerConfigurator() {
                       <h3 className="font-semibold text-xl mb-3">
                         Momentálne nemáme kotol presne na vaše požiadavky
                       </h3>
-                      <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+                      <p className="text-textPrimary mb-6 max-w-md mx-auto">
                         Neváhajte nás kontaktovať a radi vám pomôžeme nájsť
                         ideálne riešenie. Môžete si tiež stiahnuť náš kompletný
-                        katalóg produktov.
+                        katalóg produktov na objednávku.
                       </p>
                       <div className="flex flex-col sm:flex-row gap-3 justify-center">
                         <Button asChild size="lg" variant="default">
                           <a
-                            href="/katalog-produktov.pdf"
-                            download
+                            href="https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/katalog_produktov.pdf"
+                            target="_blank"
                             className="gap-2"
                           >
-                            📥 Stiahnuť katalóg produktov
+                            Otvoriť katalóg produktov
                           </a>
                         </Button>
                         <Button asChild size="lg" variant="outline">
-                          <Link to="/contact">Kontaktovať nás</Link>
+                          <Link to="/#contact">Kontaktovať nás</Link>
                         </Button>
                       </div>
                     </div>
