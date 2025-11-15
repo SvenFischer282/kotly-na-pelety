@@ -216,8 +216,8 @@ const ProductsPage = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">Všetky</SelectItem>
-                    <SelectItem value="Peletové kotly">
-                      Peletové kotly
+                    <SelectItem value="Kotly na pelety">
+                      Kotly na pelety
                     </SelectItem>
                     <SelectItem value="Krby na drevo">Krby na drevo</SelectItem>
                   </SelectContent>

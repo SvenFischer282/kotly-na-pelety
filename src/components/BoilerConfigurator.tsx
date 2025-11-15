@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -37,18 +43,20 @@ export default function BoilerConfigurator() {
       const needsWaterHeating = waterHeating === "yes";
 
       const filtered = products.filter((product) => {
-        const volumeMatch = product.heating_volume_m3 
-          ? product.heating_volume_m3 >= requiredVolume * 0.8 
+        const volumeMatch = product.heating_volume_m3
+          ? product.heating_volume_m3 >= requiredVolume * 0.8
           : false;
-        
-        const waterMatch = needsWaterHeating 
-          ? product.water_heating === true 
+
+        const waterMatch = needsWaterHeating
+          ? product.water_heating === true
           : true;
 
         return volumeMatch && waterMatch;
       });
 
-      setRecommendedProducts(filtered.length > 0 ? filtered : products.slice(0, 2));
+      setRecommendedProducts(
+        filtered.length > 0 ? filtered : products.slice(0, 2)
+      );
     }
     setCurrentStep((prev) => Math.min(prev + 1, STEPS.length));
   };
@@ -64,16 +72,18 @@ export default function BoilerConfigurator() {
     setRecommendedProducts([]);
   };
 
-  const currentAreaOption = AREA_OPTIONS.find(opt => heatingArea <= opt.value) || AREA_OPTIONS[AREA_OPTIONS.length - 1];
+  const currentAreaOption =
+    AREA_OPTIONS.find((opt) => heatingArea <= opt.value) ||
+    AREA_OPTIONS[AREA_OPTIONS.length - 1];
 
   return (
     <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
       <div className="container max-w-4xl mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 text-primary">
             Konfigurátor Kotla
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-textPrimary text-lg">
             Nájdite si ideálny kotol v 3 jednoduchých krokoch
           </p>
         </div>
@@ -86,12 +96,16 @@ export default function BoilerConfigurator() {
               const Icon = step.icon;
               const isActive = currentStep === step.id;
               const isCompleted = currentStep > step.id;
-              
+
               return (
                 <div
                   key={step.id}
                   className={`flex flex-col items-center flex-1 transition-all ${
-                    isActive ? "scale-110" : isCompleted ? "opacity-100" : "opacity-40"
+                    isActive
+                      ? "scale-110"
+                      : isCompleted
+                      ? "opacity-100"
+                      : "opacity-40"
                   }`}
                 >
                   <div
@@ -103,9 +117,17 @@ export default function BoilerConfigurator() {
                         : "bg-muted text-muted-foreground"
                     }`}
                   >
-                    {isCompleted ? <Check className="w-5 h-5" /> : <Icon className="w-5 h-5" />}
+                    {isCompleted ? (
+                      <Check className="w-5 h-5" />
+                    ) : (
+                      <Icon className="w-5 h-5" />
+                    )}
                   </div>
-                  <span className={`text-xs md:text-sm text-center ${isActive ? "font-semibold" : ""}`}>
+                  <span
+                    className={`text-xs md:text-sm text-center ${
+                      isActive ? "font-semibold" : ""
+                    }`}
+                  >
                     {step.title}
                   </span>
                 </div>
@@ -123,8 +145,10 @@ export default function BoilerConfigurator() {
               {currentStep === 3 && "Odporúčané kotly"}
             </CardTitle>
             <CardDescription>
-              {currentStep === 1 && "Vyberte približnú plochu, ktorú chcete vykurovať"}
-              {currentStep === 2 && "Či budete kotol používať aj na prípravu teplej vody"}
+              {currentStep === 1 &&
+                "Vyberte približnú plochu, ktorú chcete vykurovať"}
+              {currentStep === 2 &&
+                "Či budete kotol používať aj na prípravu teplej vody"}
               {currentStep === 3 && "Na základe vašich požiadaviek odporúčame"}
             </CardDescription>
           </CardHeader>
@@ -135,7 +159,9 @@ export default function BoilerConfigurator() {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <Label className="text-lg">Plocha: {heatingArea} m²</Label>
-                    <span className="text-sm text-muted-foreground">{currentAreaOption.label}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {currentAreaOption.label}
+                    </span>
                   </div>
                   <Slider
                     value={[heatingArea]}
@@ -155,7 +181,14 @@ export default function BoilerConfigurator() {
                   {AREA_OPTIONS.map((option) => (
                     <Button
                       key={option.value}
-                      variant={heatingArea <= option.value && heatingArea > (AREA_OPTIONS[AREA_OPTIONS.indexOf(option) - 1]?.value || 0) ? "default" : "outline"}
+                      variant={
+                        heatingArea <= option.value &&
+                        heatingArea >
+                          (AREA_OPTIONS[AREA_OPTIONS.indexOf(option) - 1]
+                            ?.value || 0)
+                          ? "default"
+                          : "outline"
+                      }
                       onClick={() => setHeatingArea(option.value)}
                       className="h-auto py-4 flex flex-col gap-1"
                     >
@@ -169,16 +202,24 @@ export default function BoilerConfigurator() {
             {/* Step 2: Water Heating */}
             {currentStep === 2 && (
               <div className="space-y-6">
-                <RadioGroup value={waterHeating} onValueChange={setWaterHeating} className="space-y-4">
+                <RadioGroup
+                  value={waterHeating}
+                  onValueChange={setWaterHeating}
+                  className="space-y-4"
+                >
                   <div
                     className={`flex items-center space-x-3 p-6 rounded-lg border-2 transition-all cursor-pointer ${
-                      waterHeating === "yes" ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
+                      waterHeating === "yes"
+                        ? "border-primary bg-primary/5"
+                        : "border-border hover:border-primary/50"
                     }`}
                     onClick={() => setWaterHeating("yes")}
                   >
                     <RadioGroupItem value="yes" id="yes" />
                     <Label htmlFor="yes" className="flex-1 cursor-pointer">
-                      <div className="font-semibold text-lg">Áno, potrebujem ohrev vody</div>
+                      <div className="font-semibold text-lg">
+                        Áno, potrebujem ohrev vody
+                      </div>
                       <div className="text-sm text-muted-foreground mt-1">
                         Kotol bude pripravovať aj teplú úžitkovú vodu
                       </div>
@@ -187,13 +228,17 @@ export default function BoilerConfigurator() {
 
                   <div
                     className={`flex items-center space-x-3 p-6 rounded-lg border-2 transition-all cursor-pointer ${
-                      waterHeating === "no" ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
+                      waterHeating === "no"
+                        ? "border-primary bg-primary/5"
+                        : "border-border hover:border-primary/50"
                     }`}
                     onClick={() => setWaterHeating("no")}
                   >
                     <RadioGroupItem value="no" id="no" />
                     <Label htmlFor="no" className="flex-1 cursor-pointer">
-                      <div className="font-semibold text-lg">Nie, len vykurovanie</div>
+                      <div className="font-semibold text-lg">
+                        Nie, len vykurovanie
+                      </div>
                       <div className="text-sm text-muted-foreground mt-1">
                         Kotol bude slúžiť len na vykurovanie priestorov
                       </div>
@@ -210,16 +255,23 @@ export default function BoilerConfigurator() {
                   <h3 className="font-semibold mb-2">Vaše požiadavky:</h3>
                   <ul className="space-y-1 text-sm text-muted-foreground">
                     <li>• Plocha na vykurovanie: {heatingArea} m²</li>
-                    <li>• Ohrev vody: {waterHeating === "yes" ? "Áno" : "Nie"}</li>
+                    <li>
+                      • Ohrev vody: {waterHeating === "yes" ? "Áno" : "Nie"}
+                    </li>
                   </ul>
                 </div>
 
                 {recommendedProducts.length > 0 ? (
                   <div className="space-y-4">
-                    <h3 className="font-semibold text-lg">Odporúčané produkty:</h3>
+                    <h3 className="font-semibold text-lg">
+                      Odporúčané produkty:
+                    </h3>
                     <div className="grid gap-4">
                       {recommendedProducts.map((product) => (
-                        <Card key={product.product_id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                        <Card
+                          key={product.product_id}
+                          className="overflow-hidden hover:shadow-lg transition-shadow"
+                        >
                           <div className="flex flex-col md:flex-row">
                             <div className="md:w-1/3 h-48 md:h-auto">
                               <img
@@ -229,20 +281,34 @@ export default function BoilerConfigurator() {
                               />
                             </div>
                             <div className="flex-1 p-6">
-                              <h4 className="font-bold text-xl mb-2">{product.name}</h4>
-                              <p className="text-muted-foreground mb-4">{product.description}</p>
+                              <h4 className="font-bold text-xl mb-2">
+                                {product.name}
+                              </h4>
+                              <p className="text-muted-foreground mb-4">
+                                {product.description}
+                              </p>
                               <div className="grid grid-cols-2 gap-3 text-sm mb-4">
                                 <div>
-                                  <span className="text-muted-foreground">Vykurovací objem:</span>
-                                  <span className="font-semibold ml-2">{product.heating_volume_m3} m³</span>
+                                  <span className="text-muted-foreground">
+                                    Vykurovací objem:
+                                  </span>
+                                  <span className="font-semibold ml-2">
+                                    {product.heating_volume_m3} m³
+                                  </span>
                                 </div>
                                 <div>
-                                  <span className="text-muted-foreground">Účinnosť:</span>
-                                  <span className="font-semibold ml-2">{product.efficiency_max_percent}%</span>
+                                  <span className="text-muted-foreground">
+                                    Účinnosť:
+                                  </span>
+                                  <span className="font-semibold ml-2">
+                                    {product.efficiency_max_percent}%
+                                  </span>
                                 </div>
                               </div>
                               <div className="flex items-center justify-between">
-                                <span className="text-2xl font-bold text-primary">{product.price_eur} €</span>
+                                <span className="text-2xl font-bold text-primary">
+                                  {product.price_eur} €
+                                </span>
                                 <Link to={`/product/${product.product_id}`}>
                                   <Button>
                                     Zobraziť Detail
@@ -258,7 +324,10 @@ export default function BoilerConfigurator() {
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <p className="text-muted-foreground">Nenašli sa žiadne vhodné produkty. Kontaktujte nás pre viac informácií.</p>
+                    <p className="text-muted-foreground">
+                      Nenašli sa žiadne vhodné produkty. Kontaktujte nás pre
+                      viac informácií.
+                    </p>
                   </div>
                 )}
               </div>

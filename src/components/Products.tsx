@@ -131,19 +131,14 @@ const Products = () => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
-          
+
           <div className="pt-4">
             <p className="text-muted-foreground mb-3">
               Nenašli ste produkt v ponuke?
             </p>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="px-8"
-            >
+            <Button asChild variant="outline" size="lg" className="px-8">
               <a
-                href="/katalog-produktov-na-objednavku.pdf"
+                href="https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/katalog_produktov.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
