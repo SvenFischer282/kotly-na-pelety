@@ -60,12 +60,18 @@ export default function BoilerConfigurator() {
       );
     }
     setCurrentStep((prev) => Math.min(prev + 1, STEPS.length));
-    configuratorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    configuratorRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   const handleBack = () => {
     setCurrentStep((prev) => Math.max(prev - 1, 1));
-    configuratorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    configuratorRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   const handleReset = () => {
@@ -73,7 +79,10 @@ export default function BoilerConfigurator() {
     setHeatingArea(100);
     setWaterHeating("no");
     setRecommendedProducts([]);
-    configuratorRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    configuratorRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   const currentAreaOption =
@@ -81,7 +90,11 @@ export default function BoilerConfigurator() {
     AREA_OPTIONS[AREA_OPTIONS.length - 1];
 
   return (
-    <section ref={configuratorRef} className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background overflow-x-hidden">
+    <section
+      ref={configuratorRef}
+      className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background overflow-x-hidden"
+      id="configurator"
+    >
       <div className="container max-w-4xl mx-auto px-4 overflow-x-hidden">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl font-bold mb-4 text-primary">
@@ -95,7 +108,7 @@ export default function BoilerConfigurator() {
         {/* Progress Bar */}
         <div className="mb-8 animate-fade-in">
           <Progress value={progress} className="h-2 mb-4" />
-          <div className="flex justify-between overflow-hidden px-1">
+          <div className="flex justify-between  px-1">
             {STEPS.map((step) => {
               const Icon = step.icon;
               const isActive = currentStep === step.id;
@@ -106,7 +119,7 @@ export default function BoilerConfigurator() {
                   key={step.id}
                   className={`flex flex-col items-center flex-1 transition-all ${
                     isActive
-                      ? "scale-105 md:scale-110"
+                      ? "scale-105  md:scale-110"
                       : isCompleted
                       ? "opacity-100"
                       : "opacity-40"
@@ -160,7 +173,7 @@ export default function BoilerConfigurator() {
             {/* Step 1: Heating Area */}
             {currentStep === 1 && (
               <div className="space-y-8">
-                <div className="space-y-4">
+                <div className="space-y-">
                   <div className="flex justify-between items-center">
                     <Label className="text-lg">Plocha: {heatingArea} m²</Label>
                     <span className="text-sm text-muted-foreground">
@@ -196,7 +209,9 @@ export default function BoilerConfigurator() {
                       onClick={() => setHeatingArea(option.value)}
                       className="h-auto py-4 flex flex-col gap-1"
                     >
-                      <span className="font-semibold text-sm sm:text-base">{option.label}</span>
+                      <span className="font-semibold text-sm sm:text-base">
+                        {option.label}
+                      </span>
                     </Button>
                   ))}
                 </div>

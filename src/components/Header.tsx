@@ -53,10 +53,10 @@ const Header = () => {
               Prečo Pelety?
             </a>
             <a
-              href="/#about"
+              href="/#configurator"
               className="text-sm font-medium  text-muted transition-colors hover:text-white/80"
             >
-              O Nás
+              Konfigurátor
             </a>
 
             <Button
@@ -105,11 +105,11 @@ const Header = () => {
                 Prečo Pelety?
               </a>
               <a
-                href="/#about"
+                href="/#configurator"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-sm font-medium text-muted transition-colors hover:text-white/80"
               >
-                O Nás
+                Konfigurátor
               </a>
               <Button
                 asChild
