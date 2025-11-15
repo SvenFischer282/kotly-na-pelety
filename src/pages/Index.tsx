@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Products from '@/components/Products';
+import BoilerConfigurator from '@/components/BoilerConfigurator';
 import Benefits from '@/components/Benefits';
 import FAQ from '@/components/FAQ';
 import InstagramFeed from '@/components/InstagramFeed';
@@ -14,6 +15,7 @@ const Index = () => {
       <main>
         <Hero />
         <Products />
+        <BoilerConfigurator />
         <Benefits />
         <FAQ />
         <InstagramFeed />
