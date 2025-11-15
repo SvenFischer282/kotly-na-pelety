@@ -117,7 +117,7 @@ const OchranaUdajov = () => {
               následné zlepšovanie obsahu a funkčnosti našej webstránky.
             </li>
             <li>
-              <strong>Právny základ:</strong> Váš súhlas (čl. 6 ods. 1 písm. a)
+              <strong>Právny základ:</strong> Váš súhlas (čl. 6 ods. 1 písm. a
               GDPR), ktorý nám udeľujete prostredníctvom bannera (cookie lišty)
               pri prvej návšteve webstránky.
             </li>
