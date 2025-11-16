@@ -7,36 +7,21 @@ const InstagramFeed = () => {
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1487700160041-babef9c3cb55?w=400&h=400&fit=crop",
-      link: "https://www.instagram.com/kotlynapelety.sk",
+        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/images/ig_post_1.png",
+      link: "https://www.instagram.com/p/DQJZ-KriJIT",
     },
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop",
-      link: "https://www.instagram.com/kotlynapelety.sk",
+        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/images/ig_post_1.png",
+      link: "https://www.instagram.com/p/DQJZ-KriJIT",
     },
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee?w=400&h=400&fit=crop",
-      link: "https://www.instagram.com/kotlynapelety.sk",
-    }, //,
-    // {
-    //   id: 4,
-    //   image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=400&fit=crop',
-    //   link: 'https://www.instagram.com/kotlynapelety.sk',
-    // },
-    // {
-    //   id: 5,
-    //   image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&h=400&fit=crop',
-    //   link: 'https://www.instagram.com/kotlynapelety.sk',
-    // },
-    // {
-    //   id: 6,
-    //   image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&h=400&fit=crop',
-    //   link: 'https://www.instagram.com/kotlynapelety.sk',
-    // },
+        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/images/ig_post_1.png",
+      link: "https://www.instagram.com/p/DQJZ-KriJIT",
+    },
   ];
 
   return (
