@@ -217,23 +217,22 @@ const OchranaUdajov = () => {
             Ak sa domnievate, že spracúvanie vašich osobných údajov je v rozpore
             s GDPR, máte právo podať sťažnosť dozornému orgánu, ktorým je:
           </p>
-          <div className="p-4 border rounded-lg my-4">
-            <p className="font-semibold">
-              Úrad na ochranu osobných údajov Slovenskej republiky
-            </p>
-            <p>Hraničná 12, 820 07 Bratislava 27</p>
-            <p>
-              Web:{" "}
-              <a
-                href="https://dataprotection.gov.sk/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                https://dataprotection.gov.sk/
-              </a>
-            </p>
-          </div>
+
+          <p className="font-semibold">
+            Úrad na ochranu osobných údajov Slovenskej republiky
+          </p>
+          <p>Hraničná 12, 820 07 Bratislava 27</p>
+          <p>
+            Web:{" "}
+            <a
+              href="https://dataprotection.gov.sk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              https://dataprotection.gov.sk/
+            </a>
+          </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">
             5. Záverečné ustanovenia
