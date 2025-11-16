@@ -54,7 +54,26 @@ export default function BoilerConfigurator() {
       }
 
       if (data) {
-        setProducts(data);
+        // Generate public image URLs from Supabase Storage
+        const productsWithImages = data.map((product) => {
+          if (!product.image) {
+            return {
+              ...product,
+              image: "/placeholder.svg",
+            };
+          }
+          
+          const { data: urlData } = supabase.storage
+            .from("images")
+            .getPublicUrl(product.image);
+
+          return {
+            ...product,
+            image: urlData.publicUrl,
+          };
+        });
+        
+        setProducts(productsWithImages);
       }
       setLoading(false);
     };
