@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -11,9 +11,12 @@ import { Slider } from "@/components/ui/slider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { products, Product } from "@/data/products";
+import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { ArrowRight, ArrowLeft, Check, Home, Droplet } from "lucide-react";
 import { Link } from "react-router-dom";
+
+type Product = Database["public"]["Tables"]["products"]["Row"];
 
 const STEPS = [
   { id: 1, title: "Plocha na vykurovanie", icon: Home },
@@ -34,7 +37,30 @@ export default function BoilerConfigurator() {
   const [waterHeating, setWaterHeating] = useState<string>("no");
   const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
   const [noMatchFound, setNoMatchFound] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
   const configuratorRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data, error } = await supabase
+        .from("products")
+        .select("*");
+
+      if (error) {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+        return;
+      }
+
+      if (data) {
+        setProducts(data);
+      }
+      setLoading(false);
+    };
+
+    fetchProducts();
+  }, []);
 
   const progress = (currentStep / STEPS.length) * 100;
 
