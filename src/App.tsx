@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
 import OchranaUdajov from "./pages/OchranaUdajov";
 import Informacie from "./pages/Informacie";
+import TepelneCerpadla from "./pages/TepelneCerpadla";
 import FloatingCornerBanner from "./components/FloatingCornerBanner";
 
 const queryClient = new QueryClient();
@@ -27,7 +28,9 @@ const AppContent = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/kotly" element={<ProductsPage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/tepelne-cerpadla" element={<TepelneCerpadla />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/informacie" element={<Informacie />} />

@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,12 +48,45 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <Link
-              to="/products"
-              className="text-md font-medium text-muted  hover:text-white/80"
-            >
-              Produkty
-            </Link>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-md font-medium text-muted hover:text-white/80 bg-transparent hover:bg-accent-light/20">
+                    Produkty
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[200px] gap-3 p-4">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/kotly"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">Kotly</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Kotly na pelety a drevo
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/tepelne-cerpadla"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">Tepelné čerpadlá</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Katalóg tepelných čerpadiel
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             <Link
               to="/informacie"
               className="text-md font-medium text-muted  hover:text-white/80"
@@ -97,12 +138,23 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="lg:hidden pb-6 animate-fade-in">
             <div className="flex flex-col space-y-4 pt-3 border-t">
-              <Link
-                to="/products"
-                className="text-sm font-medium text-muted  hover:text-white/80"
-              >
-                Produkty
-              </Link>
+              <div className="space-y-2">
+                <div className="text-sm font-semibold text-muted">Produkty</div>
+                <Link
+                  to="/kotly"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-medium text-muted hover:text-white/80 pl-4 block"
+                >
+                  Kotly
+                </Link>
+                <Link
+                  to="/tepelne-cerpadla"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-medium text-muted hover:text-white/80 pl-4 block"
+                >
+                  Tepelné čerpadlá
+                </Link>
+              </div>
               <Link
                 to="/informacie"
                 onClick={() => setIsMobileMenuOpen(false)}
