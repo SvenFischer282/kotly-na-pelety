@@ -134,6 +134,11 @@ const Footer = () => {
                   05 321 Markušovce
                 </address>
               </li>
+              <li className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 mt-0.5 text-transparent flex-shrink-0" />
+
+                <p className="text-primary-foreground/80">IČO: 50314262 </p>
+              </li>
             </ul>
           </div>
         </div>
