@@ -13,6 +13,7 @@ import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
 import OchranaUdajov from "./pages/OchranaUdajov";
+import Informacie from "./pages/Informacie";
 import FloatingCornerBanner from "./components/FloatingCornerBanner";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const AppContent = () => {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/informacie" element={<Informacie />} />
         <Route path="/privacy-policy" element={<OchranaUdajov />} />
 
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
