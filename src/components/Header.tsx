@@ -46,6 +46,12 @@ const Header = () => {
             >
               Produkty
             </Link>
+            <Link
+              to="/informacie"
+              className="text-sm font-medium text-muted  hover:text-white/80"
+            >
+              Informácie
+            </Link>
             <a
               href="/#benefits"
               className="text-sm font-medium text-muted transition-colors hover:text-white/80"
@@ -96,7 +102,14 @@ const Header = () => {
                 className="text-sm font-medium text-muted  hover:text-white/80"
               >
                 Produkty
-              </Link>{" "}
+              </Link>
+              <Link
+                to="/informacie"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm font-medium text-muted  hover:text-white/80"
+              >
+                Informácie
+              </Link>
               <a
                 href="/#benefits"
                 onClick={() => setIsMobileMenuOpen(false)}
