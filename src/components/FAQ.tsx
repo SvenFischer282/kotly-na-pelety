@@ -52,7 +52,7 @@ const FAQ = () => {
           name: "Potrebujem povolenie na inštaláciu kotla na pelety?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Inštalácia kotla na pelety vyžaduje ohlásenie stavebným úradom a pravidelné kontroly komínom. Náš tím vám pomôže so všetkou potrebnou dokumentáciou a zabezpečíme kompletný servis vrátane kolaudácie a uvedenia do prevádzky.",
+            text: "Na inštaláciu kotla na pelety nepotrebujete osobitné povolenie. Je však potrebné dodržať určité podmienky – inštaláciu musí vykonať odborne spôsobilý zhotoviteľ a je nutné rešpektovať technické predpisy týkajúce sa kotolne a komína. Ak ide o výmenu starého kotla v existujúcej budove bez zásahu do nosných konštrukcií, vo všeobecnosti nepotrebujete špeciálne stavebné povolenie ani ohlásenie stavby. Náš tím vám pomôže s potrebnou dokumentáciou, zabezpečí odbornú montáž aj uvedenie zariadenia do prevádzky.",
           },
         },
         {
@@ -104,7 +104,7 @@ const FAQ = () => {
     {
       question: "Potrebujem povolenie na inštaláciu kotla na pelety?",
       answer:
-        "Inštalácia kotla na pelety vyžaduje ohlásenie stavebným úradom a pravidelné kontroly komínom. Náš tím vám pomôže so všetkou potrebnou dokumentáciou a zabezpečíme kompletný servis vrátane kolaudácie a uvedenia do prevádzky.",
+        "Na inštaláciu kotla na pelety nepotrebujete osobitné povolenie. Je však potrebné dodržať určité podmienky – inštaláciu musí vykonať odborne spôsobilý zhotoviteľ a je nutné rešpektovať technické predpisy týkajúce sa kotolne a komína. Ak ide o výmenu starého kotla v existujúcej budove bez zásahu do nosných konštrukcií, vo všeobecnosti nepotrebujete špeciálne stavebné povolenie ani ohlásenie stavby. Náš tím vám pomôže s potrebnou dokumentáciou, zabezpečí odbornú montáž aj uvedenie zariadenia do prevádzky.",
     },
     {
       question:
