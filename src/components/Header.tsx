@@ -42,25 +42,25 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-6">
             <Link
               to="/products"
-              className="text-sm font-medium text-muted  hover:text-white/80"
+              className="text-md font-medium text-muted  hover:text-white/80"
             >
               Produkty
             </Link>
             <Link
               to="/informacie"
-              className="text-sm font-medium text-muted  hover:text-white/80"
+              className="text-md font-medium text-muted  hover:text-white/80"
             >
               Informácie
             </Link>
-            <a
+            {/* <a
               href="/#benefits"
               className="text-sm font-medium text-muted transition-colors hover:text-white/80"
             >
               Prečo Pelety?
-            </a>
+            </a> */}
             <a
               href="/#configurator"
-              className="text-sm font-medium  text-muted transition-colors hover:text-white/80"
+              className="text-md font-medium  text-muted transition-colors hover:text-white/80"
             >
               Konfigurátor
             </a>
