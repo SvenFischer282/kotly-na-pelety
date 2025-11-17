@@ -13,7 +13,14 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { supabase } from "@/integrations/supabase/client";
 import type { Database } from "@/integrations/supabase/types";
-import { ArrowRight, ArrowLeft, Check, Home, Droplet, Flame } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  Check,
+  Home,
+  Droplet,
+  Flame,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 type Product = Database["public"]["Tables"]["products"]["Row"];
@@ -45,9 +52,7 @@ export default function BoilerConfigurator() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data, error } = await supabase
-        .from("products")
-        .select("*");
+      const { data, error } = await supabase.from("products").select("*");
 
       if (error) {
         console.error("Error fetching products:", error);
@@ -64,7 +69,7 @@ export default function BoilerConfigurator() {
               image: "/placeholder.svg",
             };
           }
-          
+
           const { data: urlData } = supabase.storage
             .from("images")
             .getPublicUrl(product.image);
@@ -74,7 +79,7 @@ export default function BoilerConfigurator() {
             image: urlData.publicUrl,
           };
         });
-        
+
         setProducts(productsWithImages);
       }
       setLoading(false);
@@ -90,15 +95,15 @@ export default function BoilerConfigurator() {
     if (currentStep === 2 && (fuelType === "brikety" || fuelType === "drevo")) {
       // Calculate recommendations directly
       const requiredVolume = heatingArea * 2.5;
-      
+
       const filtered = products.filter((product) => {
         // Filter by category for drevo/brikety
         const categoryMatch = product.category === "Krby na drevo";
-        
+
         const volumeMatch = product.heating_volume_m3
           ? product.heating_volume_m3 >= requiredVolume * 0.8
           : false;
-        
+
         return categoryMatch && volumeMatch;
       });
 
@@ -109,7 +114,7 @@ export default function BoilerConfigurator() {
         setRecommendedProducts([]);
         setNoMatchFound(true);
       }
-      
+
       setCurrentStep(4); // Skip to results
       configuratorRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -126,7 +131,7 @@ export default function BoilerConfigurator() {
       const filtered = products.filter((product) => {
         // Filter by category for pelety
         const categoryMatch = product.category === "Kotly na pelety";
-        
+
         const volumeMatch = product.heating_volume_m3
           ? product.heating_volume_m3 >= requiredVolume * 0.8
           : false;
@@ -266,7 +271,7 @@ export default function BoilerConfigurator() {
               <div className="space-y-6">
                 <RadioGroup value={fuelType} onValueChange={setFuelType}>
                   <div className="space-y-4">
-                    <div className="flex items-center space-x-3 p-4 rounded-lg border border-border/50 hover:bg-accent/50 transition-colors cursor-pointer">
+                    <div className="flex items-center space-x-3 p-4 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors cursor-pointer">
                       <RadioGroupItem value="pelety" id="pelety" />
                       <Label htmlFor="pelety" className="flex-1 cursor-pointer">
                         <div className="font-medium">Pelety</div>
@@ -275,16 +280,19 @@ export default function BoilerConfigurator() {
                         </div>
                       </Label>
                     </div>
-                    <div className="flex items-center space-x-3 p-4 rounded-lg border border-border/50 hover:bg-accent/50 transition-colors cursor-pointer">
+                    <div className="flex items-center space-x-3 p-4 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors cursor-pointer">
                       <RadioGroupItem value="brikety" id="brikety" />
-                      <Label htmlFor="brikety" className="flex-1 cursor-pointer">
+                      <Label
+                        htmlFor="brikety"
+                        className="flex-1 cursor-pointer"
+                      >
                         <div className="font-medium">Brikety</div>
                         <div className="text-sm text-muted-foreground">
                           Lisované brikety - dlhé horenie
                         </div>
                       </Label>
                     </div>
-                    <div className="flex items-center space-x-3 p-4 rounded-lg border border-border/50 hover:bg-accent/50 transition-colors cursor-pointer">
+                    <div className="flex items-center space-x-3 p-4 rounded-lg border border-border/50 hover:bg-muted/50 transition-colors cursor-pointer">
                       <RadioGroupItem value="drevo" id="drevo" />
                       <Label htmlFor="drevo" className="flex-1 cursor-pointer">
                         <div className="font-medium">Drevo</div>
@@ -346,8 +354,8 @@ export default function BoilerConfigurator() {
               </div>
             )}
 
-        {/* Step 3: Water Heating (only for pelety) */}
-        {currentStep === 3 && fuelType === "pelety" && (
+            {/* Step 3: Water Heating (only for pelety) */}
+            {currentStep === 3 && fuelType === "pelety" && (
               <div className="space-y-6">
                 <RadioGroup
                   value={waterHeating}
@@ -395,13 +403,20 @@ export default function BoilerConfigurator() {
               </div>
             )}
 
-        {/* Step 4: Recommendations */}
-        {currentStep === 4 && (
+            {/* Step 4: Recommendations */}
+            {currentStep === 4 && (
               <div className="space-y-6">
                 <div className="bg-muted/50 p-4 rounded-lg">
                   <h3 className="font-semibold mb-2">Vaše požiadavky:</h3>
                   <ul className="space-y-1 text-sm text-muted-foreground">
-                    <li>• Typ paliva: {fuelType === "pelety" ? "Pelety" : fuelType === "brikety" ? "Brikety" : "Drevo"}</li>
+                    <li>
+                      • Typ paliva:{" "}
+                      {fuelType === "pelety"
+                        ? "Pelety"
+                        : fuelType === "brikety"
+                        ? "Brikety"
+                        : "Drevo"}
+                    </li>
                     <li>• Plocha na vykurovanie: {heatingArea} m²</li>
                     {fuelType === "pelety" && (
                       <li>
@@ -440,7 +455,11 @@ export default function BoilerConfigurator() {
                         <Button asChild size="lg" variant="outline">
                           <Link to="/#contact">Kontaktovať nás</Link>
                         </Button>
-                        <Button onClick={handleReset} size="lg" variant="outline">
+                        <Button
+                          onClick={handleReset}
+                          size="lg"
+                          variant="outline"
+                        >
                           Začať odznova
                         </Button>
                       </div>
@@ -507,11 +526,6 @@ export default function BoilerConfigurator() {
                         </Card>
                       ))}
                     </div>
-                    <div className="flex justify-center mt-6">
-                      <Button onClick={handleReset} size="lg" variant="outline">
-                        Začať odznova
-                      </Button>
-                    </div>
                   </div>
                 ) : null}
               </div>
@@ -535,10 +549,11 @@ export default function BoilerConfigurator() {
           )}
           {currentStep < 4 && (
             <Button onClick={handleNext} size="lg" className="ml-auto">
-              {currentStep === 2 && (fuelType === "brikety" || fuelType === "drevo") 
-                ? "Zobraziť odporúčanie" 
-                : currentStep === 3 
-                ? "Zobraziť odporúčanie" 
+              {currentStep === 2 &&
+              (fuelType === "brikety" || fuelType === "drevo")
+                ? "Zobraziť odporúčanie"
+                : currentStep === 3
+                ? "Zobraziť odporúčanie"
                 : "Ďalej"}
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
