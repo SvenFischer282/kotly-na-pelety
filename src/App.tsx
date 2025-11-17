@@ -5,7 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { CookieBanner } from "@/components/CookieBanner";
-import { CookieConsentProvider, useCookieConsentContext } from "@/contexts/CookieConsentContext";
+import {
+  CookieConsentProvider,
+  useCookieConsentContext,
+} from "@/contexts/CookieConsentContext";
 import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
 import Index from "./pages/Index";
 import ProductsPage from "./pages/ProductsPage";
@@ -28,7 +31,6 @@ const AppContent = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/kotly" element={<ProductsPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/tepelne-cerpadla" element={<TepelneCerpadla />} />
         <Route path="/product/:id" element={<ProductDetail />} />
