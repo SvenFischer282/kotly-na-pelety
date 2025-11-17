@@ -13,15 +13,16 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { supabase } from "@/integrations/supabase/client";
 import type { Database } from "@/integrations/supabase/types";
-import { ArrowRight, ArrowLeft, Check, Home, Droplet } from "lucide-react";
+import { ArrowRight, ArrowLeft, Check, Home, Droplet, Flame } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type Product = Database["public"]["Tables"]["products"]["Row"];
 
 const STEPS = [
-  { id: 1, title: "Plocha na vykurovanie", icon: Home },
-  { id: 2, title: "Ohrev vody", icon: Droplet },
-  { id: 3, title: "Odporúčanie", icon: Check },
+  { id: 1, title: "Typ paliva", icon: Flame },
+  { id: 2, title: "Plocha na vykurovanie", icon: Home },
+  { id: 3, title: "Ohrev vody", icon: Droplet },
+  { id: 4, title: "Odporúčanie", icon: Check },
 ];
 
 const AREA_OPTIONS = [
@@ -33,6 +34,7 @@ const AREA_OPTIONS = [
 
 export default function BoilerConfigurator() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [fuelType, setFuelType] = useState<string>("pelety");
   const [heatingArea, setHeatingArea] = useState(100);
   const [waterHeating, setWaterHeating] = useState<string>("no");
   const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
@@ -84,9 +86,37 @@ export default function BoilerConfigurator() {
   const progress = (currentStep / STEPS.length) * 100;
 
   const handleNext = () => {
-    if (currentStep === 2) {
-      // Calculate recommendations
-      const requiredVolume = heatingArea * 2.5; // Približný objem miestnosti v m³
+    // Skip water heating step for brikety and drevo
+    if (currentStep === 2 && (fuelType === "brikety" || fuelType === "drevo")) {
+      // Calculate recommendations directly
+      const requiredVolume = heatingArea * 2.5;
+      
+      const filtered = products.filter((product) => {
+        const volumeMatch = product.heating_volume_m3
+          ? product.heating_volume_m3 >= requiredVolume * 0.8
+          : false;
+        return volumeMatch;
+      });
+
+      if (filtered.length > 0) {
+        setRecommendedProducts(filtered);
+        setNoMatchFound(false);
+      } else {
+        setRecommendedProducts([]);
+        setNoMatchFound(true);
+      }
+      
+      setCurrentStep(4); // Skip to results
+      configuratorRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      return;
+    }
+
+    if (currentStep === 3) {
+      // Calculate recommendations for pelety (with water heating consideration)
+      const requiredVolume = heatingArea * 2.5;
       const needsWaterHeating = waterHeating === "yes";
 
       const filtered = products.filter((product) => {
@@ -126,6 +156,7 @@ export default function BoilerConfigurator() {
 
   const handleReset = () => {
     setCurrentStep(1);
+    setFuelType("pelety");
     setHeatingArea(100);
     setWaterHeating("no");
     setRecommendedProducts([]);
@@ -152,7 +183,7 @@ export default function BoilerConfigurator() {
             Konfigurátor Kotla
           </h2>
           <p className="text-textPrimary text-lg">
-            Nájdite si ideálny kotol v 3 jednoduchých krokoch
+            Nájdite si ideálny kotol v 4 jednoduchých krokoch
           </p>
         </div>
 
@@ -208,21 +239,60 @@ export default function BoilerConfigurator() {
         <Card className="animate-fade-in shadow-lg">
           <CardHeader>
             <CardTitle className="text-2xl">
-              {currentStep === 1 && "Aká je plocha na vykurovanie?"}
-              {currentStep === 2 && "Potrebujete ohrev vody?"}
-              {currentStep === 3 && "Odporúčané kotly"}
+              {currentStep === 1 && "Vyberte typ paliva"}
+              {currentStep === 2 && "Aká je plocha na vykurovanie?"}
+              {currentStep === 3 && "Potrebujete ohrev vody?"}
+              {currentStep === 4 && "Odporúčané kotly"}
             </CardTitle>
             <CardDescription>
-              {currentStep === 1 &&
-                "Vyberte približnú plochu, ktorú chcete vykurovať"}
+              {currentStep === 1 && "Aký typ paliva chcete používať?"}
               {currentStep === 2 &&
+                "Vyberte približnú plochu, ktorú chcete vykurovať"}
+              {currentStep === 3 &&
                 "Či budete kotol používať aj na prípravu teplej vody"}
-              {currentStep === 3 && "Na základe vašich požiadaviek odporúčame"}
+              {currentStep === 4 && "Na základe vašich požiadaviek odporúčame"}
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-6">
-            {/* Step 1: Heating Area */}
+            {/* Step 1: Fuel Type */}
             {currentStep === 1 && (
+              <div className="space-y-6">
+                <RadioGroup value={fuelType} onValueChange={setFuelType}>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3 p-4 rounded-lg border border-border/50 hover:bg-accent/50 transition-colors cursor-pointer">
+                      <RadioGroupItem value="pelety" id="pelety" />
+                      <Label htmlFor="pelety" className="flex-1 cursor-pointer">
+                        <div className="font-medium">Pelety</div>
+                        <div className="text-sm text-muted-foreground">
+                          Drevené pelety - ekologické a efektívne
+                        </div>
+                      </Label>
+                    </div>
+                    <div className="flex items-center space-x-3 p-4 rounded-lg border border-border/50 hover:bg-accent/50 transition-colors cursor-pointer">
+                      <RadioGroupItem value="brikety" id="brikety" />
+                      <Label htmlFor="brikety" className="flex-1 cursor-pointer">
+                        <div className="font-medium">Brikety</div>
+                        <div className="text-sm text-muted-foreground">
+                          Lisované brikety - dlhé horenie
+                        </div>
+                      </Label>
+                    </div>
+                    <div className="flex items-center space-x-3 p-4 rounded-lg border border-border/50 hover:bg-accent/50 transition-colors cursor-pointer">
+                      <RadioGroupItem value="drevo" id="drevo" />
+                      <Label htmlFor="drevo" className="flex-1 cursor-pointer">
+                        <div className="font-medium">Drevo</div>
+                        <div className="text-sm text-muted-foreground">
+                          Klasické palivové drevo
+                        </div>
+                      </Label>
+                    </div>
+                  </div>
+                </RadioGroup>
+              </div>
+            )}
+
+            {/* Step 2: Heating Area */}
+            {currentStep === 2 && (
               <div className="space-y-8">
                 <div className="space-y-">
                   <div className="flex justify-between items-center">
@@ -269,8 +339,8 @@ export default function BoilerConfigurator() {
               </div>
             )}
 
-            {/* Step 2: Water Heating */}
-            {currentStep === 2 && (
+        {/* Step 3: Water Heating (only for pelety) */}
+        {currentStep === 3 && fuelType === "pelety" && (
               <div className="space-y-6">
                 <RadioGroup
                   value={waterHeating}
@@ -318,8 +388,8 @@ export default function BoilerConfigurator() {
               </div>
             )}
 
-            {/* Step 3: Recommendations */}
-            {currentStep === 3 && (
+        {/* Step 4: Recommendations */}
+        {currentStep === 4 && (
               <div className="space-y-6">
                 <div className="bg-muted/50 p-4 rounded-lg">
                   <h3 className="font-semibold mb-2">Vaše požiadavky:</h3>
