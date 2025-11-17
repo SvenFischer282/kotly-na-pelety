@@ -1,7 +1,8 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@radix-ui/react-separator";
+
 import { ArrowRight } from "lucide-react";
 
 const Informacie = () => {
@@ -13,35 +14,31 @@ const Informacie = () => {
           <h1 className="text-4xl font-bold mb-6">Informácie</h1>
           <Separator className="my-8" />
 
-          {/* <p className="text-lg text-textPrimary leading-relaxed mb-6">
-            Predávame krbové vložky, pece, kachle, antikorové komíny a
-            príslušenstvo za výhodné ceny priamo k Vám zákazníkom. Predaj krbov
-            lacno, lacnejšie, najlacnejšie. Izolačné platne, pece, krbové pece,
-            kachľové pece, moderné krby, teplovodné krbové vložky renovovaných
-            značiek.
+          <p className="text-lg text-textPrimary leading-relaxed mb-6">
+            Od roku 2015 pôsobíme na Slovenskom trhu ako stabilný dodávateľ
+            pevného paliva a riešení pre vykurovanie domácností. Našou hlavnou
+            činnosťou je predaj kvalitného paliva, medzi ktoré patria pelety,
+            brikety a palivové drevo pre rodinné domy, firmy aj prevádzky.
+            Dlhoročná prax nám umožnila vybudovať si silné postavenie v regióne,
+            poskytovať odborné poradenstvo a zabezpečiť spoľahlivé dodávky počas
+            celej vykurovacej sezóny.
           </p>
 
           <p className="text-lg text-textPrimary leading-relaxed mb-6">
-            Naším cieľom je poskytnúť na slovenskom trhu vysokokvalitný
-            internetový predaj zameraný na KRBY, teplovodné krbové vložky,
-            kachle, sporáky a kompletný sortiment príslušenstva. Predaj krbov,
-            kachlí a krbových pecí, sporákov s garantovanou kvalitou za výhodné
-            ceny sú zárukou a zároveň cestou k maximálnej spokojnosti Vás našich
-            zákazníkov.
+            Na základe našich skúseností a rastúcich potrieb trhu sme sa
+            rozhodli rozšíriť naše portfólio aj o ponuku moderných vykurovacích
+            zariadení. Do nášho sortimentu zaraďujeme kvalitné talianske pece a
+            kotly určené na pevné palivo, ktoré sa vyznačujú vysokou úrovňou
+            spracovania, spoľahlivou prevádzkou a dlhodobou životnosťou.
           </p>
 
           <p className="text-lg text-textPrimary leading-relaxed mb-6">
-            Ponúkame Vám široký sortiment, ktorý tvoria aj liatinové
-            teplovzdušné krbové vložky značiek, Kratki, Kzp, Flama ale aj
-            teplovodné krby Edilkamin a Kratki, ktoré sú preferované hlavne pri
-            výstavbe nízko-energetických rodinných domov.
+            Naším cieľom je poskytovať komplexné riešenia pre domácnosti aj
+            prevádzky - od dodávky paliva až po zabezpečenie vhodného a
+            efektívneho vykurovacieho zariadenia. Dbáme na to, aby každý
+            zákazník získal produkty prémiovej kvality, podporené odbornými
+            službami a garanciou spoľahlivosti.
           </p>
-
-          <p className="text-lg text-textPrimary leading-relaxed mb-6">
-            S rýchle rastúcim rozvojom vykurovacej a krbovej techniky sa náš
-            sortiment bude neustále dopĺňať o nové produkty, čo si vyžaduje
-            vývoj na trhu a zvyšujúce sa požiadavky našich zákazníkov.
-          </p> */}
 
           <div className="mt-8 p-6 bg-primary/5 rounded-lg border border-primary/20 flex flex-col items-center justify-center">
             <p className="text-xl font-semibold text-center">
