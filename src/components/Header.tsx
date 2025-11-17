@@ -145,7 +145,7 @@ const Header = () => {
               <div className="space-y-2">
                 <div className="text-sm font-semibold text-muted">Produkty</div>
                 <Link
-                  to="/kotly"
+                  to="/products"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-sm font-medium text-muted hover:text-white/80 pl-4 block"
                 >
