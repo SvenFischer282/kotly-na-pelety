@@ -92,10 +92,14 @@ export default function BoilerConfigurator() {
       const requiredVolume = heatingArea * 2.5;
       
       const filtered = products.filter((product) => {
+        // Filter by category for drevo/brikety
+        const categoryMatch = product.category === "Krby na drevo";
+        
         const volumeMatch = product.heating_volume_m3
           ? product.heating_volume_m3 >= requiredVolume * 0.8
           : false;
-        return volumeMatch;
+        
+        return categoryMatch && volumeMatch;
       });
 
       if (filtered.length > 0) {
@@ -120,6 +124,9 @@ export default function BoilerConfigurator() {
       const needsWaterHeating = waterHeating === "yes";
 
       const filtered = products.filter((product) => {
+        // Filter by category for pelety
+        const categoryMatch = product.category === "Kotly na pelety";
+        
         const volumeMatch = product.heating_volume_m3
           ? product.heating_volume_m3 >= requiredVolume * 0.8
           : false;
@@ -128,7 +135,7 @@ export default function BoilerConfigurator() {
           ? product.water_heating === true
           : true;
 
-        return volumeMatch && waterMatch;
+        return categoryMatch && volumeMatch && waterMatch;
       });
 
       if (filtered.length > 0) {
@@ -394,10 +401,13 @@ export default function BoilerConfigurator() {
                 <div className="bg-muted/50 p-4 rounded-lg">
                   <h3 className="font-semibold mb-2">Vaše požiadavky:</h3>
                   <ul className="space-y-1 text-sm text-muted-foreground">
+                    <li>• Typ paliva: {fuelType === "pelety" ? "Pelety" : fuelType === "brikety" ? "Brikety" : "Drevo"}</li>
                     <li>• Plocha na vykurovanie: {heatingArea} m²</li>
-                    <li>
-                      • Ohrev vody: {waterHeating === "yes" ? "Áno" : "Nie"}
-                    </li>
+                    {fuelType === "pelety" && (
+                      <li>
+                        • Ohrev vody: {waterHeating === "yes" ? "Áno" : "Nie"}
+                      </li>
+                    )}
                   </ul>
                 </div>
 
@@ -429,6 +439,9 @@ export default function BoilerConfigurator() {
                         </Button>
                         <Button asChild size="lg" variant="outline">
                           <Link to="/#contact">Kontaktovať nás</Link>
+                        </Button>
+                        <Button onClick={handleReset} size="lg" variant="outline">
+                          Začať odznova
                         </Button>
                       </div>
                     </div>
@@ -494,6 +507,11 @@ export default function BoilerConfigurator() {
                         </Card>
                       ))}
                     </div>
+                    <div className="flex justify-center mt-6">
+                      <Button onClick={handleReset} size="lg" variant="outline">
+                        Začať odznova
+                      </Button>
+                    </div>
                   </div>
                 ) : null}
               </div>
@@ -503,21 +521,25 @@ export default function BoilerConfigurator() {
 
         {/* Navigation Buttons */}
         <div className="flex justify-between mt-8 animate-fade-in">
-          {currentStep > 1 && currentStep < 3 && (
+          {currentStep > 1 && currentStep < 4 && (
             <Button variant="outline" onClick={handleBack} size="lg">
               <ArrowLeft className="mr-2 w-4 h-4" />
               Späť
             </Button>
           )}
-          {currentStep === 3 && (
+          {currentStep === 4 && (
             <Button variant="outline" onClick={handleReset} size="lg">
               <ArrowLeft className="mr-2 w-4 h-4" />
               Začať odznova
             </Button>
           )}
-          {currentStep < 3 && (
+          {currentStep < 4 && (
             <Button onClick={handleNext} size="lg" className="ml-auto">
-              {currentStep === 2 ? "Zobraziť odporúčanie" : "Ďalej"}
+              {currentStep === 2 && (fuelType === "brikety" || fuelType === "drevo") 
+                ? "Zobraziť odporúčanie" 
+                : currentStep === 3 
+                ? "Zobraziť odporúčanie" 
+                : "Ďalej"}
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           )}
