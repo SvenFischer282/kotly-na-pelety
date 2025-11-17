@@ -277,19 +277,26 @@ const ProductDetail = () => {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
+                  asChild
                   size="lg"
                   className="flex-1 bg-gradient-primary hover:opacity-90 btn-premium text-lg py-6"
                 >
-                  <Phone className="mr-2 w-5 h-5" />
-                  Zavolať
+                  <a href="tel:+421903468472">
+                    <Phone className="mr-2 w-5 h-5" />
+                    Zavolať
+                  </a>
                 </Button>
+
                 <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="flex-1 border-2 text-lg py-6"
                 >
-                  <Mail className="mr-2 w-5 h-5" />
-                  Dopyt
+                  <a target="_blank" href="mailto:kotlynapelety@gmail.com">
+                    <Mail className="mr-2 w-5 h-5" />
+                    Dopyt
+                  </a>
                 </Button>
               </div>
             </div>
@@ -536,25 +543,28 @@ const ProductDetail = () => {
                 obhliadku.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:+421900000000">
-                  <Button
-                    size="lg"
-                    className="bg-accent hover:bg-accent-light text-accent-foreground btn-premium px-8"
-                  >
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-accent hover:bg-accent-light text-accent-foreground btn-premium px-8"
+                >
+                  <a href="tel:+421903468472">
                     <Phone className="mr-2 w-5 h-5" />
                     +421 903 468 472
-                  </Button>
-                </a>
-                <a href="mailto:info@kotlynapelety.sk">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-white/10 border-white/30 text-primary-foreground hover:bg-white/20 px-8"
-                  >
+                  </a>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-white/10 border-white/30 text-primary-foreground hover:bg-white/20 px-8"
+                >
+                  <a target="_blank" href="mailto:kotlynapelety@gmail.com">
                     <Mail className="mr-2 w-5 h-5" />
                     info@kotlynapelety.sk
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>
