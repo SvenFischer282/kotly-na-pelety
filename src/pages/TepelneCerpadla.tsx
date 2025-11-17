@@ -2,10 +2,17 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const TepelneCerpadla = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>Tepelné čerpadlá - KotlyNaPelety.sk</title>
+        <meta name="description" content="Kompletný katalóg tepelných čerpadiel s technickými parametrami a cenami. Moderné a efektívne riešenia pre vykurovanie vášho domova." />
+        <meta name="keywords" content="tepelné čerpadlá, tepelné pumpy, vykurovanie, ekologické vykurovanie, úspora energie, katalóg" />
+        <link rel="canonical" href="https://kotlynapelety.sk/tepelne-cerpadla" />
+      </Helmet>
       <Header />
       <div className="container mx-auto px-4 py-16 mt-20 flex-grow">
         <div className="max-w-4xl mx-auto">

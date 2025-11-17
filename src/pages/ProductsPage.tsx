@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState<any[]>([]);
@@ -92,6 +93,12 @@ const ProductsPage = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col">
+        <Helmet>
+          <title>Kotly na Pelety a Drevo - Katalóg Produktov | KOTLY NA PELETY.SK</title>
+          <meta name="description" content="Kompletný katalóg kotlov na pelety, drevo a krbov. Široký výber moderných a efektívnych vykurovacích zariadení s profesionálnou inštaláciou a servisom." />
+          <meta name="keywords" content="kotly na pelety, kotly na drevo, krby, katalóg kotlov, vykurovacie zariadenia, efektívne vykurovanie" />
+          <link rel="canonical" href="https://kotlynapelety.sk/kotly" />
+        </Helmet>
         <Header />
         <main className="pt-32 pb-24 bg-gradient-subtle flex-1">
           <div className="container mx-auto px-4 lg:px-8">
@@ -123,6 +130,12 @@ const ProductsPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Kotly na Pelety a Drevo - Katalóg Produktov | KOTLY NA PELETY.SK</title>
+        <meta name="description" content="Kompletný katalóg kotlov na pelety, drevo a krbov. Široký výber moderných a efektívnych vykurovacích zariadení s profesionálnou inštaláciou a servisom." />
+        <meta name="keywords" content="kotly na pelety, kotly na drevo, krby, katalóg kotlov, vykurovacie zariadenia, efektívne vykurovanie" />
+        <link rel="canonical" href="https://kotlynapelety.sk/kotly" />
+      </Helmet>
       <Header />
       <main className="pt-32 pb-24 bg-gradient-subtle flex-1">
         <div className="container mx-auto px-4 lg:px-8">
