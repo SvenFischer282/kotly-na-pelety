@@ -62,10 +62,12 @@ const Header = () => {
                             to="/kotly"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Kotly</div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            <div className="text-md font-medium leading-none">
+                              Kotly
+                            </div>
+                            {/* <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                               Kotly na pelety a drevo
-                            </p>
+                            </p> */}
                           </Link>
                         </NavigationMenuLink>
                       </li>
@@ -75,10 +77,12 @@ const Header = () => {
                             to="/tepelne-cerpadla"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Tepelné čerpadlá</div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            <div className="text-md font-medium leading-none">
+                              Tepelné čerpadlá
+                            </div>
+                            {/* <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                               Katalóg tepelných čerpadiel
-                            </p>
+                            </p> */}
                           </Link>
                         </NavigationMenuLink>
                       </li>
