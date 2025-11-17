@@ -1,6 +1,8 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { ArrowRight } from "lucide-react";
 
 const Informacie = () => {
   return (
@@ -11,7 +13,7 @@ const Informacie = () => {
           <h1 className="text-4xl font-bold mb-6">Informácie</h1>
           <Separator className="my-8" />
 
-          <p className="text-lg text-textPrimary leading-relaxed mb-6">
+          {/* <p className="text-lg text-textPrimary leading-relaxed mb-6">
             Predávame krbové vložky, pece, kachle, antikorové komíny a
             príslušenstvo za výhodné ceny priamo k Vám zákazníkom. Predaj krbov
             lacno, lacnejšie, najlacnejšie. Izolačné platne, pece, krbové pece,
@@ -39,12 +41,22 @@ const Informacie = () => {
             S rýchle rastúcim rozvojom vykurovacej a krbovej techniky sa náš
             sortiment bude neustále dopĺňať o nové produkty, čo si vyžaduje
             vývoj na trhu a zvyšujúce sa požiadavky našich zákazníkov.
-          </p>
+          </p> */}
 
-          <div className="mt-8 p-6 bg-primary/5 rounded-lg border border-primary/20">
+          <div className="mt-8 p-6 bg-primary/5 rounded-lg border border-primary/20 flex flex-col items-center justify-center">
             <p className="text-xl font-semibold text-center">
               Nakupujte bezpečne a so zárukou u autorizovaného predajcu!
             </p>
+            <Button asChild variant="outline" size="lg" className="mt-8">
+              <a
+                href="https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/ZARUKA%20A%20ASISTENCIA%20SKpdf.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Záruka a asistencia
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
           </div>
         </div>
       </div>
