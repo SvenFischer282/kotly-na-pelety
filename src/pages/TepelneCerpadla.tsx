@@ -9,9 +9,18 @@ const TepelneCerpadla = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
         <title>Tepelné čerpadlá - KotlyNaPelety.sk</title>
-        <meta name="description" content="Kompletný katalóg tepelných čerpadiel s technickými parametrami a cenami. Moderné a efektívne riešenia pre vykurovanie vášho domova." />
-        <meta name="keywords" content="tepelné čerpadlá, tepelné pumpy, vykurovanie, ekologické vykurovanie, úspora energie, katalóg" />
-        <link rel="canonical" href="https://kotlynapelety.sk/tepelne-cerpadla" />
+        <meta
+          name="description"
+          content="Kompletný katalóg tepelných čerpadiel s technickými parametrami a cenami. Moderné a efektívne riešenia pre vykurovanie vášho domova."
+        />
+        <meta
+          name="keywords"
+          content="tepelné čerpadlá, tepelné pumpy, vykurovanie, ekologické vykurovanie, úspora energie, katalóg"
+        />
+        <link
+          rel="canonical"
+          href="https://kotlynapelety.sk/tepelne-cerpadla"
+        />
       </Helmet>
       <Header />
       <div className="container mx-auto px-4 py-16 mt-20 flex-grow">
@@ -50,8 +59,9 @@ const TepelneCerpadla = () => {
               </a>
             </Button>
             <h3 className="mt-5 text-textPrimary">
-              V roku 2026 Vám vieme pomôcť s vybavením štátnej dotácie na
-              tepelné čerpadlá co výraznie zníži náklady. Až do výšky 4 370€.
+              V roku 2026 vám vieme pomôcť s vybavením štátnej dotácie na
+              tepelné čerpadlá, čo výrazne zníži vaše náklady – až do výšky 4
+              370 €.
             </h3>
 
             <div className="mt-8 pt-8 border-t border-border">
