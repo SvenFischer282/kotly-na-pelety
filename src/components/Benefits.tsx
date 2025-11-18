@@ -111,11 +111,11 @@ const Benefits = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+421900000000"
+              href="tel:+421903468472"
               className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity btn-premium shadow-medium"
             >
               <Headphones className="mr-2 w-5 h-5" />
-              +421 900 000 000
+              +421 903 468 472
             </a>
             <a
               href="mailto:info@kotlynapelety.sk"

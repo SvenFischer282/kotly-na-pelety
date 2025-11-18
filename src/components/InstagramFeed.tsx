@@ -1,29 +1,8 @@
 import { Instagram, Facebook } from "lucide-react";
 import { Button } from "./ui/button";
+import forgyaIgFeed from "../assets/Forgya_ig_feed.png";
 
 const InstagramFeed = () => {
-  // You can update these with actual Instagram post URLs from your account
-  const instagramPosts = [
-    {
-      id: 1,
-      image:
-        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/images/ig_post_1.png",
-      link: "https://www.instagram.com/p/DQJZ-KriJIT",
-    },
-    {
-      id: 2,
-      image:
-        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/images/ig_post_1.png",
-      link: "https://www.instagram.com/p/DQJZ-KriJIT",
-    },
-    {
-      id: 3,
-      image:
-        "https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/images/ig_post_1.png",
-      link: "https://www.instagram.com/p/DQJZ-KriJIT",
-    },
-  ];
-
   return (
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -58,29 +37,25 @@ const InstagramFeed = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {instagramPosts.map((post) => (
-            <a
-              key={post.id}
-              href={post.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
-              style={{ aspectRatio: "9/16" }}
-            >
-              <img
-                src={post.image}
-                alt={`Instagram reel ${post.id}`}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
-                  <Instagram className="w-8 h-8 text-white" />
-                </div>
+        <div className="max-w-3xl mx-auto">
+          <a
+            href="https://www.instagram.com/p/DPoKQXFiBkK"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
+          >
+            <img
+              src={forgyaIgFeed}
+              alt="Forgya collection Instagram feed"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                <Instagram className="w-8 h-8 text-white" />
               </div>
-            </a>
-          ))}
+            </div>
+          </a>
         </div>
       </div>
     </section>
