@@ -94,9 +94,17 @@ const ProductsPage = () => {
     return (
       <div className="min-h-screen flex flex-col">
         <Helmet>
-          <title>Kotly na Pelety a Drevo - Katalóg Produktov | KOTLY NA PELETY.SK</title>
-          <meta name="description" content="Kompletný katalóg kotlov na pelety, drevo a krbov. Široký výber moderných a efektívnych vykurovacích zariadení s profesionálnou inštaláciou a servisom." />
-          <meta name="keywords" content="kotly na pelety, kotly na drevo, krby, katalóg kotlov, vykurovacie zariadenia, efektívne vykurovanie" />
+          <title>
+            Kotly na Pelety a Drevo - Katalóg Produktov | KOTLY NA PELETY.SK
+          </title>
+          <meta
+            name="description"
+            content="Kompletný katalóg kotlov na pelety, drevo a krbov. Široký výber moderných a efektívnych vykurovacích zariadení s profesionálnou inštaláciou a servisom."
+          />
+          <meta
+            name="keywords"
+            content="kotly na pelety, kotly na drevo, krby, katalóg kotlov, vykurovacie zariadenia, efektívne vykurovanie"
+          />
           <link rel="canonical" href="https://kotlynapelety.sk/kotly" />
         </Helmet>
         <Header />
@@ -131,9 +139,17 @@ const ProductsPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Kotly na Pelety a Drevo - Katalóg Produktov | KOTLY NA PELETY.SK</title>
-        <meta name="description" content="Kompletný katalóg kotlov na pelety, drevo a krbov. Široký výber moderných a efektívnych vykurovacích zariadení s profesionálnou inštaláciou a servisom." />
-        <meta name="keywords" content="kotly na pelety, kotly na drevo, krby, katalóg kotlov, vykurovacie zariadenia, efektívne vykurovanie" />
+        <title>
+          Kotly na Pelety a Drevo - Katalóg Produktov | KOTLY NA PELETY.SK
+        </title>
+        <meta
+          name="description"
+          content="Kompletný katalóg kotlov na pelety, drevo a krbov. Široký výber moderných a efektívnych vykurovacích zariadení s profesionálnou inštaláciou a servisom."
+        />
+        <meta
+          name="keywords"
+          content="kotly na pelety, kotly na drevo, krby, katalóg kotlov, vykurovacie zariadenia, efektívne vykurovanie"
+        />
         <link rel="canonical" href="https://kotlynapelety.sk/kotly" />
       </Helmet>
       <Header />
@@ -144,11 +160,44 @@ const ProductsPage = () => {
             <h1 className="text-5xl lg:text-6xl font-display font-bold mb-6 text-foreground">
               Kotly Na Pelety
             </h1>
-            <p className="text-xl text-textSecondary leading-relaxed">
-              Kompletný sortiment moderných kotlov na pelety pre domácnosti aj
-              priemyselné použitie. Každý model je starostlivo vybraný pre
-              maximálnu efektivitu a spoľahlivosť.
-            </p>
+            <div className="flex flex-col md:flex-row gap-10 items-start md:items-center">
+              <div className="md:w-1/2 space-y-4">
+                <p className="text-xl text-textSecondary leading-relaxed">
+                  Kompletný sortiment moderných kotlov na pelety pre domácnosti
+                  aj priemyselné použitie. Každý model je starostlivo vybraný
+                  pre maximálnu efektivitu a spoľahlivosť.
+                </p>
+              </div>
+
+              <div className="md:w-1/2 flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
+                <p className="text-lg font-medium text-primary">
+                  Nenašli ste ideálny kotol pre vás?
+                </p>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="default"
+                  className="w-full sm:w-auto"
+                >
+                  <a
+                    href="https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/katalog_produktov.pdf"
+                    target="_blank"
+                    className="gap-2"
+                  >
+                    Otvoriť katalóg produktov
+                  </a>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                >
+                  <Link to="/#contact">Kontaktovať nás</Link>
+                </Button>
+              </div>
+            </div>
           </div>
 
           {/* Filters */}
