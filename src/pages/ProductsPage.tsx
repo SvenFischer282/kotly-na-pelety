@@ -160,47 +160,50 @@ const ProductsPage = () => {
             <h1 className="text-5xl lg:text-6xl font-display font-bold mb-6 text-foreground">
               Kotly Na Pelety
             </h1>
-            <p className="text-xl text-textSecondary leading-relaxed max-w-3xl mb-8">
-              Kompletný sortiment moderných kotlov na pelety pre domácnosti
-              aj priemyselné použitie. Každý model je starostlivo vybraný
-              pre maximálnu efektivitu a spoľahlivosť.
-            </p>
+            <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+              <p className="text-xl text-textSecondary leading-relaxed lg:flex-1">
+                Kompletný sortiment moderných kotlov na pelety pre domácnosti
+                aj priemyselné použitie. Každý model je starostlivo vybraný
+                pre maximálnu efektivitu a spoľahlivosť.
+              </p>
 
-            {/* CTA Card */}
-            <Card className="bg-primary/5 border-primary/20 p-6 lg:p-8">
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                <div className="space-y-2">
-                  <h2 className="text-xl lg:text-2xl font-semibold text-foreground">
-                    Nenašli ste ideálny kotol pre vás?
-                  </h2>
-                  <p className="text-textSecondary">
-                    Prezrite si náš kompletný katalóg alebo nás kontaktujte pre individuálnu ponuku.
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3 lg:flex-shrink-0">
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="default"
-                  >
-                    <a
-                      href="https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/katalog_produktov.pdf"
-                      target="_blank"
-                      className="gap-2"
+              {/* CTA Card */}
+              <Card className="bg-primary/5 border-primary/20 p-5 lg:p-6 lg:w-[400px] flex-shrink-0">
+                <div className="space-y-4">
+                  <div className="space-y-1">
+                    <h2 className="text-lg font-semibold text-foreground">
+                      Nenašli ste ideálny kotol pre vás?
+                    </h2>
+                    <p className="text-sm text-textSecondary">
+                      Prezrite si katalóg alebo nás kontaktujte.
+                    </p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button
+                      asChild
+                      size="default"
+                      variant="default"
+                      className="flex-1"
                     >
-                      Otvoriť katalóg produktov
-                    </a>
-                  </Button>
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="outline"
-                  >
-                    <Link to="/#contact">Kontaktovať nás</Link>
-                  </Button>
+                      <a
+                        href="https://dgvswatqmbvaqfznixyg.supabase.co/storage/v1/object/public/pdf/katalog_produktov.pdf"
+                        target="_blank"
+                      >
+                        Otvoriť katalóg
+                      </a>
+                    </Button>
+                    <Button
+                      asChild
+                      size="default"
+                      variant="outline"
+                      className="flex-1"
+                    >
+                      <Link to="/#contact">Kontaktovať</Link>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           </div>
 
           {/* Filters */}
