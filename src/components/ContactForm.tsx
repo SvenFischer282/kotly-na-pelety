@@ -120,7 +120,10 @@ export const ContactForm = () => {
             </p>
           </div>
 
-          <div className="bg-card p-8 rounded-lg border border-border shadow-sm">
+          <div
+            className="bg-card p-8 rounded-lg border border-border shadow-sm"
+            id="contact-form"
+          >
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}

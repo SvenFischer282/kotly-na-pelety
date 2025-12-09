@@ -162,9 +162,9 @@ const ProductsPage = () => {
             </h1>
             <div className="flex flex-col lg:flex-row lg:items-start gap-8">
               <p className="text-xl text-textSecondary leading-relaxed lg:flex-1">
-                Kompletný sortiment moderných kotlov na pelety pre domácnosti
-                aj priemyselné použitie. Každý model je starostlivo vybraný
-                pre maximálnu efektivitu a spoľahlivosť.
+                Kompletný sortiment moderných kotlov na pelety pre domácnosti aj
+                priemyselné použitie. Každý model je starostlivo vybraný pre
+                maximálnu efektivitu a spoľahlivosť.
               </p>
 
               {/* CTA Card */}
@@ -198,7 +198,7 @@ const ProductsPage = () => {
                       variant="outline"
                       className="flex-1"
                     >
-                      <Link to="/#contact">Kontaktovať</Link>
+                      <Link to="/#contact-form">Kontakt</Link>
                     </Button>
                   </div>
                 </div>

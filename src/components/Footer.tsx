@@ -154,7 +154,7 @@ const Footer = () => {
               <p className="text-sm text-primary-foreground/60">
                 Created by{" "}
                 <a
-                  href="https://www.linkedin.com/in/sven-fischer-202235347"
+                  href="https://svenfischer.sk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-accent transition-colors underline"
