@@ -138,7 +138,7 @@ export default function BoilerConfigurator() {
 
         const waterMatch = needsWaterHeating
           ? product.water_heating === true
-          : true;
+          : product.water_heating === false || product.water_heating === null;
 
         return categoryMatch && volumeMatch && waterMatch;
       });
