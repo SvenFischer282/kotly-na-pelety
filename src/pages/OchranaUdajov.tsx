@@ -129,6 +129,38 @@ const OchranaUdajov = () => {
             </li>
           </ul>
 
+          <h3 className="text-xl font-bold mt-6 mb-2">
+            C. Reklamné súbory cookies (Google AdSense)
+          </h3>
+          <p>
+            Na zobrazovanie personalizovanej reklamy využívame službu Google
+            AdSense od spoločnosti Google Ireland Limited.
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>
+              <strong>Spracúvané údaje:</strong> Údaje o vašom zariadení,
+              prehliadači, IP adrese, histórii prehliadania a záujmoch
+              odvodených z vášho online správania. Tieto údaje sa používajú na
+              zobrazovanie reklám, ktoré sú pre vás relevantné.
+            </li>
+            <li>
+              <strong>Účel spracúvania:</strong> Zobrazovanie personalizovaných
+              reklám na našej webstránke, meranie výkonnosti reklám a
+              poskytovanie relevantného reklamného obsahu.
+            </li>
+            <li>
+              <strong>Právny základ:</strong> Váš súhlas (čl. 6 ods. 1 písm. a
+              GDPR), ktorý nám udeľujete prostredníctvom bannera (cookie lišty)
+              pri prvej návšteve webstránky.
+            </li>
+            <li>
+              <strong>Doba uchovávania:</strong> Doba uchovávania údajov závisí
+              od konkrétneho typu cookie. Reklamné cookies môžu byť uchovávané
+              až 2 roky. Svoj súhlas môžete kedykoľvek odvolať v nastaveniach
+              cookie lišty na našej webstránke.
+            </li>
+          </ul>
+
           <h2 className="text-2xl font-bold mt-8 mb-4">
             3. Komu poskytujeme vaše údaje?
           </h2>
@@ -144,16 +176,18 @@ const OchranaUdajov = () => {
             zákon.
           </p>
 
-          <h3 className="text-xl font-bold mt-6 mb-2">Google Analytics</h3>
-          <p>V prípade analytických cookies sú príjemcom údajov:</p>
+          <h3 className="text-xl font-bold mt-6 mb-2">Google Analytics a Google AdSense</h3>
+          <p>V prípade analytických a reklamných cookies sú príjemcom údajov:</p>
           <p>
             <strong>Google Ireland Limited</strong> (Gordon House, Barrow
             Street, Dublin 4, Írsko) a v rámci skupiny Google aj{" "}
             <strong>Google LLC (USA)</strong>. Prenos údajov do USA (tretej
             krajiny) je zabezpečený prostredníctvom Štandardných zmluvných
             doložiek (SCC) schválených Európskou komisiou, ktoré poskytujú
-            primerané záruky ochrany osobných údajov. Viac informácií o tom, ako
-            Google spracúva údaje, nájdete v{" "}
+            primerané záruky ochrany osobných údajov.
+          </p>
+          <p className="mt-4">
+            Viac informácií o tom, ako Google spracúva údaje, nájdete v{" "}
             <a
               href="https://policies.google.com/privacy"
               target="_blank"
@@ -161,6 +195,15 @@ const OchranaUdajov = () => {
               className="text-primary hover:underline"
             >
               Zásadách ochrany súkromia spoločnosti Google
+            </a>
+            . Informácie o personalizovanej reklame a možnostiach odhlásenia nájdete na{" "}
+            <a
+              href="https://adssettings.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              stránke nastavení reklám Google
             </a>
             .
           </p>

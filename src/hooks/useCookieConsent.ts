@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 export interface CookiePreferences {
   necessary: boolean;
   analytics: boolean;
+  advertising: boolean;
 }
 
 const COOKIE_CONSENT_KEY = 'cookie-consent';
@@ -24,6 +25,7 @@ export const useCookieConsent = () => {
   const [preferences, setPreferences] = useState<CookiePreferences>({
     necessary: true, // Always true
     analytics: false,
+    advertising: false,
   });
 
   useEffect(() => {
@@ -37,6 +39,7 @@ export const useCookieConsent = () => {
     const allAccepted: CookiePreferences = {
       necessary: true,
       analytics: true,
+      advertising: true,
     };
     savePreferences(allAccepted);
   };
@@ -45,6 +48,7 @@ export const useCookieConsent = () => {
     const onlyNecessary: CookiePreferences = {
       necessary: true,
       analytics: false,
+      advertising: false,
     };
     savePreferences(onlyNecessary);
   };

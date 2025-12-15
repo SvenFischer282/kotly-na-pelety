@@ -48,8 +48,8 @@ export const CookieBanner = () => {
                 Ceníme si vaše súkromie
               </h3>
               <p className="text-sm text-muted-foreground">
-                Používame analytické súbory cookie (Google Analytics) na analýzu
-                návštevnosti a zlepšovanie funkčnosti našej webstránky. Vaše údaje sú anonymizované.
+                Používame analytické súbory cookie (Google Analytics) a reklamné súbory cookie 
+                (Google AdSense) na analýzu návštevnosti a zobrazovanie personalizovanej reklamy.
                 Kliknutím na "Prijať všetko" súhlasíte s
                 naším používaním súborov cookie. Môžete si prispôsobiť svoje
                 preferencie alebo si prečítať naše{" "}
@@ -153,6 +153,34 @@ export const CookieBanner = () => {
                     a tom, ako používate našu webstránku. IP adresy sú anonymizované.
                     Tieto informácie nám pomáhajú zlepšovať funkčnosť a používateľskú
                     skúsenosť webovej stránky.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Advertising Cookies */}
+            <div className="space-y-3 p-4 rounded-lg border border-border">
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="advertising"
+                  checked={preferences.advertising}
+                  onCheckedChange={(checked) =>
+                    updatePreference("advertising", checked as boolean)
+                  }
+                  className="mt-1"
+                />
+                <div className="flex-1">
+                  <Label
+                    htmlFor="advertising"
+                    className="text-base font-semibold cursor-pointer"
+                  >
+                    Reklamné súbory cookie (Google AdSense)
+                  </Label>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Používame Google AdSense na zobrazovanie personalizovanej reklamy.
+                    Tieto súbory cookie umožňujú zobrazovať reklamy relevantné pre vaše záujmy
+                    na základe vašej histórie prehliadania. Údaje môžu byť zdieľané s tretími stranami
+                    v rámci reklamnej siete Google.
                   </p>
                 </div>
               </div>

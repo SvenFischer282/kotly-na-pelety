@@ -5,8 +5,8 @@ const ADSENSE_CLIENT_ID = "ca-pub-7036558483573380";
 
 export const useGoogleAdsense = (preferences: CookiePreferences) => {
   useEffect(() => {
-    // Only load AdSense if analytics cookies are accepted
-    if (!preferences.analytics) {
+    // Only load AdSense if advertising cookies are accepted
+    if (!preferences.advertising) {
       return;
     }
 
@@ -21,5 +21,5 @@ export const useGoogleAdsense = (preferences: CookiePreferences) => {
     script.async = true;
     script.crossOrigin = "anonymous";
     document.head.appendChild(script);
-  }, [preferences.analytics]);
+  }, [preferences.advertising]);
 };
