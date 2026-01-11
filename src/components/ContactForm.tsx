@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { trackConversion } from "@/hooks/useGoogleAds";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -88,7 +89,10 @@ export const ContactForm = () => {
 
       if (functionError) throw functionError;
 
-      // 3️⃣ Success message
+      // 3️⃣ Track Google Ads conversion
+      trackConversion();
+
+      // 4️⃣ Success message
       toast({
         title: "Správa odoslaná!",
         description: "Ďakujeme za vašu správu. Čoskoro vás budeme kontaktovať.",
