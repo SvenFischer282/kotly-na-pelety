@@ -2,6 +2,8 @@ import { createContext, useContext, ReactNode } from 'react';
 import { useCookieConsent, CookiePreferences } from '@/hooks/useCookieConsent';
 import { useGoogleAnalytics } from '@/hooks/useGoogleAnalytics';
 import { useGoogleAdsense } from '@/hooks/useGoogleAdsense';
+import { useGoogleAds } from '@/hooks/useGoogleAds';
+
 interface CookieConsentContextType {
   showBanner: boolean;
   preferences: CookiePreferences;
@@ -20,6 +22,7 @@ export const CookieConsentProvider = ({ children }: { children: ReactNode }) => 
   // Conditionally load Google services based on cookie preferences
   useGoogleAnalytics(cookieConsent.preferences);
   useGoogleAdsense(cookieConsent.preferences);
+  useGoogleAds(cookieConsent.preferences);
 
   return (
     <CookieConsentContext.Provider value={cookieConsent}>
