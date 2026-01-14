@@ -161,6 +161,42 @@ const OchranaUdajov = () => {
             </li>
           </ul>
 
+          <h3 className="text-xl font-bold mt-6 mb-2">
+            D. Sledovanie konverzií (Google Ads Conversion Tracking)
+          </h3>
+          <p>
+            Na meranie účinnosti našich reklamných kampaní v službe Google Ads
+            využívame sledovanie konverzií od spoločnosti Google Ireland Limited.
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>
+              <strong>Spracúvané údaje:</strong> Informácie o tom, že ste
+              vykonali konverznú akciu (napríklad odoslanie kontaktného
+              formulára), údaje o vašom zariadení, prehliadači, IP adrese a
+              jedinečný identifikátor transakcie. Tieto údaje sa používajú na
+              prepojenie vašej konverznej akcie s reklamnou kampaňou, ktorá vás
+              na našu stránku priviedla.
+            </li>
+            <li>
+              <strong>Účel spracúvania:</strong> Meranie efektivity reklamných
+              kampaní, optimalizácia reklamných výdavkov a zlepšovanie cielenia
+              reklám. Sledovanie konverzií nám pomáha pochopiť, ktoré reklamy
+              vedú k požadovaným akciám na našej webstránke.
+            </li>
+            <li>
+              <strong>Právny základ:</strong> Váš súhlas (čl. 6 ods. 1 písm. a
+              GDPR), ktorý nám udeľujete prostredníctvom bannera (cookie lišty)
+              pri prvej návšteve webstránky výberom kategórie „Reklamné cookies".
+            </li>
+            <li>
+              <strong>Doba uchovávania:</strong> Údaje o konverziách sú
+              uchovávané v službe Google Ads po dobu 90 dní. Cookies súvisiace
+              so sledovaním konverzií môžu byť uchovávané až 90 dní. Svoj súhlas
+              môžete kedykoľvek odvolať v nastaveniach cookie lišty na našej
+              webstránke.
+            </li>
+          </ul>
+
           <h2 className="text-2xl font-bold mt-8 mb-4">
             3. Komu poskytujeme vaše údaje?
           </h2>
@@ -176,8 +212,8 @@ const OchranaUdajov = () => {
             zákon.
           </p>
 
-          <h3 className="text-xl font-bold mt-6 mb-2">Google Analytics a Google AdSense</h3>
-          <p>V prípade analytických a reklamných cookies sú príjemcom údajov:</p>
+          <h3 className="text-xl font-bold mt-6 mb-2">Google Analytics, Google AdSense a Google Ads</h3>
+          <p>V prípade analytických, reklamných cookies a sledovania konverzií sú príjemcom údajov:</p>
           <p>
             <strong>Google Ireland Limited</strong> (Gordon House, Barrow
             Street, Dublin 4, Írsko) a v rámci skupiny Google aj{" "}
@@ -242,7 +278,7 @@ const OchranaUdajov = () => {
             </li>
             <li>
               <strong>Právo odvolať súhlas:</strong> Ak spracúvame vaše údaje na
-              základe súhlasu (t.j. analytické cookies), máte právo tento súhlas
+              základe súhlasu (t.j. analytické a reklamné cookies vrátane sledovania konverzií), máte právo tento súhlas
               kedykoľvek odvolať. Odvolanie súhlasu nemá vplyv na zákonnosť
               spracúvania pred jeho odvolaním.
             </li>
