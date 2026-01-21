@@ -512,7 +512,7 @@ export default function BoilerConfigurator() {
                               </div>
                               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                                 <span className="text-2xl font-bold text-primary">
-                                  {product.price_eur} €
+                                  {product.price_eur} € s DPH
                                 </span>
                                 <Link to={`/product/${product.product_id}`}>
                                   <Button className="w-full sm:w-auto">

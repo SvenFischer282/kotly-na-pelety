@@ -60,44 +60,29 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Information
+          {/* Company Identification */}
           <div>
-            <h4 className="font-display text-lg font-bold mb-4">Informácie</h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-accent transition-colors"
-                >
-                  O Nás
-                </a>
+            <h4 className="font-display text-lg font-bold mb-4">Identifikačné údaje</h4>
+            <ul className="space-y-2 text-sm">
+              <li className="text-primary-foreground/80">
+                <span className="text-primary-foreground/60">IČO:</span> 50314262
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-accent transition-colors"
-                >
-                  Prečo Pelety?
-                </a>
+              <li className="text-primary-foreground/80">
+                <span className="text-primary-foreground/60">DIČ:</span> 2120281427
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-accent transition-colors"
-                >
-                  Referencie
-                </a>
+              <li className="text-primary-foreground/80">
+                <span className="text-primary-foreground/60">IČ DPH:</span> SK2120281427
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-primary-foreground/80 hover:text-accent transition-colors"
-                >
-                  Servis
-                </a>
+              <li className="text-primary-foreground/80 leading-relaxed pt-2">
+                Zapísaná v Obchodnom registri Mestského súdu Košice, oddiel: Sro, vložka č.: 39196/V
+              </li>
+              <li className="text-primary-foreground/80 leading-relaxed pt-3">
+                <span className="text-primary-foreground/60 block mb-1">Orgán dozoru:</span>
+                Inšpektorát SOI pre Košický kraj<br />
+                Vrátna č. 3, 043 79 Košice 1
               </li>
             </ul>
-          </div> */}
+          </div>
 
           {/* Contact */}
           <div>
@@ -120,7 +105,7 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" />
                 <a
-                  href="mailto:info@kotlynapelety.sk"
+                  href="mailto:kotlynapelety@gmail.com"
                   className="hover:text-accent transition-colors"
                 >
                   kotlynapelety@gmail.com
@@ -131,13 +116,8 @@ const Footer = () => {
                 <address className="not-italic text-primary-foreground/80">
                   Slovenská 256
                   <br />
-                  05 321 Markušovce
+                  053 21 Markušovce
                 </address>
-              </li>
-              <li className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 mt-0.5 text-transparent flex-shrink-0" />
-
-                <p className="text-primary-foreground/80">IČO: 50314262 </p>
               </li>
             </ul>
           </div>

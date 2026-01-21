@@ -88,7 +88,10 @@ const ProductCard = ({
               {price_eur ? price_eur.toLocaleString("sk-SK") : "Na vyžiadanie"}
             </span>
             {price_eur && (
-              <span className="text-sm text-muted-foreground">€</span>
+              <>
+                <span className="text-sm text-muted-foreground">€</span>
+                <span className="text-sm text-muted-foreground">s DPH</span>
+              </>
             )}
           </div>
         </div>

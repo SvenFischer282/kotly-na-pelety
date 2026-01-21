@@ -238,10 +238,10 @@ const ProductDetail = () => {
                   <span className="text-5xl font-bold font-display text-primary">
                     {product.price_eur}
                   </span>
-                  <span className="text-xl text-muted-foreground">€</span>
+                  <span className="text-xl text-muted-foreground">€ s DPH</span>
                 </div>
                 <p className="text-sm text-textSecondary">
-                  Cena zahŕňa DPH, doprava a inštalácia sa účtuje osobitne
+                  Doprava a inštalácia sa účtuje osobitne
                 </p>
               </div>
 

@@ -215,6 +215,16 @@ export const ContactForm = () => {
                   )}
                 />
 
+                <p className="text-sm text-textSecondary leading-relaxed">
+                  Odoslaním formulára beriete na vedomie spracovanie osobných údajov za účelom vybavenia vašej požiadavky. Viac informácií nájdete v našich{" "}
+                  <a 
+                    href="/privacy-policy" 
+                    className="text-primary hover:underline transition-colors"
+                  >
+                    Zásadách ochrany osobných údajov
+                  </a>.
+                </p>
+
                 <Button
                   type="submit"
                   className="w-full"

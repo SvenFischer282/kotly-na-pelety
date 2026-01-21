@@ -37,7 +37,7 @@ const AppContent = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/informacie" element={<Informacie />} />
         <Route path="/privacy-policy" element={<OchranaUdajov />} />
-
+      
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
