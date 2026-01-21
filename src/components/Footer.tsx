@@ -76,11 +76,7 @@ const Footer = () => {
               <li className="text-primary-foreground/80 leading-relaxed pt-2">
                 Zapísaná v Obchodnom registri Mestského súdu Košice, oddiel: Sro, vložka č.: 39196/V
               </li>
-              <li className="text-primary-foreground/80 leading-relaxed pt-3">
-                <span className="text-primary-foreground/60 block mb-1">Orgán dozoru:</span>
-                Inšpektorát SOI pre Košický kraj<br />
-                Vrátna č. 3, 043 79 Košice 1
-              </li>
+             
             </ul>
           </div>
 
